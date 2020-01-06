@@ -1,0 +1,58 @@
+#navbar_logo{
+    width: 70px;
+}
+nav a{ 
+    font-size: 200%;
+}
+#flash img {
+    left: 0;
+}
+footer{
+    padding: 10px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #007bff;
+}
+footer h5 {
+    color: rgba(255,255,255,.5);
+}
+#flash {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+#keresofelulet {
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+#keresofelulet table {
+    padding: 10px;
+    width:  100%;
+}
+#keresofelulet table select {
+    width: 100%;
+}
+#keresofelulet table td {
+    text-align:  center;
+}
+#tablo {
+    width: 100%;
+    margin: 20px 20px 20px 20px;
+}
+#tablo td {
+    text-align: center; 
+    vertical-align: middle;
+}
+#navigacios_sav{
+    width: 100%;
+}
+#lablec{
+    width: 100%;
+}
+#keresIngatlan{
+    width: 100%;
+}
+#login_form {
+    width: 50%;
+    margin: 0 auto;
+}

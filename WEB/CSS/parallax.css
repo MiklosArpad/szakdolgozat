@@ -1,0 +1,48 @@
+body, html{
+    height: 100%;
+    margin: 0;
+    color: #666;
+    font-size: 16px;
+    overflow: visible;
+}
+.kep1, .kep2, .kep3{
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.kep1{
+    background-image: url('../img/iroda.jpg');
+    min-height: 100%;
+}
+.kep2{
+    background-image: url('../img/living_room.jpg');
+    min-height: 100%;
+}
+section{
+    text-align: center;
+    padding: 50px;
+    min-height: 400px;
+}
+.kepszoveg{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+    font-size: 32px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+.kepszoveg span{
+    background-color: #111;
+    color: #fff;
+    padding: 20px;
+    opacity: 0.6;
+    
+}
+.sotet{
+    background-color: #ddd;
+    
+}
