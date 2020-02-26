@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Feb 26. 15:32
+-- Létrehozás ideje: 2020. Feb 26. 17:34
 -- Kiszolgáló verziója: 10.4.11-MariaDB
 -- PHP verzió: 7.4.2
 
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `hirdetesek` (
   `azonosito` int(11) NOT NULL AUTO_INCREMENT,
   `ingatlan` int(11) NOT NULL,
   `ugynok` varchar(6) COLLATE utf8_hungarian_ci NOT NULL,
-  `hirdetes_dauma` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `hirdetes_datuma` timestamp NOT NULL DEFAULT current_timestamp(),
   `aktiv` tinyint(1) NOT NULL,
   PRIMARY KEY (`azonosito`),
   KEY `ingatlan` (`ingatlan`),
@@ -80,9 +80,9 @@ CREATE TABLE IF NOT EXISTS `hirdetesek` (
 -- A tábla adatainak kiíratása `hirdetesek`
 --
 
-INSERT INTO `hirdetesek` (`azonosito`, `ingatlan`, `ugynok`, `hirdetes_dauma`, `aktiv`) VALUES
-(1, 1, 'XYZ987', '2020-02-26 14:31:04', 1),
-(2, 2, 'ABC123', '2020-02-26 14:32:16', 1);
+INSERT INTO `hirdetesek` (`azonosito`, `ingatlan`, `ugynok`, `hirdetes_datuma`, `aktiv`) VALUES
+(1, 1, 'XYZ987', '2020-02-26 16:12:54', 1),
+(2, 2, 'ABC123', '2020-02-26 16:12:57', 1);
 
 -- --------------------------------------------------------
 
