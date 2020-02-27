@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Feb 26. 17:34
+-- Létrehozás ideje: 2020. Feb 27. 13:16
 -- Kiszolgáló verziója: 10.4.11-MariaDB
 -- PHP verzió: 7.4.2
 
@@ -67,22 +67,29 @@ INSERT INTO `eladok` (`azonosito`, `vezeteknev`, `keresztnev`, `adoszam`, `telep
 DROP TABLE IF EXISTS `hirdetesek`;
 CREATE TABLE IF NOT EXISTS `hirdetesek` (
   `azonosito` int(11) NOT NULL AUTO_INCREMENT,
-  `ingatlan` int(11) NOT NULL,
+  `cim` varchar(75) COLLATE utf8_hungarian_ci NOT NULL,
+  `leiras` varchar(500) COLLATE utf8_hungarian_ci NOT NULL,
+  `ar` int(11) NOT NULL,
+  `ingatlan` varchar(10) COLLATE utf8_hungarian_ci NOT NULL,
   `ugynok` varchar(6) COLLATE utf8_hungarian_ci NOT NULL,
   `hirdetes_datuma` timestamp NOT NULL DEFAULT current_timestamp(),
   `aktiv` tinyint(1) NOT NULL,
   PRIMARY KEY (`azonosito`),
-  KEY `ingatlan` (`ingatlan`),
-  KEY `ugynok` (`ugynok`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+  KEY `ugynok` (`ugynok`),
+  KEY `ingatlan` (`ingatlan`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `hirdetesek`
 --
 
-INSERT INTO `hirdetesek` (`azonosito`, `ingatlan`, `ugynok`, `hirdetes_datuma`, `aktiv`) VALUES
-(1, 1, 'XYZ987', '2020-02-26 16:12:54', 1),
-(2, 2, 'ABC123', '2020-02-26 16:12:57', 1);
+INSERT INTO `hirdetesek` (`azonosito`, `cim`, `leiras`, `ar`, `ingatlan`, `ugynok`, `hirdetes_datuma`, `aktiv`) VALUES
+(1, 'Nagy ház', 'Nagy ház', 12000000, '10980', 'XYZ987', '2020-02-26 16:12:54', 1),
+(2, 'Kis panellakás a városban!', 'Kis panellakás a városban!', 2000000, '11003', 'ABC123', '2020-02-26 16:12:57', 1),
+(3, 'Nagy villa', 'Nagy villa', 12000000, '06/4', 'XYZ987', '2020-02-27 11:12:30', 1),
+(4, 'Kis panel', 'Kis panel', 17000000, '98/5', 'ABC123', '2020-02-27 11:13:19', 1),
+(5, 'Családi fészek', 'Családi fészek', 23000000, '10003', 'XYZ987', '2020-02-27 11:13:54', 1),
+(6, 'Polgári palota', 'Polgári palota', 40500000, '3000', 'ABC123', '2020-02-27 11:14:36', 1);
 
 -- --------------------------------------------------------
 
@@ -92,32 +99,30 @@ INSERT INTO `hirdetesek` (`azonosito`, `ingatlan`, `ugynok`, `hirdetes_datuma`, 
 
 DROP TABLE IF EXISTS `ingatlanok`;
 CREATE TABLE IF NOT EXISTS `ingatlanok` (
-  `azonosito` int(11) NOT NULL AUTO_INCREMENT,
-  `leiras` varchar(150) COLLATE utf8_hungarian_ci NOT NULL,
-  `tulajdonos` int(11) NOT NULL,
+  `helyrajzi_szam` varchar(10) COLLATE utf8_hungarian_ci NOT NULL,
   `telepules` varchar(75) COLLATE utf8_hungarian_ci NOT NULL,
-  `ar` int(11) NOT NULL,
   `alapterulet` int(11) NOT NULL,
   `kategoria` varchar(20) COLLATE utf8_hungarian_ci NOT NULL,
   `allapot` varchar(20) COLLATE utf8_hungarian_ci NOT NULL,
-  PRIMARY KEY (`azonosito`),
+  `tulajdonos` int(11) NOT NULL,
+  PRIMARY KEY (`helyrajzi_szam`),
   KEY `tulajdonos` (`tulajdonos`),
   KEY `kategoria` (`kategoria`),
   KEY `allapot` (`allapot`),
   KEY `telepules` (`telepules`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `ingatlanok`
 --
 
-INSERT INTO `ingatlanok` (`azonosito`, `leiras`, `tulajdonos`, `telepules`, `ar`, `alapterulet`, `kategoria`, `allapot`) VALUES
-(1, 'Nagy ház', 5, 'Makó', 12000000, 1234, 'kert', 'használt'),
-(2, 'Kis panellakás a városban!', 6, 'Nagylak', 2000000, 1356, 'bérleti jog', 'felújítandó'),
-(3, 'Nagy villa', 1, 'Ferencszállás', 12000000, 13000, 'családi ház', 'használt'),
-(4, 'Kis Panel', 4, 'Csanytelek', 17000000, 35, 'bérleti jog', 'használt'),
-(5, 'Családi fészek', 2, 'Ambrózfalva', 23000000, 148, 'családi ház', 'használt'),
-(6, 'Polgári Palota', 5, 'Balástya', 40500000, 187, 'családi ház', 'használt');
+INSERT INTO `ingatlanok` (`helyrajzi_szam`, `telepules`, `alapterulet`, `kategoria`, `allapot`, `tulajdonos`) VALUES
+('06/4', 'Ferencszállás', 13000, 'családi ház', 'használt', 1),
+('10003', 'Ambrózfalva', 148, 'családi ház', 'használt', 2),
+('10980', 'Makó', 1234, 'kert', 'használt', 5),
+('11003', 'Nagylak', 1356, 'bérleti jog', 'felújítandó', 6),
+('3000', 'Balástya', 187, 'családi ház', 'használt', 5),
+('98/5', 'Csanytelek', 35, 'bérleti jog', 'használt', 4);
 
 -- --------------------------------------------------------
 
@@ -301,8 +306,8 @@ ALTER TABLE `eladok`
 -- Megkötések a táblához `hirdetesek`
 --
 ALTER TABLE `hirdetesek`
-  ADD CONSTRAINT `hirdetesek_ibfk_1` FOREIGN KEY (`ingatlan`) REFERENCES `ingatlanok` (`azonosito`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `hirdetesek_ibfk_2` FOREIGN KEY (`ugynok`) REFERENCES `ugynokok` (`azonosito`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `hirdetesek_ibfk_2` FOREIGN KEY (`ugynok`) REFERENCES `ugynokok` (`azonosito`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `hirdetesek_ibfk_3` FOREIGN KEY (`ingatlan`) REFERENCES `ingatlanok` (`helyrajzi_szam`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Megkötések a táblához `ingatlanok`
