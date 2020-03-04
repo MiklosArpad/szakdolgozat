@@ -1,6 +1,6 @@
 ﻿namespace IngatlanCentrum.ViewController
 {
-    partial class FormFomenu
+    partial class FormMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFomenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenu));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItemFile = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemKilepes = new System.Windows.Forms.ToolStripMenuItem();
@@ -564,6 +564,7 @@
             // 
             this.buttonIngatlanModositas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonIngatlanModositas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonIngatlanModositas.Image = ((System.Drawing.Image)(resources.GetObject("buttonIngatlanModositas.Image")));
             this.buttonIngatlanModositas.Location = new System.Drawing.Point(157, 362);
             this.buttonIngatlanModositas.Name = "buttonIngatlanModositas";
             this.buttonIngatlanModositas.Size = new System.Drawing.Size(143, 68);
@@ -576,6 +577,7 @@
             // 
             this.buttonUjIngatlan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonUjIngatlan.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonUjIngatlan.Image = ((System.Drawing.Image)(resources.GetObject("buttonUjIngatlan.Image")));
             this.buttonUjIngatlan.Location = new System.Drawing.Point(6, 362);
             this.buttonUjIngatlan.Name = "buttonUjIngatlan";
             this.buttonUjIngatlan.Size = new System.Drawing.Size(143, 68);
@@ -1017,7 +1019,7 @@
             this.toolStripStatusLabelSession.Size = new System.Drawing.Size(158, 20);
             this.toolStripStatusLabelSession.Text = "Bejelentkezett ügynök:";
             // 
-            // FormFomenu
+            // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1029,7 +1031,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
-            this.Name = "FormFomenu";
+            this.Name = "FormMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Főmenü | IngatlanCentrum";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -14,7 +14,7 @@ namespace IngatlanCentrum
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormFomenu());
+            Application.Run(new FormMenu());
         }
     }
 }

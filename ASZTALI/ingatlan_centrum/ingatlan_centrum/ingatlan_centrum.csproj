@@ -54,11 +54,11 @@
     <Compile Include="ViewController\AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewController\FormFomenu.cs">
+    <Compile Include="ViewController\FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewController\FormFomenu.Designer.cs">
-      <DependentUpon>FormFomenu.cs</DependentUpon>
+    <Compile Include="ViewController\FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewController\FormLogin.cs">
       <SubType>Form</SubType>
@@ -79,8 +79,8 @@
     <EmbeddedResource Include="ViewController\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewController\FormFomenu.resx">
-      <DependentUpon>FormFomenu.cs</DependentUpon>
+    <EmbeddedResource Include="ViewController\FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewController\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

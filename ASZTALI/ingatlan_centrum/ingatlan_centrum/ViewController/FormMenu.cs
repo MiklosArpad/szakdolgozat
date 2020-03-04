@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace IngatlanCentrum.ViewController
 {
-    public partial class FormFomenu : Form
+    public partial class FormMenu : Form
     {
-        public FormFomenu()
+        public FormMenu()
         {
             InitializeComponent();
         }
