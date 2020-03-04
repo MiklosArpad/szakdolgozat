@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using IngatlanCentrum.ViewController;
+using System;
 using System.Windows.Forms;
 
-namespace ingatlan_centrum
+namespace IngatlanCentrum
 {
     static class Program
     {
@@ -16,7 +14,7 @@ namespace ingatlan_centrum
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FormFomenu());
         }
     }
 }
