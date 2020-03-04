@@ -101,6 +101,14 @@
     <Compile Include="Repository\TelepulesRepository.cs" />
     <Compile Include="Repository\UgynokJogosultsagRepository.cs" />
     <Compile Include="Repository\UgynokRepository.cs" />
+    <Compile Include="Service\EladoService.cs" />
+    <Compile Include="Service\HirdetesService.cs" />
+    <Compile Include="Service\IngatlanAllapotService.cs" />
+    <Compile Include="Service\IngatlanKategoriaService.cs" />
+    <Compile Include="Service\IngatlanService.cs" />
+    <Compile Include="Service\TelepulesService.cs" />
+    <Compile Include="Service\UgynokJogosultsagService.cs" />
+    <Compile Include="Service\UgynokService.cs" />
     <Compile Include="ViewController\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
