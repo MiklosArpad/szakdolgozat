@@ -155,8 +155,9 @@
             // toolStripMenuItemKilepes
             // 
             this.toolStripMenuItemKilepes.Name = "toolStripMenuItemKilepes";
-            this.toolStripMenuItemKilepes.Size = new System.Drawing.Size(111, 22);
+            this.toolStripMenuItemKilepes.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemKilepes.Text = "Kilépés";
+            this.toolStripMenuItemKilepes.Click += new System.EventHandler(this.toolStripMenuItemKilepes_Click);
             // 
             // toolStripMenuItemEszkozok
             // 
@@ -173,18 +174,21 @@
             this.toolStripMenuItemIngatlanNyilvantartas.Name = "toolStripMenuItemIngatlanNyilvantartas";
             this.toolStripMenuItemIngatlanNyilvantartas.Size = new System.Drawing.Size(187, 22);
             this.toolStripMenuItemIngatlanNyilvantartas.Text = "Ingatlan nyilvántartás";
+            this.toolStripMenuItemIngatlanNyilvantartas.Click += new System.EventHandler(this.toolStripMenuItemIngatlanNyilvantartas_Click);
             // 
             // toolStripMenuItemHirdetesekKezelese
             // 
             this.toolStripMenuItemHirdetesekKezelese.Name = "toolStripMenuItemHirdetesekKezelese";
             this.toolStripMenuItemHirdetesekKezelese.Size = new System.Drawing.Size(187, 22);
             this.toolStripMenuItemHirdetesekKezelese.Text = "Hirdetések kezelése";
+            this.toolStripMenuItemHirdetesekKezelese.Click += new System.EventHandler(this.toolStripMenuItemHirdetesekKezelese_Click);
             // 
             // toolStripMenuItemFelhasznaloKezeles
             // 
             this.toolStripMenuItemFelhasznaloKezeles.Name = "toolStripMenuItemFelhasznaloKezeles";
             this.toolStripMenuItemFelhasznaloKezeles.Size = new System.Drawing.Size(187, 22);
             this.toolStripMenuItemFelhasznaloKezeles.Text = "Felhasználó kezelés";
+            this.toolStripMenuItemFelhasznaloKezeles.Click += new System.EventHandler(this.toolStripMenuItemFelhasznaloKezeles_Click);
             // 
             // toolStripMenuItemSugo
             // 
@@ -197,8 +201,9 @@
             // toolStripMenuItemNevjegy
             // 
             this.toolStripMenuItemNevjegy.Name = "toolStripMenuItemNevjegy";
-            this.toolStripMenuItemNevjegy.Size = new System.Drawing.Size(117, 22);
+            this.toolStripMenuItemNevjegy.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemNevjegy.Text = "Névjegy";
+            this.toolStripMenuItemNevjegy.Click += new System.EventHandler(this.toolStripMenuItemNevjegy_Click);
             // 
             // pictureBoxLogo
             // 
@@ -226,6 +231,7 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(750, 697);
             this.tabControl.TabIndex = 7;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tabPageIngatlanok
             // 
@@ -314,6 +320,7 @@
             this.buttonSzures.TabIndex = 12;
             this.buttonSzures.Text = "Szűrés";
             this.buttonSzures.UseVisualStyleBackColor = true;
+            this.buttonSzures.Click += new System.EventHandler(this.buttonSzures_Click);
             // 
             // comboBoxIngTelepulesek
             // 
@@ -572,6 +579,7 @@
             this.buttonIngatlanModositas.Text = "Módosítás";
             this.buttonIngatlanModositas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonIngatlanModositas.UseVisualStyleBackColor = true;
+            this.buttonIngatlanModositas.Click += new System.EventHandler(this.buttonIngatlanModositas_Click);
             // 
             // buttonUjIngatlan
             // 
@@ -585,6 +593,7 @@
             this.buttonUjIngatlan.Text = "Új Ingatlan";
             this.buttonUjIngatlan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonUjIngatlan.UseVisualStyleBackColor = true;
+            this.buttonUjIngatlan.Click += new System.EventHandler(this.buttonUjIngatlan_Click);
             // 
             // comboBoxIngatlanTelepulesek
             // 
@@ -686,6 +695,7 @@
             this.listViewIngatlanok.TabIndex = 4;
             this.listViewIngatlanok.UseCompatibleStateImageBehavior = false;
             this.listViewIngatlanok.View = System.Windows.Forms.View.Details;
+            this.listViewIngatlanok.SelectedIndexChanged += new System.EventHandler(this.listViewIngatlanok_SelectedIndexChanged);
             // 
             // columnHeaderHelyrajziSzam
             // 
@@ -830,6 +840,7 @@
             this.dataGridViewUgynokok.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewUgynokok.Size = new System.Drawing.Size(730, 394);
             this.dataGridViewUgynokok.TabIndex = 20;
+            this.dataGridViewUgynokok.SelectionChanged += new System.EventHandler(this.dataGridViewUgynokok_SelectionChanged);
             // 
             // ColumnUgynokAzonosito
             // 

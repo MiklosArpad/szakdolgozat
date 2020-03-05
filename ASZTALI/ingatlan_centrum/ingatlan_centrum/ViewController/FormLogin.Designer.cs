@@ -101,6 +101,7 @@
             this.buttonBelepes.TabIndex = 6;
             this.buttonBelepes.Text = "Belépés";
             this.buttonBelepes.UseVisualStyleBackColor = true;
+            this.buttonBelepes.Click += new System.EventHandler(this.buttonBelepes_Click);
             // 
             // buttonKilepes
             // 
@@ -110,6 +111,7 @@
             this.buttonKilepes.TabIndex = 8;
             this.buttonKilepes.Text = "Kilépés";
             this.buttonKilepes.UseVisualStyleBackColor = true;
+            this.buttonKilepes.Click += new System.EventHandler(this.buttonKilepes_Click);
             // 
             // FormLogin
             // 
