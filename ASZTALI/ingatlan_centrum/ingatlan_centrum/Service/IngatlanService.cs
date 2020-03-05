@@ -4,10 +4,19 @@ using System;
 
 namespace IngatlanCentrum.Service
 {
+    /// <summary>
+    /// Ingatlan szolgáltatások
+    /// </summary>
     public class IngatlanService
     {
+        /// <summary>
+        /// Adattár
+        /// </summary>
         private Repository.Repository repository;
 
+        /// <summary>
+        /// Konstruktor
+        /// </summary>
         public IngatlanService()
         {
             repository = new Repository.Repository();

@@ -1,13 +1,23 @@
 ﻿using System.Collections.Generic;
 using System;
 using IngatlanCentrum.Model;
+using IngatlanCentrum.Config;
 
 namespace IngatlanCentrum.Service
 {
+    /// <summary>
+    /// Ügynök szolgáltatások
+    /// </summary>
     public class UgynokService
     {
+        /// <summary>
+        /// Adattár
+        /// </summary>
         private Repository.Repository repository;
 
+        /// <summary>
+        /// Konstruktor
+        /// </summary>
         public UgynokService()
         {
             repository = new Repository.Repository();
@@ -20,13 +30,16 @@ namespace IngatlanCentrum.Service
         /// </summary>
         /// <param name="azonosito">Ügynök azonosítója</param>
         /// <param name="jelszo">Ügynök jelszava</param>
-        /// <exception cref="UgynokException"></exception>
+        /// <exception cref="Exception"></exception>
         public bool AzonositUgynok(string azonosito, string jelszo)
         {
             foreach (Ugynok ugynok in GetUgynokok())
             {
                 if (ugynok.Id == azonosito && ugynok.Jelszo == jelszo)
                 {
+                    Munkamenet.UgynokAzonosito = ugynok.Id;
+                    Munkamenet.UgynokKategoria = ugynok.Jogosultsag;
+                    Munkamenet.UgynokNeve = $"{ugynok.Vezeteknev} {ugynok.Keresztnev}";
                     return true;
                 }
             }

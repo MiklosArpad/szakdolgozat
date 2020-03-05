@@ -5,10 +5,19 @@ using System;
 
 namespace IngatlanCentrum.Service
 {
+    /// <summary>
+    /// Település szolgáltatások
+    /// </summary>
     public class TelepulesService
     {
+        /// <summary>
+        /// Adattár
+        /// </summary>
         private Repository.Repository repository;
 
+        /// <summary>
+        /// Konstruktor
+        /// </summary>
         public TelepulesService()
         {
             repository = new Repository.Repository();

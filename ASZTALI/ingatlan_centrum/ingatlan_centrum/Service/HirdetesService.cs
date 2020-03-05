@@ -4,10 +4,19 @@ using System.Collections.Generic;
 
 namespace IngatlanCentrum.Service
 {
+    /// <summary>
+    /// Hirdetés szolgáltatás
+    /// </summary>
     public class HirdetesService
     {
+        /// <summary>
+        /// Adattár
+        /// </summary>
         private Repository.Repository repository;
 
+        /// <summary>
+        /// Konstruktor
+        /// </summary>
         public HirdetesService()
         {
             repository = new Repository.Repository();

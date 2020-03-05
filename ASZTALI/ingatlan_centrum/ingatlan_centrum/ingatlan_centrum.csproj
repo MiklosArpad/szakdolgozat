@@ -81,7 +81,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\Munkamenet.cs" />
     <Compile Include="Database\MySQL.cs" />
+    <Compile Include="Exceptions\EladoException.cs" />
+    <Compile Include="Exceptions\HirdetesException.cs" />
+    <Compile Include="Exceptions\IngatlanAllapotException.cs" />
+    <Compile Include="Exceptions\IngatlanException.cs" />
+    <Compile Include="Exceptions\IngatlanKategoriaException.cs" />
+    <Compile Include="Exceptions\TelepulesException.cs" />
+    <Compile Include="Exceptions\UgynokException.cs" />
+    <Compile Include="Exceptions\UgynokJogosultsagException.cs" />
     <Compile Include="Model\Elado.cs" />
     <Compile Include="Model\Hirdetes.cs" />
     <Compile Include="Model\Ingatlan.cs" />
@@ -109,6 +118,9 @@
     <Compile Include="Service\TelepulesService.cs" />
     <Compile Include="Service\UgynokJogosultsagService.cs" />
     <Compile Include="Service\UgynokService.cs" />
+    <Compile Include="Validation\EladoValidator.cs" />
+    <Compile Include="Validation\IngatlanValidator.cs" />
+    <Compile Include="Validation\UgynokValidator.cs" />
     <Compile Include="ViewController\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +171,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\connect.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
