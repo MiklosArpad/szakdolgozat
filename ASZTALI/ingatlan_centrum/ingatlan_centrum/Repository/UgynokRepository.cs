@@ -32,8 +32,7 @@ namespace IngatlanCentrum.Repository
                         Vezeteknev = row[2].ToString(),
                         Keresztnev = row[3].ToString(),
                         Telefonszam = row[4].ToString(),
-                        Jogosultsag = row[5].ToString(),
-                        Aktiv = Convert.ToBoolean(row[6])
+                        Jogosultsag = row[5].ToString()
                     });
                 }
             }

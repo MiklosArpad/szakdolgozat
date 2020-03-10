@@ -31,10 +31,10 @@ namespace IngatlanCentrum.ViewController
             ugynokService = new UgynokService();
         }
 
-        private void FormMenu_Load(object sender, System.EventArgs e)
+        private void FormMenu_Load(object sender, EventArgs e)
         {
-            FeltoltIngatlanokListView(listViewIngatlanok);
-            FeltoltUgynokokDataGridView();
+            FeltoltIngatlanokListView();
+            FeltoltUgynokokListView();
 
             FeltoltIngatlanAllapotokComboBox(comboBoxIngAllapotok);
             FeltoltIngatlanAllapotokComboBox(comboBoxIngatlanAllapotok);
@@ -46,14 +46,14 @@ namespace IngatlanCentrum.ViewController
             FeltoltTelepulesekComboBox(comboBoxIngTelepulesek);
             FeltoltTelepulesekComboBox(comboBoxEladoTelepules);
 
-            FeltoltUgynokKategoriakComboBox();
+            FeltoltUgynokJogosultsagokComboBox();
 
             toolStripStatusLabelSession.Text += $" {Munkamenet.UgynokAzonosito} ({Munkamenet.UgynokNeve})";
         }
 
         #region ComboBox
 
-        private void FeltoltUgynokKategoriakComboBox()
+        private void FeltoltUgynokJogosultsagokComboBox()
         {
             comboBoxUgynokJogosultsagok.Items.Clear();
 
@@ -154,7 +154,35 @@ namespace IngatlanCentrum.ViewController
             }
         }
 
-        private void FeltoltIngatlanokListView(ListView listViewIngatlanok)
+        private void listViewUgynokok_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewUgynokok.SelectedItems.Count > 0)
+            {
+                textBoxUgynokAzonosito.ReadOnly = true;
+                textBoxUgynokAzonosito.Text = listViewUgynokok.SelectedItems[0].Text;
+
+                Ugynok ugynok = ugynokService.GetUgynok(textBoxUgynokAzonosito.Text);
+                textBoxUgynokJelszo.Text = ugynok.Jelszo;
+
+                textBoxUgynokVezeteknev.Text = listViewUgynokok.SelectedItems[0].SubItems[1].Text;
+                textBoxUgynokKeresztnev.Text = listViewUgynokok.SelectedItems[0].SubItems[2].Text;
+                textBoxUgynokTelefonszam.Text = listViewUgynokok.SelectedItems[0].SubItems[3].Text;
+
+                comboBoxUgynokJogosultsagok.SelectedItem = listViewUgynokok.SelectedItems[0].SubItems[4].Text;
+            }
+            else
+            {
+                textBoxUgynokAzonosito.ReadOnly = false;
+                textBoxUgynokAzonosito.Clear();
+                textBoxUgynokJelszo.Clear();
+                textBoxUgynokVezeteknev.Clear();
+                textBoxUgynokKeresztnev.Clear();
+                textBoxUgynokTelefonszam.Clear();
+                FeltoltUgynokJogosultsagokComboBox();
+            }
+        }
+
+        private void FeltoltIngatlanokListView()
         {
             foreach (Ingatlan ingatlan in ingatlanService.GetIngatlanok())
             {
@@ -171,43 +199,19 @@ namespace IngatlanCentrum.ViewController
             }
         }
 
-        #endregion
-
-        #region DataGridView
-
-        private void dataGridViewUgynokok_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridViewUgynokok.SelectedRows.Count > 0)
-            {
-                textBoxUgynokAzonosito.Text = dataGridViewUgynokok.SelectedRows[0].Cells[0].Value.ToString();
-
-                Ugynok ugynok = ugynokService.GetUgynok(textBoxUgynokAzonosito.Text);
-
-                textBoxUgynokJelszo.Text = ugynok.Jelszo;
-                textBoxUgynokVezeteknev.Text = dataGridViewUgynokok.SelectedRows[0].Cells[1].Value.ToString();
-                textBoxUgynokKeresztnev.Text = dataGridViewUgynokok.SelectedRows[0].Cells[2].Value.ToString();
-                textBoxUgynokTelefonszam.Text = dataGridViewUgynokok.SelectedRows[0].Cells[3].Value.ToString();
-
-                if (Convert.ToBoolean(dataGridViewUgynokok.SelectedRows[0].Cells[4].Value) == true)
-                {
-                    checkBoxUgynokAktiv.Checked = true;
-                }
-                else
-                {
-                    checkBoxUgynokAktiv.Checked = false;
-                }
-
-                comboBoxUgynokJogosultsagok.SelectedItem = dataGridViewUgynokok.SelectedRows[0].Cells[5].Value.ToString();
-            }
-        }
-
-        private void FeltoltUgynokokDataGridView()
+        private void FeltoltUgynokokListView()
         {
             foreach (Ugynok ugynok in ugynokService.GetUgynokok())
             {
-                dataGridViewUgynokok.Rows.Add
-                    (ugynok.Id, ugynok.Vezeteknev, ugynok.Keresztnev,
-                    ugynok.Telefonszam, ugynok.Aktiv, ugynok.Jogosultsag);
+                ListViewItem listViewItemUgynokok = new ListViewItem();
+
+                listViewItemUgynokok.Text = ugynok.Id;
+                listViewItemUgynokok.SubItems.Add(ugynok.Vezeteknev);
+                listViewItemUgynokok.SubItems.Add(ugynok.Keresztnev);
+                listViewItemUgynokok.SubItems.Add(ugynok.Telefonszam);
+                listViewItemUgynokok.SubItems.Add(ugynok.Jogosultsag);
+
+                listViewUgynokok.Items.Add(listViewItemUgynokok);
             }
         }
 
@@ -228,6 +232,76 @@ namespace IngatlanCentrum.ViewController
         private void buttonSzures_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonHozzaadUgynokot_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Ugynok ugynok = new Ugynok();
+                ugynok.Id = textBoxUgynokAzonosito.Text;
+                ugynok.Jelszo = textBoxUgynokJelszo.Text;
+                ugynok.Vezeteknev = textBoxUgynokVezeteknev.Text;
+                ugynok.Keresztnev = textBoxUgynokKeresztnev.Text;
+                ugynok.Telefonszam = textBoxUgynokTelefonszam.Text;
+                ugynok.Jogosultsag = comboBoxUgynokJogosultsagok.SelectedItem.ToString();
+
+                ugynokService.HozzaadUgynok(ugynok);
+
+
+                ListViewItem listViewItemUjUgynok = new ListViewItem();
+
+                listViewItemUjUgynok.Text = ugynok.Id;
+                listViewItemUjUgynok.SubItems.Add(ugynok.Vezeteknev);
+                listViewItemUjUgynok.SubItems.Add(ugynok.Keresztnev);
+                listViewItemUjUgynok.SubItems.Add(ugynok.Telefonszam);
+                listViewItemUjUgynok.SubItems.Add(ugynok.Jogosultsag);
+
+                listViewUgynokok.Items.Add(listViewItemUjUgynok);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonUgynokModositas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Ugynok ugynok = ugynokService.GetUgynok(textBoxUgynokAzonosito.Text);
+                ugynok.Jelszo = textBoxUgynokJelszo.Text;
+                ugynok.Vezeteknev = textBoxUgynokVezeteknev.Text;
+                ugynok.Keresztnev = textBoxUgynokKeresztnev.Text;
+                ugynok.Telefonszam = textBoxUgynokTelefonszam.Text;
+
+                ugynokService.ModositUgynok(ugynok);
+
+                listViewUgynokok.SelectedItems[0].SubItems[1].Text = ugynok.Vezeteknev;
+                listViewUgynokok.SelectedItems[0].SubItems[2].Text = ugynok.Keresztnev;
+                listViewUgynokok.SelectedItems[0].SubItems[3].Text = ugynok.Telefonszam;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonModositUgynokJogosultsag_Click(object sender, EventArgs e)
+        {
+            Ugynok ugynok = ugynokService.GetUgynok(textBoxUgynokAzonosito.Text);
+            ugynok.Jogosultsag = comboBoxUgynokJogosultsagok.SelectedItem.ToString();
+
+            try
+            {
+                ugynokService.ModositUgynok(ugynok);
+
+                listViewUgynokok.SelectedItems[0].SubItems[4].Text = ugynok.Jogosultsag;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         #endregion

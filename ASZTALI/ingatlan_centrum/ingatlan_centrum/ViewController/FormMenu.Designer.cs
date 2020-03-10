@@ -95,15 +95,9 @@
             this.textBoxAr = new System.Windows.Forms.TextBox();
             this.labelIngatlanAr = new System.Windows.Forms.Label();
             this.tabPageFelhasznaloKezeles = new System.Windows.Forms.TabPage();
-            this.dataGridViewUgynokok = new System.Windows.Forms.DataGridView();
-            this.ColumnUgynokAzonosito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUgynokVezeteknev = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUgynokKeresztnev = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUgynokTelefonszam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUgynokAktiv = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ColumnUgynokJogosultsag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxUgynokok = new System.Windows.Forms.GroupBox();
-            this.checkBoxUgynokAktiv = new System.Windows.Forms.CheckBox();
+            this.buttonUgynokModositas = new System.Windows.Forms.Button();
+            this.buttonHozzaadUgynokot = new System.Windows.Forms.Button();
             this.textBoxUgynokKeresztnev = new System.Windows.Forms.TextBox();
             this.labelUgynokKeresztnev = new System.Windows.Forms.Label();
             this.comboBoxUgynokJogosultsagok = new System.Windows.Forms.ComboBox();
@@ -118,6 +112,13 @@
             this.labelUgynokAzonosito = new System.Windows.Forms.Label();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelSession = new System.Windows.Forms.ToolStripStatusLabel();
+            this.listViewUgynokok = new System.Windows.Forms.ListView();
+            this.columnHeaderUgynokAzonosito = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderUgynokVezeteknev = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderUgynokKeresztnev = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderUgynokTelefonszam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderUgynokJogosultsag = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonModositUgynokJogosultsag = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -128,7 +129,6 @@
             this.groupBoxIngatlanAdatai.SuspendLayout();
             this.tabPageHirdetesekKezelese.SuspendLayout();
             this.tabPageFelhasznaloKezeles.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUgynokok)).BeginInit();
             this.groupBoxUgynokok.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -155,7 +155,7 @@
             // toolStripMenuItemKilepes
             // 
             this.toolStripMenuItemKilepes.Name = "toolStripMenuItemKilepes";
-            this.toolStripMenuItemKilepes.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemKilepes.Size = new System.Drawing.Size(111, 22);
             this.toolStripMenuItemKilepes.Text = "Kilépés";
             this.toolStripMenuItemKilepes.Click += new System.EventHandler(this.toolStripMenuItemKilepes_Click);
             // 
@@ -201,7 +201,7 @@
             // toolStripMenuItemNevjegy
             // 
             this.toolStripMenuItemNevjegy.Name = "toolStripMenuItemNevjegy";
-            this.toolStripMenuItemNevjegy.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemNevjegy.Size = new System.Drawing.Size(117, 22);
             this.toolStripMenuItemNevjegy.Text = "Névjegy";
             this.toolStripMenuItemNevjegy.Click += new System.EventHandler(this.toolStripMenuItemNevjegy_Click);
             // 
@@ -805,7 +805,7 @@
             // 
             // tabPageFelhasznaloKezeles
             // 
-            this.tabPageFelhasznaloKezeles.Controls.Add(this.dataGridViewUgynokok);
+            this.tabPageFelhasznaloKezeles.Controls.Add(this.listViewUgynokok);
             this.tabPageFelhasznaloKezeles.Controls.Add(this.groupBoxUgynokok);
             this.tabPageFelhasznaloKezeles.Location = new System.Drawing.Point(4, 22);
             this.tabPageFelhasznaloKezeles.Name = "tabPageFelhasznaloKezeles";
@@ -815,74 +815,13 @@
             this.tabPageFelhasznaloKezeles.Text = "Felhasználó kezelés";
             this.tabPageFelhasznaloKezeles.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewUgynokok
-            // 
-            this.dataGridViewUgynokok.AllowUserToAddRows = false;
-            this.dataGridViewUgynokok.AllowUserToDeleteRows = false;
-            this.dataGridViewUgynokok.AllowUserToResizeRows = false;
-            this.dataGridViewUgynokok.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewUgynokok.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewUgynokok.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUgynokok.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnUgynokAzonosito,
-            this.ColumnUgynokVezeteknev,
-            this.ColumnUgynokKeresztnev,
-            this.ColumnUgynokTelefonszam,
-            this.ColumnUgynokAktiv,
-            this.ColumnUgynokJogosultsag});
-            this.dataGridViewUgynokok.GridColor = System.Drawing.Color.White;
-            this.dataGridViewUgynokok.Location = new System.Drawing.Point(6, 6);
-            this.dataGridViewUgynokok.MultiSelect = false;
-            this.dataGridViewUgynokok.Name = "dataGridViewUgynokok";
-            this.dataGridViewUgynokok.ReadOnly = true;
-            this.dataGridViewUgynokok.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewUgynokok.Size = new System.Drawing.Size(730, 394);
-            this.dataGridViewUgynokok.TabIndex = 20;
-            this.dataGridViewUgynokok.SelectionChanged += new System.EventHandler(this.dataGridViewUgynokok_SelectionChanged);
-            // 
-            // ColumnUgynokAzonosito
-            // 
-            this.ColumnUgynokAzonosito.HeaderText = "Ügynök azonosító";
-            this.ColumnUgynokAzonosito.Name = "ColumnUgynokAzonosito";
-            this.ColumnUgynokAzonosito.ReadOnly = true;
-            // 
-            // ColumnUgynokVezeteknev
-            // 
-            this.ColumnUgynokVezeteknev.HeaderText = "Vezetéknév";
-            this.ColumnUgynokVezeteknev.Name = "ColumnUgynokVezeteknev";
-            this.ColumnUgynokVezeteknev.ReadOnly = true;
-            // 
-            // ColumnUgynokKeresztnev
-            // 
-            this.ColumnUgynokKeresztnev.HeaderText = "Keresztnév";
-            this.ColumnUgynokKeresztnev.Name = "ColumnUgynokKeresztnev";
-            this.ColumnUgynokKeresztnev.ReadOnly = true;
-            // 
-            // ColumnUgynokTelefonszam
-            // 
-            this.ColumnUgynokTelefonszam.HeaderText = "Telefonszám";
-            this.ColumnUgynokTelefonszam.Name = "ColumnUgynokTelefonszam";
-            this.ColumnUgynokTelefonszam.ReadOnly = true;
-            // 
-            // ColumnUgynokAktiv
-            // 
-            this.ColumnUgynokAktiv.HeaderText = "Akítv?";
-            this.ColumnUgynokAktiv.Name = "ColumnUgynokAktiv";
-            this.ColumnUgynokAktiv.ReadOnly = true;
-            // 
-            // ColumnUgynokJogosultsag
-            // 
-            this.ColumnUgynokJogosultsag.HeaderText = "Ügynök jogosultság";
-            this.ColumnUgynokJogosultsag.Name = "ColumnUgynokJogosultsag";
-            this.ColumnUgynokJogosultsag.ReadOnly = true;
-            // 
             // groupBoxUgynokok
             // 
             this.groupBoxUgynokok.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxUgynokok.Controls.Add(this.checkBoxUgynokAktiv);
+            this.groupBoxUgynokok.Controls.Add(this.buttonModositUgynokJogosultsag);
+            this.groupBoxUgynokok.Controls.Add(this.buttonUgynokModositas);
+            this.groupBoxUgynokok.Controls.Add(this.buttonHozzaadUgynokot);
             this.groupBoxUgynokok.Controls.Add(this.textBoxUgynokKeresztnev);
             this.groupBoxUgynokok.Controls.Add(this.labelUgynokKeresztnev);
             this.groupBoxUgynokok.Controls.Add(this.comboBoxUgynokJogosultsagok);
@@ -902,19 +841,37 @@
             this.groupBoxUgynokok.TabStop = false;
             this.groupBoxUgynokok.Text = "Ügynök adatai";
             // 
-            // checkBoxUgynokAktiv
+            // buttonUgynokModositas
             // 
-            this.checkBoxUgynokAktiv.AutoSize = true;
-            this.checkBoxUgynokAktiv.Location = new System.Drawing.Point(140, 204);
-            this.checkBoxUgynokAktiv.Name = "checkBoxUgynokAktiv";
-            this.checkBoxUgynokAktiv.Size = new System.Drawing.Size(67, 17);
-            this.checkBoxUgynokAktiv.TabIndex = 29;
-            this.checkBoxUgynokAktiv.Text = "Aktív-e?";
-            this.checkBoxUgynokAktiv.UseVisualStyleBackColor = true;
+            this.buttonUgynokModositas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUgynokModositas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonUgynokModositas.Image = ((System.Drawing.Image)(resources.GetObject("buttonUgynokModositas.Image")));
+            this.buttonUgynokModositas.Location = new System.Drawing.Point(581, 114);
+            this.buttonUgynokModositas.Name = "buttonUgynokModositas";
+            this.buttonUgynokModositas.Size = new System.Drawing.Size(143, 68);
+            this.buttonUgynokModositas.TabIndex = 32;
+            this.buttonUgynokModositas.Text = "Ügynök adatainak módosítása";
+            this.buttonUgynokModositas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonUgynokModositas.UseVisualStyleBackColor = true;
+            this.buttonUgynokModositas.Click += new System.EventHandler(this.buttonUgynokModositas_Click);
+            // 
+            // buttonHozzaadUgynokot
+            // 
+            this.buttonHozzaadUgynokot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonHozzaadUgynokot.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonHozzaadUgynokot.Image = ((System.Drawing.Image)(resources.GetObject("buttonHozzaadUgynokot.Image")));
+            this.buttonHozzaadUgynokot.Location = new System.Drawing.Point(581, 40);
+            this.buttonHozzaadUgynokot.Name = "buttonHozzaadUgynokot";
+            this.buttonHozzaadUgynokot.Size = new System.Drawing.Size(143, 68);
+            this.buttonHozzaadUgynokot.TabIndex = 31;
+            this.buttonHozzaadUgynokot.Text = "Új ügynök hozzáadása";
+            this.buttonHozzaadUgynokot.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonHozzaadUgynokot.UseVisualStyleBackColor = true;
+            this.buttonHozzaadUgynokot.Click += new System.EventHandler(this.buttonHozzaadUgynokot_Click);
             // 
             // textBoxUgynokKeresztnev
             // 
-            this.textBoxUgynokKeresztnev.Location = new System.Drawing.Point(140, 125);
+            this.textBoxUgynokKeresztnev.Location = new System.Drawing.Point(166, 144);
             this.textBoxUgynokKeresztnev.Name = "textBoxUgynokKeresztnev";
             this.textBoxUgynokKeresztnev.Size = new System.Drawing.Size(248, 20);
             this.textBoxUgynokKeresztnev.TabIndex = 28;
@@ -922,7 +879,7 @@
             // labelUgynokKeresztnev
             // 
             this.labelUgynokKeresztnev.AutoSize = true;
-            this.labelUgynokKeresztnev.Location = new System.Drawing.Point(71, 128);
+            this.labelUgynokKeresztnev.Location = new System.Drawing.Point(97, 147);
             this.labelUgynokKeresztnev.Name = "labelUgynokKeresztnev";
             this.labelUgynokKeresztnev.Size = new System.Drawing.Size(63, 13);
             this.labelUgynokKeresztnev.TabIndex = 27;
@@ -932,46 +889,44 @@
             // 
             this.comboBoxUgynokJogosultsagok.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxUgynokJogosultsagok.FormattingEnabled = true;
-            this.comboBoxUgynokJogosultsagok.Location = new System.Drawing.Point(140, 177);
+            this.comboBoxUgynokJogosultsagok.Location = new System.Drawing.Point(166, 196);
             this.comboBoxUgynokJogosultsagok.Name = "comboBoxUgynokJogosultsagok";
             this.comboBoxUgynokJogosultsagok.Size = new System.Drawing.Size(248, 21);
             this.comboBoxUgynokJogosultsagok.TabIndex = 26;
             // 
             // textBoxUgynokTelefonszam
             // 
-            this.textBoxUgynokTelefonszam.Location = new System.Drawing.Point(140, 151);
+            this.textBoxUgynokTelefonszam.Location = new System.Drawing.Point(166, 170);
             this.textBoxUgynokTelefonszam.Name = "textBoxUgynokTelefonszam";
             this.textBoxUgynokTelefonszam.Size = new System.Drawing.Size(248, 20);
             this.textBoxUgynokTelefonszam.TabIndex = 25;
             // 
             // textBoxUgynokVezeteknev
             // 
-            this.textBoxUgynokVezeteknev.Location = new System.Drawing.Point(140, 99);
+            this.textBoxUgynokVezeteknev.Location = new System.Drawing.Point(166, 118);
             this.textBoxUgynokVezeteknev.Name = "textBoxUgynokVezeteknev";
             this.textBoxUgynokVezeteknev.Size = new System.Drawing.Size(248, 20);
             this.textBoxUgynokVezeteknev.TabIndex = 24;
             // 
             // textBoxUgynokJelszo
             // 
-            this.textBoxUgynokJelszo.Location = new System.Drawing.Point(140, 73);
+            this.textBoxUgynokJelszo.Location = new System.Drawing.Point(166, 92);
             this.textBoxUgynokJelszo.Name = "textBoxUgynokJelszo";
             this.textBoxUgynokJelszo.PasswordChar = '*';
-            this.textBoxUgynokJelszo.ReadOnly = true;
             this.textBoxUgynokJelszo.Size = new System.Drawing.Size(248, 20);
             this.textBoxUgynokJelszo.TabIndex = 23;
             // 
             // textBoxUgynokAzonosito
             // 
-            this.textBoxUgynokAzonosito.Location = new System.Drawing.Point(140, 47);
+            this.textBoxUgynokAzonosito.Location = new System.Drawing.Point(166, 66);
             this.textBoxUgynokAzonosito.Name = "textBoxUgynokAzonosito";
-            this.textBoxUgynokAzonosito.ReadOnly = true;
             this.textBoxUgynokAzonosito.Size = new System.Drawing.Size(248, 20);
             this.textBoxUgynokAzonosito.TabIndex = 22;
             // 
             // labelUgynokJogosultsag
             // 
             this.labelUgynokJogosultsag.AutoSize = true;
-            this.labelUgynokJogosultsag.Location = new System.Drawing.Point(31, 180);
+            this.labelUgynokJogosultsag.Location = new System.Drawing.Point(57, 199);
             this.labelUgynokJogosultsag.Name = "labelUgynokJogosultsag";
             this.labelUgynokJogosultsag.Size = new System.Drawing.Size(103, 13);
             this.labelUgynokJogosultsag.TabIndex = 21;
@@ -980,7 +935,7 @@
             // labelUgynokTelefonszam
             // 
             this.labelUgynokTelefonszam.AutoSize = true;
-            this.labelUgynokTelefonszam.Location = new System.Drawing.Point(64, 154);
+            this.labelUgynokTelefonszam.Location = new System.Drawing.Point(90, 173);
             this.labelUgynokTelefonszam.Name = "labelUgynokTelefonszam";
             this.labelUgynokTelefonszam.Size = new System.Drawing.Size(70, 13);
             this.labelUgynokTelefonszam.TabIndex = 20;
@@ -989,7 +944,7 @@
             // labelUgynokVezeteknev
             // 
             this.labelUgynokVezeteknev.AutoSize = true;
-            this.labelUgynokVezeteknev.Location = new System.Drawing.Point(67, 102);
+            this.labelUgynokVezeteknev.Location = new System.Drawing.Point(93, 121);
             this.labelUgynokVezeteknev.Name = "labelUgynokVezeteknev";
             this.labelUgynokVezeteknev.Size = new System.Drawing.Size(67, 13);
             this.labelUgynokVezeteknev.TabIndex = 19;
@@ -998,7 +953,7 @@
             // labelUgynokJelszo
             // 
             this.labelUgynokJelszo.AutoSize = true;
-            this.labelUgynokJelszo.Location = new System.Drawing.Point(95, 76);
+            this.labelUgynokJelszo.Location = new System.Drawing.Point(121, 95);
             this.labelUgynokJelszo.Name = "labelUgynokJelszo";
             this.labelUgynokJelszo.Size = new System.Drawing.Size(39, 13);
             this.labelUgynokJelszo.TabIndex = 18;
@@ -1007,7 +962,7 @@
             // labelUgynokAzonosito
             // 
             this.labelUgynokAzonosito.AutoSize = true;
-            this.labelUgynokAzonosito.Location = new System.Drawing.Point(37, 50);
+            this.labelUgynokAzonosito.Location = new System.Drawing.Point(63, 69);
             this.labelUgynokAzonosito.Name = "labelUgynokAzonosito";
             this.labelUgynokAzonosito.Size = new System.Drawing.Size(97, 13);
             this.labelUgynokAzonosito.TabIndex = 17;
@@ -1029,6 +984,69 @@
             this.toolStripStatusLabelSession.Name = "toolStripStatusLabelSession";
             this.toolStripStatusLabelSession.Size = new System.Drawing.Size(158, 20);
             this.toolStripStatusLabelSession.Text = "Bejelentkezett ügynök:";
+            // 
+            // listViewUgynokok
+            // 
+            this.listViewUgynokok.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewUgynokok.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderUgynokAzonosito,
+            this.columnHeaderUgynokVezeteknev,
+            this.columnHeaderUgynokKeresztnev,
+            this.columnHeaderUgynokTelefonszam,
+            this.columnHeaderUgynokJogosultsag});
+            this.listViewUgynokok.FullRowSelect = true;
+            this.listViewUgynokok.GridLines = true;
+            this.listViewUgynokok.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listViewUgynokok.HideSelection = false;
+            this.listViewUgynokok.Location = new System.Drawing.Point(6, 6);
+            this.listViewUgynokok.MultiSelect = false;
+            this.listViewUgynokok.Name = "listViewUgynokok";
+            this.listViewUgynokok.Size = new System.Drawing.Size(730, 394);
+            this.listViewUgynokok.TabIndex = 20;
+            this.listViewUgynokok.UseCompatibleStateImageBehavior = false;
+            this.listViewUgynokok.View = System.Windows.Forms.View.Details;
+            this.listViewUgynokok.SelectedIndexChanged += new System.EventHandler(this.listViewUgynokok_SelectedIndexChanged);
+            // 
+            // columnHeaderUgynokAzonosito
+            // 
+            this.columnHeaderUgynokAzonosito.Text = "Ügynök azonosító";
+            this.columnHeaderUgynokAzonosito.Width = 150;
+            // 
+            // columnHeaderUgynokVezeteknev
+            // 
+            this.columnHeaderUgynokVezeteknev.Text = "Vezetéknév";
+            this.columnHeaderUgynokVezeteknev.Width = 150;
+            // 
+            // columnHeaderUgynokKeresztnev
+            // 
+            this.columnHeaderUgynokKeresztnev.Text = "Keresztnév";
+            this.columnHeaderUgynokKeresztnev.Width = 150;
+            // 
+            // columnHeaderUgynokTelefonszam
+            // 
+            this.columnHeaderUgynokTelefonszam.Text = "Telefonszám";
+            this.columnHeaderUgynokTelefonszam.Width = 150;
+            // 
+            // columnHeaderUgynokJogosultsag
+            // 
+            this.columnHeaderUgynokJogosultsag.Text = "Jogosultság";
+            this.columnHeaderUgynokJogosultsag.Width = 150;
+            // 
+            // buttonModositUgynokJogosultsag
+            // 
+            this.buttonModositUgynokJogosultsag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonModositUgynokJogosultsag.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonModositUgynokJogosultsag.Image = ((System.Drawing.Image)(resources.GetObject("buttonModositUgynokJogosultsag.Image")));
+            this.buttonModositUgynokJogosultsag.Location = new System.Drawing.Point(581, 188);
+            this.buttonModositUgynokJogosultsag.Name = "buttonModositUgynokJogosultsag";
+            this.buttonModositUgynokJogosultsag.Size = new System.Drawing.Size(143, 68);
+            this.buttonModositUgynokJogosultsag.TabIndex = 33;
+            this.buttonModositUgynokJogosultsag.Text = "Ügynök adatainak módosítása";
+            this.buttonModositUgynokJogosultsag.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonModositUgynokJogosultsag.UseVisualStyleBackColor = true;
+            this.buttonModositUgynokJogosultsag.Click += new System.EventHandler(this.buttonModositUgynokJogosultsag_Click);
             // 
             // FormMenu
             // 
@@ -1062,7 +1080,6 @@
             this.tabPageHirdetesekKezelese.ResumeLayout(false);
             this.tabPageHirdetesekKezelese.PerformLayout();
             this.tabPageFelhasznaloKezeles.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUgynokok)).EndInit();
             this.groupBoxUgynokok.ResumeLayout(false);
             this.groupBoxUgynokok.PerformLayout();
             this.statusStrip.ResumeLayout(false);
@@ -1087,7 +1104,6 @@
         private System.Windows.Forms.TabPage tabPageFelhasznaloKezeles;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.GroupBox groupBoxUgynokok;
-        private System.Windows.Forms.CheckBox checkBoxUgynokAktiv;
         private System.Windows.Forms.TextBox textBoxUgynokKeresztnev;
         private System.Windows.Forms.Label labelUgynokKeresztnev;
         private System.Windows.Forms.ComboBox comboBoxUgynokJogosultsagok;
@@ -1142,15 +1158,8 @@
         private System.Windows.Forms.Label labelIngatlanArak;
         private System.Windows.Forms.ComboBox comboBoxMinimumIngatlanArak;
         private System.Windows.Forms.ComboBox comboBoxIngKategoriak;
-        private System.Windows.Forms.DataGridView dataGridViewUgynokok;
         private System.Windows.Forms.TabPage tabPageHirdetesekKezelese;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHirdetesekKezelese;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUgynokAzonosito;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUgynokVezeteknev;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUgynokKeresztnev;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUgynokTelefonszam;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnUgynokAktiv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUgynokJogosultsag;
         private System.Windows.Forms.TextBox textBoxIngatlanLeiras;
         private System.Windows.Forms.Label labelIngatlanLeiras;
         private System.Windows.Forms.TextBox textBoxAr;
@@ -1162,5 +1171,14 @@
         private System.Windows.Forms.Label labelIngatlanMeghirdetve;
         private System.Windows.Forms.Label labelEladoTelepules;
         private System.Windows.Forms.ComboBox comboBoxEladoTelepules;
+        private System.Windows.Forms.Button buttonHozzaadUgynokot;
+        private System.Windows.Forms.Button buttonUgynokModositas;
+        private System.Windows.Forms.ListView listViewUgynokok;
+        private System.Windows.Forms.ColumnHeader columnHeaderUgynokAzonosito;
+        private System.Windows.Forms.ColumnHeader columnHeaderUgynokVezeteknev;
+        private System.Windows.Forms.ColumnHeader columnHeaderUgynokKeresztnev;
+        private System.Windows.Forms.ColumnHeader columnHeaderUgynokTelefonszam;
+        private System.Windows.Forms.ColumnHeader columnHeaderUgynokJogosultsag;
+        private System.Windows.Forms.Button buttonModositUgynokJogosultsag;
     }
 }

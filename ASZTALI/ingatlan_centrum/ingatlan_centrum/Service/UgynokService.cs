@@ -47,32 +47,6 @@ namespace IngatlanCentrum.Service
             throw new Exception("Nem megfelelő ügynök azonosító vagy jelszó!");
         }
 
-        public void AktivalUgynokot(string azonosito)
-        {
-            foreach (Ugynok ugynok in GetUgynokok())
-            {
-                if (ugynok.Id == azonosito && !ugynok.Aktiv)
-                {
-                    ugynok.Aktiv = true;
-                }
-            }
-
-            throw new Exception("Ilyen azonosítójú ügynök nem létezik vagy ügynök már eleve aktivált állapotú!");
-        }
-
-        public void DeaktivalUgynokot(string azonosito)
-        {
-            foreach (Ugynok ugynok in GetUgynokok())
-            {
-                if (ugynok.Id == azonosito && ugynok.Aktiv)
-                {
-                    ugynok.Aktiv = false;
-                }
-            }
-
-            throw new Exception("Ilyen azonosítójú ügynök nem létezik vagy ügynök már eleve deaktivált állapotú!");
-        }
-
         public List<Ugynok> GetUgynokok()
         {
             return repository.GetUgynokok();

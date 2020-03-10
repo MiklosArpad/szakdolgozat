@@ -1,7 +1,7 @@
 ﻿namespace IngatlanCentrum.Model
 {
     /// <summary>
-    /// Ingatlanügynök modell
+    /// Ingatlan ügynök modell
     /// </summary>
     public class Ugynok
     {
@@ -11,11 +11,10 @@
         public string Keresztnev { get; set; }
         public string Telefonszam { get; set; }
         public string Jogosultsag { get; set; }
-        public bool Aktiv { get; set; }
 
         public override string ToString()
         {
-            return $"{Id} {Jelszo} {Vezeteknev} {Keresztnev} {Telefonszam} {Jogosultsag} {Aktiv}";
+            return $"{Id} {Jelszo} {Vezeteknev} {Keresztnev} {Telefonszam} {Jogosultsag}";
         }
     }
 }
