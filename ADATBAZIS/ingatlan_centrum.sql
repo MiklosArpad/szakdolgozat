@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Feb 27. 13:16
+-- Létrehozás ideje: 2020. Már 10. 20:44
 -- Kiszolgáló verziója: 10.4.11-MariaDB
 -- PHP verzió: 7.4.2
 
@@ -258,7 +258,6 @@ CREATE TABLE IF NOT EXISTS `ugynokok` (
   `keresztnev` varchar(75) COLLATE utf8_hungarian_ci NOT NULL,
   `telefonszam` varchar(11) COLLATE utf8_hungarian_ci NOT NULL,
   `jogosultsag` varchar(11) COLLATE utf8_hungarian_ci NOT NULL,
-  `aktiv` tinyint(1) NOT NULL,
   PRIMARY KEY (`azonosito`),
   KEY `kategoria` (`jogosultsag`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
@@ -267,9 +266,9 @@ CREATE TABLE IF NOT EXISTS `ugynokok` (
 -- A tábla adatainak kiíratása `ugynokok`
 --
 
-INSERT INTO `ugynokok` (`azonosito`, `jelszo`, `vezeteknev`, `keresztnev`, `telefonszam`, `jogosultsag`, `aktiv`) VALUES
-('ABC123', 'Ugynok12', 'Miklós', 'Árpád', '06202346794', 'admin', 1),
-('XYZ987', 'Ugynok13', 'Teszt', 'Elek', '06302134112', 'default', 1);
+INSERT INTO `ugynokok` (`azonosito`, `jelszo`, `vezeteknev`, `keresztnev`, `telefonszam`, `jogosultsag`) VALUES
+('ABC123', 'Ugynok12', 'Miklós', 'Árpád', '06202346794', 'admin'),
+('XYZ987', 'Ugynok13', 'Teszt', 'Elek', '06302134112', 'default');
 
 -- --------------------------------------------------------
 
