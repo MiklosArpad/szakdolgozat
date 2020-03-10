@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using IngatlanCentrum.Model;
 using System;
+using IngatlanCentrum.Exceptions;
 
 namespace IngatlanCentrum.Service
 {
@@ -32,7 +33,7 @@ namespace IngatlanCentrum.Service
                 }
             }
 
-            throw new Exception("Ilyen leírással nem létezik ingatlan!");
+            throw new IngatlanException("Ilyen leírással nem létezik ingatlan!");
         }
 
         public List<Ingatlan> GetIngatlan(int alapterulet)

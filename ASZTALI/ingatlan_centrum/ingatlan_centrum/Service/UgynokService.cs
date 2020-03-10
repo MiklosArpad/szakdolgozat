@@ -2,6 +2,7 @@
 using System;
 using IngatlanCentrum.Model;
 using IngatlanCentrum.Config;
+using IngatlanCentrum.Exceptions;
 
 namespace IngatlanCentrum.Service
 {
@@ -44,7 +45,7 @@ namespace IngatlanCentrum.Service
                 }
             }
 
-            throw new Exception("Nem megfelelő ügynök azonosító vagy jelszó!");
+            throw new UgynokException("Nem megfelelő ügynök azonosító vagy jelszó!");
         }
 
         public List<Ugynok> GetUgynokok()
@@ -72,7 +73,7 @@ namespace IngatlanCentrum.Service
                 }
             }
 
-            throw new Exception("Nem található ilyen azonosítóval rendelkező ügynök!");
+            throw new UgynokException("Nem található ilyen azonosítóval rendelkező ügynök!");
         }
     }
 }

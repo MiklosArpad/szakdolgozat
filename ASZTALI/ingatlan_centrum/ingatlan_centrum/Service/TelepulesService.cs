@@ -1,7 +1,7 @@
 ﻿using IngatlanCentrum.Model;
 using System.Linq;
 using System.Collections.Generic;
-using System;
+using IngatlanCentrum.Exceptions;
 
 namespace IngatlanCentrum.Service
 {
@@ -33,7 +33,7 @@ namespace IngatlanCentrum.Service
                 }
             }
 
-            throw new Exception("Ilyen nevű település nem létezik!");
+            throw new TelepulesException("Ilyen nevű település nem létezik!");
         }
 
         public List<Telepules> GetTelepulesek()

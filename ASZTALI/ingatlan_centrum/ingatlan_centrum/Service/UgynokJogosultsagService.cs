@@ -1,4 +1,5 @@
-﻿using IngatlanCentrum.Model;
+﻿using IngatlanCentrum.Exceptions;
+using IngatlanCentrum.Model;
 using System.Collections.Generic;
 
 namespace IngatlanCentrum.Service
@@ -24,6 +25,19 @@ namespace IngatlanCentrum.Service
         public List<UgynokJogosultsag> GetUgynokJogosultsagok()
         {
             return repository.GetUgynokKategoriak();
+        }
+
+        public UgynokJogosultsag GetUgynokJogosultsag(string elnevezes)
+        {
+            foreach (UgynokJogosultsag ugynokJogosultsag in GetUgynokJogosultsagok())
+            {
+                if (ugynokJogosultsag.Elnevezes == elnevezes)
+                {
+                    return ugynokJogosultsag;
+                }
+            }
+
+            throw new UgynokJogosultsagException($"Nem található ügynök jogosultság ilyen elnevezéssel: {elnevezes}");
         }
     }
 }

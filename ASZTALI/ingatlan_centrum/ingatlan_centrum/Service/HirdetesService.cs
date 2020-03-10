@@ -1,5 +1,5 @@
-﻿using IngatlanCentrum.Model;
-using System;
+﻿using IngatlanCentrum.Exceptions;
+using IngatlanCentrum.Model;
 using System.Collections.Generic;
 
 namespace IngatlanCentrum.Service
@@ -37,7 +37,7 @@ namespace IngatlanCentrum.Service
                 }
             }
 
-            throw new Exception("A keresett helyrajzi számmal nincs ingatlan meghirdetve!");
+            throw new HirdetesException("A keresett helyrajzi számmal nincs ingatlan meghirdetve!");
         }
 
         public List<Hirdetes> GetHirdetettIngatlanokUgynokSzerint(string ugynokAzonosito)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using IngatlanCentrum.Exceptions;
 using IngatlanCentrum.Model;
 
 namespace IngatlanCentrum.Service
@@ -39,7 +40,7 @@ namespace IngatlanCentrum.Service
                 }
             }
 
-            throw new Exception("Ilyen adószámmal nem létezik eladó!");
+            throw new EladoException("Ilyen adószámmal nem létezik eladó!");
         }
 
         /// <summary>

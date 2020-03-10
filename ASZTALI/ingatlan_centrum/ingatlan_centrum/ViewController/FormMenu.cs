@@ -53,6 +53,18 @@ namespace IngatlanCentrum.ViewController
 
         #region ComboBox
 
+        private void comboBoxUgynokJogosultsagok_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                labelUgynokJogosultsagLeiras.Text = ugynokJogosultsagService.GetUgynokJogosultsag(comboBoxUgynokJogosultsagok.SelectedItem.ToString()).Leiras;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void FeltoltUgynokJogosultsagokComboBox()
         {
             comboBoxUgynokJogosultsagok.Items.Clear();
@@ -179,6 +191,7 @@ namespace IngatlanCentrum.ViewController
                 textBoxUgynokKeresztnev.Clear();
                 textBoxUgynokTelefonszam.Clear();
                 FeltoltUgynokJogosultsagokComboBox();
+                labelUgynokJogosultsagLeiras.Text = "";
             }
         }
 
