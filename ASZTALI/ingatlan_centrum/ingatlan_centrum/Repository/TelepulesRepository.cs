@@ -11,7 +11,7 @@ namespace IngatlanCentrum.Repository
         /// <summary>
         /// Településeket tartalmazó lista
         /// </summary>
-        private List<Telepules> telepulesek;
+        private List<Telepules> telepulesek = new List<Telepules>();
 
         /// <summary>
         /// Metódus, amely letölti a települések adatait az adatbázisból és objektumokat képez belőle.
@@ -40,13 +40,6 @@ namespace IngatlanCentrum.Repository
 
         public List<Telepules> GetTelepulesek()
         {
-            if (telepulesek == null)
-            {
-                telepulesek = new List<Telepules>();
-                LetoltTelepuleseketAdatbazisbol();
-                return telepulesek;
-            }
-
             return telepulesek;
         }
     }

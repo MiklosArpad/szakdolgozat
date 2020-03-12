@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using System.Diagnostics;
 using System.Data;
+using IngatlanCentrum.Exceptions;
 
 namespace IngatlanCentrum.Repository
 {
@@ -14,7 +15,7 @@ namespace IngatlanCentrum.Repository
         /// <summary>
         /// Ingatlanokat tartalmazó lista
         /// </summary>
-        private List<Ingatlan> ingatlanok;
+        private List<Ingatlan> ingatlanok = new List<Ingatlan>();
 
         /// <summary>
         /// Metódus, amely letölti az ingatlanok adatait az adatbázisból és objektumokat képez belőle.
@@ -35,26 +36,19 @@ namespace IngatlanCentrum.Repository
                         Alapterulet = Convert.ToInt32(row[2]),
                         Kategoria = row[3].ToString(),
                         Allapot = row[4].ToString(),
-                        Tulajdonos = GetEladok().Find(x => x.Id == Convert.ToInt32(row[5]))
+                        Elado = GetEladok().Find(x => x.Adoazonosito == row[5].ToString())
                     });
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine($"{ex.Message}");
-                throw new Exception("Nem sikerült az ingatlan adatok letöltése adatbázisból!");
+                throw new IngatlanException("Nem sikerült az ingatlan adatok letöltése adatbázisból!");
             }
         }
 
         public List<Ingatlan> GetIngatlanok()
         {
-            if (ingatlanok == null)
-            {
-                ingatlanok = new List<Ingatlan>();
-                LetoltIngatlanokatAdatbazisbol();
-                return ingatlanok;
-            }
-
             return ingatlanok;
         }
 
@@ -73,7 +67,7 @@ namespace IngatlanCentrum.Repository
                     i.Alapterulet = ingatlan.Alapterulet;
                     i.Kategoria = ingatlan.Kategoria;
                     i.Allapot = ingatlan.Allapot;
-                    i.Tulajdonos = ingatlan.Tulajdonos;
+                    i.Elado = ingatlan.Elado;
                     return;
                 }
             }

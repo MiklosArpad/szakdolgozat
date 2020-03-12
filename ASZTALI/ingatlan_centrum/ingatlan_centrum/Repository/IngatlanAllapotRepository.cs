@@ -14,7 +14,7 @@ namespace IngatlanCentrum.Repository
         /// <summary>
         /// Ingatlan állapotokat tartalmazó lista
         /// </summary>
-        private List<IngatlanAllapot> ingatlanAllapotok;
+        private List<IngatlanAllapot> ingatlanAllapotok = new List<IngatlanAllapot>();
 
         /// <summary>
         /// Metódus, amely letölti az ingatlan állapotok adatait az adatbázisból és objektumokat képez belőle.
@@ -43,13 +43,6 @@ namespace IngatlanCentrum.Repository
 
         public List<IngatlanAllapot> GetIngatlanAllapotok()
         {
-            if (ingatlanAllapotok == null)
-            {
-                ingatlanAllapotok = new List<IngatlanAllapot>();
-                LetoltIngatlanAllapotokatAdatbazisbol();
-                return ingatlanAllapotok;
-            }
-
             return ingatlanAllapotok;
         }
     }

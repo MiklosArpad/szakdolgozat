@@ -14,7 +14,7 @@ namespace IngatlanCentrum.Repository
         /// <summary>
         /// Ügynök kategóriákat tartalmazó lista
         /// </summary>
-        private List<UgynokJogosultsag> ugynokJogosultsagok;
+        private List<UgynokJogosultsag> ugynokJogosultsagok = new List<UgynokJogosultsag>();
 
         /// <summary>
         /// Metódus, amely letölti az ügynök jogosultságok adatait az adatbázisból és objektumokat képez belőle.
@@ -42,15 +42,8 @@ namespace IngatlanCentrum.Repository
             }
         }
 
-        public List<UgynokJogosultsag> GetUgynokKategoriak()
+        public List<UgynokJogosultsag> GetUgynokJogosultsagok()
         {
-            if (ugynokJogosultsagok == null)
-            {
-                ugynokJogosultsagok = new List<UgynokJogosultsag>();
-                LetoltUgynokJogosultsagokatAdatbazisbol();
-                return ugynokJogosultsagok;
-            }
-
             return ugynokJogosultsagok;
         }
     }

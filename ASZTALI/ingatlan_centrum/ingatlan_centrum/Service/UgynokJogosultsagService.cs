@@ -24,7 +24,7 @@ namespace IngatlanCentrum.Service
 
         public List<UgynokJogosultsag> GetUgynokJogosultsagok()
         {
-            return repository.GetUgynokKategoriak();
+            return repository.GetUgynokJogosultsagok();
         }
 
         public UgynokJogosultsag GetUgynokJogosultsag(string elnevezes)

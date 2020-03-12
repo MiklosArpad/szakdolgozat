@@ -11,7 +11,7 @@ namespace IngatlanCentrum.Repository
         /// <summary>
         /// Ügynököket tartalmazó lista
         /// </summary>
-        private List<Ugynok> ugynokok;
+        private List<Ugynok> ugynokok = new List<Ugynok>();
 
         /// <summary>
         /// Metódus, amely letölti az ügynökök adatait az adatbázisból és objektumokat képez belőle.
@@ -45,13 +45,6 @@ namespace IngatlanCentrum.Repository
 
         public List<Ugynok> GetUgynokok()
         {
-            if (ugynokok == null)
-            {
-                ugynokok = new List<Ugynok>();
-                LetoltUgynokoketAdatbazisbol();
-                return ugynokok;
-            }
-
             return ugynokok;
         }
 

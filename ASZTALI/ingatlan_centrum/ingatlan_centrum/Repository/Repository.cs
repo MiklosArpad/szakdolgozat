@@ -15,6 +15,14 @@ namespace IngatlanCentrum.Repository
         public Repository()
         {
             adatbazis = MySQL.Connect("SERVER=127.0.0.1; DATABASE=ingatlan_centrum; UID=root; PASSWORD=; PORT=3306; SslMode=None;");
+            LetoltTelepuleseketAdatbazisbol();
+            LetoltUgynokJogosultsagokatAdatbazisbol();
+            LetoltUgynokoketAdatbazisbol();
+            LetoltEladokatAdatbazisbol();
+            LetoltIngatlanAllapotokatAdatbazisbol();
+            LetoltIngatlanKategoriakatAdatbazisbol();
+            LetoltIngatlanokatAdatbazisbol();
+            LetoltHirdeteseketAdatbazisbol();
         }
     }
 }

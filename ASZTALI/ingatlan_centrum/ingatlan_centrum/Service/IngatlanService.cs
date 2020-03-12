@@ -81,7 +81,7 @@ namespace IngatlanCentrum.Service
 
             foreach (Ingatlan ingatlan in GetIngatlanok())
             {
-                if (ingatlan.Tulajdonos.Vezeteknev == vezeteknev && ingatlan.Tulajdonos.Keresztnev == keresztnev)
+                if (ingatlan.Elado.Vezeteknev == vezeteknev && ingatlan.Elado.Keresztnev == keresztnev)
                 {
                     ingatlanokEladoSzerint.Add(ingatlan);
                 }

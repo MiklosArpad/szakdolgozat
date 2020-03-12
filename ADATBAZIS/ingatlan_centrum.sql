@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Már 10. 20:44
+-- Létrehozás ideje: 2020. Már 12. 14:48
 -- Kiszolgáló verziója: 10.4.11-MariaDB
 -- PHP verzió: 7.4.2
 
@@ -34,29 +34,28 @@ USE `ingatlan_centrum`;
 
 DROP TABLE IF EXISTS `eladok`;
 CREATE TABLE IF NOT EXISTS `eladok` (
-  `azonosito` int(11) NOT NULL AUTO_INCREMENT,
+  `adoazonosito` varchar(10) COLLATE utf8_hungarian_ci NOT NULL,
   `vezeteknev` varchar(75) COLLATE utf8_hungarian_ci NOT NULL,
   `keresztnev` varchar(75) COLLATE utf8_hungarian_ci NOT NULL,
-  `adoszam` int(10) NOT NULL,
   `telepules` varchar(75) COLLATE utf8_hungarian_ci NOT NULL,
   `lakcim` varchar(75) COLLATE utf8_hungarian_ci NOT NULL,
   `telefonszam` varchar(11) COLLATE utf8_hungarian_ci NOT NULL,
   `email` varchar(75) COLLATE utf8_hungarian_ci NOT NULL,
-  PRIMARY KEY (`azonosito`),
+  PRIMARY KEY (`adoazonosito`),
   KEY `telepules` (`telepules`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `eladok`
 --
 
-INSERT INTO `eladok` (`azonosito`, `vezeteknev`, `keresztnev`, `adoszam`, `telepules`, `lakcim`, `telefonszam`, `email`) VALUES
-(1, 'Jakab', 'Csaba', 2147483647, 'Ásotthalom', 'Jászai Mari tér 12', '06309241515', 'jcsaba@gmail.com'),
-(2, 'Latinovits', 'Zoltán', 2147483647, 'Nagylak', 'Balatoni utca 7', '0613125553', 'zoltanaszinesz@citromail.hu'),
-(3, 'Stohl', 'András', 2147483647, 'Ferencszállás', 'Kiskunság utca 5', '06705558965', 'tequila@freemail.hu'),
-(4, 'Dayka', 'Margit', 2147483647, 'Csanytelek', 'Nagyerdő 7', '06206667266', 'dayka1907@gmail.com'),
-(5, 'Rudolf', 'Péter', 2147483647, 'Ambrózfalva', 'Könyves Kálmán körút 77', '06205267822', 'pepe5@freemail.hu'),
-(6, 'Somlai', 'Edina', 2147483647, 'Balástya', 'Erős János utca 3', '06302802719', 'edobaba@gmail.com');
+INSERT INTO `eladok` (`adoazonosito`, `vezeteknev`, `keresztnev`, `telepules`, `lakcim`, `telefonszam`, `email`) VALUES
+('0123456789', 'Latinovits', 'Zoltán', 'Nagylak', 'Balatoni utca 7', '0613125553', 'zoltanaszinesz@citromail.hu'),
+('1122334455', 'Stohl', 'András', 'Ferencszállás', 'Kiskunság utca 5', '06705558965', 'tequila@freemail.hu'),
+('2147483647', 'Jakab', 'Csaba', 'Ásotthalom', 'Jászai Mari tér 12', '06309241515', 'jcsaba@gmail.com'),
+('5544332211', 'Somlai', 'Edina', 'Balástya', 'Erős János utca 3', '06302802719', 'edobaba@gmail.com'),
+('5566778899', 'Dayka', 'Margit', 'Csanytelek', 'Nagyerdő 7', '06206667266', 'dayka1907@gmail.com'),
+('9988776655', 'Rudolf', 'Péter', 'Ambrózfalva', 'Könyves Kálmán körút 77', '06205267822', 'pepe5@freemail.hu');
 
 -- --------------------------------------------------------
 
@@ -104,25 +103,25 @@ CREATE TABLE IF NOT EXISTS `ingatlanok` (
   `alapterulet` int(11) NOT NULL,
   `kategoria` varchar(20) COLLATE utf8_hungarian_ci NOT NULL,
   `allapot` varchar(20) COLLATE utf8_hungarian_ci NOT NULL,
-  `tulajdonos` int(11) NOT NULL,
+  `elado` varchar(10) COLLATE utf8_hungarian_ci NOT NULL,
   PRIMARY KEY (`helyrajzi_szam`),
-  KEY `tulajdonos` (`tulajdonos`),
   KEY `kategoria` (`kategoria`),
   KEY `allapot` (`allapot`),
-  KEY `telepules` (`telepules`)
+  KEY `telepules` (`telepules`),
+  KEY `elado` (`elado`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `ingatlanok`
 --
 
-INSERT INTO `ingatlanok` (`helyrajzi_szam`, `telepules`, `alapterulet`, `kategoria`, `allapot`, `tulajdonos`) VALUES
-('06/4', 'Ferencszállás', 13000, 'családi ház', 'használt', 1),
-('10003', 'Ambrózfalva', 148, 'családi ház', 'használt', 2),
-('10980', 'Makó', 1234, 'kert', 'használt', 5),
-('11003', 'Nagylak', 1356, 'bérleti jog', 'felújítandó', 6),
-('3000', 'Balástya', 187, 'családi ház', 'használt', 5),
-('98/5', 'Csanytelek', 35, 'bérleti jog', 'használt', 4);
+INSERT INTO `ingatlanok` (`helyrajzi_szam`, `telepules`, `alapterulet`, `kategoria`, `allapot`, `elado`) VALUES
+('06/4', 'Ferencszállás', 13000, 'családi ház', 'használt', '2147483647'),
+('10003', 'Ambrózfalva', 148, 'családi ház', 'használt', '0123456789'),
+('10980', 'Makó', 1234, 'kert', 'használt', '9988776655'),
+('11003', 'Nagylak', 1356, 'bérleti jog', 'felújítandó', '5544332211'),
+('3000', 'Balástya', 187, 'családi ház', 'használt', '1122334455'),
+('98/5', 'Csanytelek', 35, 'bérleti jog', 'használt', '5566778899');
 
 -- --------------------------------------------------------
 
@@ -312,10 +311,10 @@ ALTER TABLE `hirdetesek`
 -- Megkötések a táblához `ingatlanok`
 --
 ALTER TABLE `ingatlanok`
-  ADD CONSTRAINT `ingatlanok_ibfk_1` FOREIGN KEY (`tulajdonos`) REFERENCES `eladok` (`azonosito`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `ingatlanok_ibfk_3` FOREIGN KEY (`kategoria`) REFERENCES `ingatlan_kategoriak` (`elnevezes`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `ingatlanok_ibfk_4` FOREIGN KEY (`allapot`) REFERENCES `ingatlan_allapotok` (`elnevezes`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `ingatlanok_ibfk_5` FOREIGN KEY (`telepules`) REFERENCES `telepulesek` (`nev`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `ingatlanok_ibfk_1` FOREIGN KEY (`kategoria`) REFERENCES `ingatlan_kategoriak` (`elnevezes`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `ingatlanok_ibfk_2` FOREIGN KEY (`allapot`) REFERENCES `ingatlan_allapotok` (`elnevezes`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `ingatlanok_ibfk_3` FOREIGN KEY (`telepules`) REFERENCES `telepulesek` (`nev`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `ingatlanok_ibfk_4` FOREIGN KEY (`elado`) REFERENCES `eladok` (`adoazonosito`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Megkötések a táblához `ugynokok`

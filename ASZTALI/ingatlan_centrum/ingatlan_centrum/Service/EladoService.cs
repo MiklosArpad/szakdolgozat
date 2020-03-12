@@ -24,23 +24,23 @@ namespace IngatlanCentrum.Service
         }
 
         /// <summary>
-        /// Függvény, ami visszaad egy eladót keresett adószám szerint
+        /// Függvény, ami visszaad egy eladót keresett adóazonosító szerint
         /// </summary>
-        /// <param name="adoszam">Adószám</param>
+        /// <param name="adoazonosito">Adóazonosító</param>
         /// <returns>Keresett adószámú eladó</returns>
-        /// <exception cref="Exception">Amennyiben nem talál a keresett adószám alapján eladót a függvény,
+        /// <exception cref="Exception">Amennyiben nem talál a keresett adóazonosító alapján eladót a függvény,
         /// kivétel képződik</exception>
-        public Elado GetEladoAdoszamAlapjan(int adoszam)
+        public Elado GetEladoAdoazonositoAlapjan(string adoazonosito)
         {
             foreach (Elado elado in repository.GetEladok())
             {
-                if (elado.Adoszam == adoszam)
+                if (elado.Adoazonosito == adoazonosito)
                 {
                     return elado;
                 }
             }
 
-            throw new EladoException("Ilyen adószámmal nem létezik eladó!");
+            throw new EladoException("Nem található eladó a keresett adóazonosítóval!");
         }
 
         /// <summary>

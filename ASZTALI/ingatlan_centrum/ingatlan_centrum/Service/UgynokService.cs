@@ -73,7 +73,7 @@ namespace IngatlanCentrum.Service
                 }
             }
 
-            throw new UgynokException("Nem található ilyen azonosítóval rendelkező ügynök!");
+            throw new UgynokException("Nem található a keresett azonosítóval rendelkező ügynök!");
         }
     }
 }

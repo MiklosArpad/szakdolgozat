@@ -5,10 +5,9 @@
     /// </summary>
     public class Elado
     {
-        public int Id { get; set; }
+        public string Adoazonosito { get; set; }
         public string Vezeteknev { get; set; }
         public string Keresztnev { get; set; }
-        public int Adoszam { get; set; }
         public string Telepules { get; set; }
         public string Lakcim { get; set; }
         public string Telefonszam { get; set; }
@@ -16,7 +15,7 @@
 
         public override string ToString()
         {
-            return $"{Id} {Vezeteknev} {Keresztnev} {Adoszam} {Telepules} {Lakcim} {Telefonszam} {Email}";
+            return $"{Adoazonosito} {Vezeteknev} {Keresztnev} {Telepules} {Lakcim} {Telefonszam} {Email}";
         }
     }
 }

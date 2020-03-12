@@ -10,11 +10,11 @@
         public int Alapterulet { get; set; }
         public string Kategoria { get; set; }
         public string Allapot { get; set; }
-        public Elado Tulajdonos { get; set; }
+        public Elado Elado { get; set; }
 
         public override string ToString()
         {
-            return $"{HelyrajziSzam} {Telepules} {Alapterulet} {Kategoria} {Allapot} {Tulajdonos}";
+            return $"{HelyrajziSzam} {Telepules} {Alapterulet} {Kategoria} {Allapot} {Elado}";
         }
     }
 }

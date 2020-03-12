@@ -5,6 +5,11 @@ namespace IngatlanCentrum.Validation
 {
     public static class UgynokValidator
     {
+        /// <summary>
+        /// Ügynök modellt ellenőrző metódus
+        /// </summary>
+        /// <param name="ugynok">Ügynök</param>
+        /// <exception cref="UgynokException"></exception>
         public static void Validate(Ugynok ugynok)
         {
             if (UresE(ugynok.Id))

@@ -14,7 +14,7 @@ namespace IngatlanCentrum.Repository
         /// <summary>
         /// Ingatlan kategóriákat tartalmazó lista
         /// </summary>
-        private List<IngatlanKategoria> ingatlanKategoriak;
+        private List<IngatlanKategoria> ingatlanKategoriak = new List<IngatlanKategoria>();
 
         /// <summary>
         /// Metódus, amely letölti az ingatlan kategóriák adatait az adatbázisból és objektumokat képez belőle.
@@ -43,13 +43,6 @@ namespace IngatlanCentrum.Repository
 
         public List<IngatlanKategoria> GetIngatlanKategoriak()
         {
-            if (ingatlanKategoriak == null)
-            {
-                ingatlanKategoriak = new List<IngatlanKategoria>();
-                LetoltIngatlanKategoriakatAdatbazisbol();
-                return ingatlanKategoriak;
-            }
-
             return ingatlanKategoriak;
         }
     }

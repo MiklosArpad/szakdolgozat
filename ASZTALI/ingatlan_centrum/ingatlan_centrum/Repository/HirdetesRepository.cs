@@ -11,7 +11,7 @@ namespace IngatlanCentrum.Repository
         /// <summary>
         /// Hirdetéseket tartalmazó lista
         /// </summary>
-        private List<Hirdetes> hirdetesek;
+        private List<Hirdetes> hirdetesek = new List<Hirdetes>();
 
         /// <summary>
         /// Metódus, amely letölti a hirdetések adatait az adatbázisból és objektumokat képez belőle.
@@ -47,12 +47,6 @@ namespace IngatlanCentrum.Repository
 
         public List<Hirdetes> GetHirdetesek()
         {
-            if (hirdetesek == null)
-            {
-                hirdetesek = new List<Hirdetes>();
-                LetoltHirdeteseketAdatbazisbol();
-                return hirdetesek;
-            }
             return hirdetesek;
         }
 

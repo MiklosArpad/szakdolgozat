@@ -14,7 +14,7 @@ namespace IngatlanCentrum.Repository
         /// <summary>
         /// Eladókat tartalmazó lista
         /// </summary>
-        private List<Elado> eladok;
+        private List<Elado> eladok = new List<Elado>();
 
         /// <summary>
         /// Metódus, amely letölti az eladók adatait az adatbázisból és objektumokat képez belőle.
@@ -30,14 +30,13 @@ namespace IngatlanCentrum.Repository
                 {
                     eladok.Add(new Elado
                     {
-                        Id = Convert.ToInt32(row[0]),
+                        Adoazonosito = row[0].ToString(),
                         Vezeteknev = row[1].ToString(),
                         Keresztnev = row[2].ToString(),
-                        Adoszam = Convert.ToInt32(row[3]),
-                        Telepules = row[4].ToString(),
-                        Lakcim = row[5].ToString(),
-                        Telefonszam = row[6].ToString(),
-                        Email = row[7].ToString()
+                        Telepules = row[3].ToString(),
+                        Lakcim = row[4].ToString(),
+                        Telefonszam = row[5].ToString(),
+                        Email = row[6].ToString()
                     });
                 }
             }
@@ -50,13 +49,6 @@ namespace IngatlanCentrum.Repository
 
         public List<Elado> GetEladok()
         {
-            if (eladok == null)
-            {
-                eladok = new List<Elado>();
-                LetoltEladokatAdatbazisbol();
-                return eladok;
-            }
-
             return eladok;
         }
 
@@ -69,11 +61,10 @@ namespace IngatlanCentrum.Repository
         {
             foreach (Elado e in eladok)
             {
-                if (e.Id == elado.Id)
+                if (e.Adoazonosito == elado.Adoazonosito)
                 {
                     e.Vezeteknev = elado.Vezeteknev;
                     e.Keresztnev = elado.Keresztnev;
-                    e.Adoszam = elado.Adoszam;
                     e.Telepules = elado.Telepules;
                     e.Lakcim = elado.Lakcim;
                     e.Telefonszam = elado.Telefonszam;
