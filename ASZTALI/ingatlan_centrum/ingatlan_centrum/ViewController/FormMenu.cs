@@ -32,6 +32,22 @@ namespace IngatlanCentrum.ViewController
             ugynokService = new UgynokService();
         }
 
+        private void IngatlanEsEladoPanelenVezerlokAlaphelyzetbeAllitasa()
+        {
+            textBoxHelyrajziSzam.Clear();
+            FeltoltTelepulesekComboBox(comboBoxIngatlanTelepulesek);
+            textBoxAlapterulet.Clear();
+            FeltoltIngatlanKategoriakComboBox(comboBoxIngatlanKategoriak);
+            FeltoltIngatlanAllapotokComboBox(comboBoxIngatlanAllapotok);
+            textBoxEladoVezeteknev.Clear();
+            textBoxEladoKeresztnev.Clear();
+            FeltoltTelepulesekComboBox(comboBoxEladoTelepules);
+            textBoxEladoLakcim.Clear();
+            textBoxEladoAdoszam.Clear();
+            textBoxEladoTelefonszam.Clear();
+            textBoxEladoEmail.Clear();
+        }
+
         private void FormMenu_Load(object sender, EventArgs e)
         {
             FeltoltIngatlanokListView();
@@ -243,6 +259,7 @@ namespace IngatlanCentrum.ViewController
                 elado.Adoazonosito = textBoxEladoAdoszam.Text;
                 elado.Telepules = comboBoxEladoTelepules.SelectedItem.ToString();
                 elado.Lakcim = textBoxEladoLakcim.Text;
+                elado.Telefonszam = textBoxEladoTelefonszam.Text;
                 elado.Email = textBoxEladoEmail.Text;
 
                 Ingatlan ingatlan = new Ingatlan();
@@ -265,6 +282,8 @@ namespace IngatlanCentrum.ViewController
                 listViewItemUjIngatlan.SubItems.Add(ingatlan.Kategoria);
                 listViewItemUjIngatlan.SubItems.Add(ingatlan.Allapot);
                 listViewIngatlanok.Items.Add(listViewItemUjIngatlan);
+
+                IngatlanEsEladoPanelenVezerlokAlaphelyzetbeAllitasa();
             }
             catch (Exception ex)
             {
@@ -276,20 +295,32 @@ namespace IngatlanCentrum.ViewController
         {
             try
             {
-                Ingatlan ingatlan = new Ingatlan();
-                ingatlan.HelyrajziSzam = textBoxHelyrajziSzam.Text;
-                ingatlan.Telepules = comboBoxIngatlanTelepulesek.SelectedItem.ToString();
-                ingatlan.Alapterulet = Convert.ToInt32(textBoxAlapterulet.Text);
-                ingatlan.Kategoria = comboBoxIngatlanKategoriak.SelectedItem.ToString();
-                ingatlan.Allapot = comboBoxIngatlanAllapotok.SelectedItem.ToString();
-                ingatlan.Elado = eladoService.GetEladoAdoazonositoAlapjan(textBoxEladoAdoszam.Text);
+                if (listViewIngatlanok.SelectedItems.Count > 0)
+                {
+                    int index = listViewIngatlanok.FocusedItem.Index;
 
-                ingatlanService.ModositIngatlan(ingatlan);
+                    Ingatlan ingatlan = new Ingatlan();
+                    ingatlan.HelyrajziSzam = textBoxHelyrajziSzam.Text;
+                    ingatlan.Telepules = comboBoxIngatlanTelepulesek.SelectedItem.ToString();
+                    ingatlan.Alapterulet = Convert.ToInt32(textBoxAlapterulet.Text);
+                    ingatlan.Kategoria = comboBoxIngatlanKategoriak.SelectedItem.ToString();
+                    ingatlan.Allapot = comboBoxIngatlanAllapotok.SelectedItem.ToString();
+                    ingatlan.Elado = eladoService.GetEladoAdoazonositoAlapjan(textBoxEladoAdoszam.Text);
 
-                listViewIngatlanok.Items.RemoveAt(listViewIngatlanok.FocusedItem.Index);
+                    ingatlanService.ModositIngatlan(ingatlan);
 
-                ListViewItem listViewItemModositottIngatlan = new ListViewItem();
-                listViewIngatlanok.Items.Add(listViewItemModositottIngatlan);
+                    listViewIngatlanok.Items.RemoveAt(index);
+
+                    ListViewItem listViewItemModositottIngatlan = new ListViewItem();
+
+                    listViewIngatlanok.Items.Insert(index, listViewItemModositottIngatlan);
+
+                    IngatlanEsEladoPanelenVezerlokAlaphelyzetbeAllitasa();
+                }
+                else
+                {
+                    MessageBox.Show("Nincs kijelölt ingatlan módosításhoz!", "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
@@ -301,15 +332,22 @@ namespace IngatlanCentrum.ViewController
         {
             try
             {
-                Elado elado = new Elado();
-                elado.Vezeteknev = textBoxEladoVezeteknev.Text;
-                elado.Keresztnev = textBoxEladoKeresztnev.Text;
-                elado.Adoazonosito = textBoxEladoAdoszam.Text;
-                elado.Telepules = comboBoxEladoTelepules.SelectedItem.ToString();
-                elado.Lakcim = textBoxEladoLakcim.Text;
-                elado.Email = textBoxEladoEmail.Text;
+                if (listViewIngatlanok.SelectedItems.Count > 0)
+                {
+                    Elado elado = new Elado();
+                    elado.Vezeteknev = textBoxEladoVezeteknev.Text;
+                    elado.Keresztnev = textBoxEladoKeresztnev.Text;
+                    elado.Adoazonosito = textBoxEladoAdoszam.Text;
+                    elado.Telepules = comboBoxEladoTelepules.SelectedItem.ToString();
+                    elado.Lakcim = textBoxEladoLakcim.Text;
+                    elado.Email = textBoxEladoEmail.Text;
 
-                eladoService.ModositElado(elado);
+                    eladoService.ModositElado(elado);
+                }
+                else
+                {
+                    MessageBox.Show("Nincs kijelölt eladó módosításhoz!", "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
