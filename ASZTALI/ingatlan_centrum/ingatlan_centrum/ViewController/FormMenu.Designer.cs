@@ -80,7 +80,6 @@
             this.columnHeaderAlapterulet = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderKategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderAllapot = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tabPageHirdetesekKezelese = new System.Windows.Forms.TabPage();
             this.tabPageFelhasznaloKezeles = new System.Windows.Forms.TabPage();
             this.listViewUgynokok = new System.Windows.Forms.ListView();
             this.columnHeaderUgynokAzonosito = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -210,7 +209,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl.Controls.Add(this.tabPageIngatlanok);
-            this.tabControl.Controls.Add(this.tabPageHirdetesekKezelese);
             this.tabControl.Controls.Add(this.tabPageFelhasznaloKezeles);
             this.tabControl.Location = new System.Drawing.Point(299, 27);
             this.tabControl.Name = "tabControl";
@@ -631,16 +629,6 @@
             this.columnHeaderAllapot.Text = "Állapot";
             this.columnHeaderAllapot.Width = 150;
             // 
-            // tabPageHirdetesekKezelese
-            // 
-            this.tabPageHirdetesekKezelese.Location = new System.Drawing.Point(4, 22);
-            this.tabPageHirdetesekKezelese.Name = "tabPageHirdetesekKezelese";
-            this.tabPageHirdetesekKezelese.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageHirdetesekKezelese.Size = new System.Drawing.Size(742, 671);
-            this.tabPageHirdetesekKezelese.TabIndex = 2;
-            this.tabPageHirdetesekKezelese.Text = "Hirdetések kezelése";
-            this.tabPageHirdetesekKezelese.UseVisualStyleBackColor = true;
-            // 
             // tabPageFelhasznaloKezeles
             // 
             this.tabPageFelhasznaloKezeles.Controls.Add(this.listViewUgynokok);
@@ -985,7 +973,6 @@
         private System.Windows.Forms.Label labelEladoLakcim;
         private System.Windows.Forms.Label labelEladoAdoszam;
         private System.Windows.Forms.Label labelEladoVezeteknev;
-        private System.Windows.Forms.TabPage tabPageHirdetesekKezelese;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHirdetesekKezelese;
         private System.Windows.Forms.Label labelEladoTelepules;
         private System.Windows.Forms.ComboBox comboBoxEladoTelepules;

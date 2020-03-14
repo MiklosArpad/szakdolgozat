@@ -92,7 +92,6 @@
     <Compile Include="Exceptions\UgynokException.cs" />
     <Compile Include="Exceptions\UgynokJogosultsagException.cs" />
     <Compile Include="Model\Elado.cs" />
-    <Compile Include="Model\Hirdetes.cs" />
     <Compile Include="Model\Ingatlan.cs" />
     <Compile Include="Model\IngatlanAllapot.cs" />
     <Compile Include="Model\IngatlanKategoria.cs" />
@@ -102,7 +101,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\EladoRepository.cs" />
-    <Compile Include="Repository\HirdetesRepository.cs" />
     <Compile Include="Repository\IngatlanAllapotRepository.cs" />
     <Compile Include="Repository\IngatlanKategoriaRepository.cs" />
     <Compile Include="Repository\IngatlanRepository.cs" />
@@ -111,7 +109,6 @@
     <Compile Include="Repository\UgynokJogosultsagRepository.cs" />
     <Compile Include="Repository\UgynokRepository.cs" />
     <Compile Include="Service\EladoService.cs" />
-    <Compile Include="Service\HirdetesService.cs" />
     <Compile Include="Service\IngatlanAllapotService.cs" />
     <Compile Include="Service\IngatlanKategoriaService.cs" />
     <Compile Include="Service\IngatlanService.cs" />

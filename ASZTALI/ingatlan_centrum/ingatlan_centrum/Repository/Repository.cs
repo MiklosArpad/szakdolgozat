@@ -22,7 +22,6 @@ namespace IngatlanCentrum.Repository
             LetoltIngatlanAllapotokatAdatbazisbol();
             LetoltIngatlanKategoriakatAdatbazisbol();
             LetoltIngatlanokatAdatbazisbol();
-            LetoltHirdeteseketAdatbazisbol();
         }
     }
 }
