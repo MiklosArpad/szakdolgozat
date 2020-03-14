@@ -16,6 +16,16 @@ namespace IngatlanCentrum.Validation
             {
                 throw new EladoException("Eladó vezeték- vagy keresztneve nem tartalmazhat számot!");
             }
+
+            if (AdoazonositoTartalmazEBetut(elado.Adoazonosito))
+            {
+                throw new EladoException("Eladó adóazonosítója nem tartalmazhat betűt!");
+            }
+
+            if (!AdoazonositoMegfeleloHosszuE(elado.Adoazonosito))
+            {
+                throw new EladoException("Eladó adószonosítója 10 karakter hosszúnak kell lennie!");
+            }
         }
 
         private static bool EladoNeveKisbetuvelKezdodik(string nev)
@@ -36,6 +46,29 @@ namespace IngatlanCentrum.Validation
                 {
                     return true;
                 }
+            }
+
+            return false;
+        }
+
+        private static bool AdoazonositoTartalmazEBetut(string adoazonosito)
+        {
+            foreach (char karakter in adoazonosito)
+            {
+                if (char.IsLetter(karakter))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static bool AdoazonositoMegfeleloHosszuE(string adoazonosito)
+        {
+            if (adoazonosito.Length == 10)
+            {
+                return true;
             }
 
             return false;
