@@ -129,6 +129,11 @@ namespace IngatlanCentrum.ViewController
             tabControl.SelectedTab = tabControl.TabPages[0];
         }
 
+        private void toolStripMenuItemHirdetesekKezelese_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[1];
+        }
+
         private void toolStripMenuItemFelhasznaloKezeles_Click(object sender, EventArgs e)
         {
             if (Munkamenet.UgynokJogosultsag == "default")
@@ -137,7 +142,7 @@ namespace IngatlanCentrum.ViewController
                 return;
             }
 
-            tabControl.SelectedTab = tabControl.TabPages[1];
+            tabControl.SelectedTab = tabControl.TabPages[2];
         }
 
         private void toolStripMenuItemNevjegy_Click(object sender, EventArgs e)

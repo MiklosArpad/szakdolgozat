@@ -34,6 +34,7 @@
             this.toolStripMenuItemKilepes = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemEszkozok = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemIngatlanNyilvantartas = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemHirdetesekKezelese = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemFelhasznaloKezeles = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSugo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNevjegy = new System.Windows.Forms.ToolStripMenuItem();
@@ -147,6 +148,7 @@
             // 
             this.toolStripMenuItemEszkozok.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemIngatlanNyilvantartas,
+            this.toolStripMenuItemHirdetesekKezelese,
             this.toolStripMenuItemFelhasznaloKezeles});
             this.toolStripMenuItemEszkozok.Name = "toolStripMenuItemEszkozok";
             this.toolStripMenuItemEszkozok.Size = new System.Drawing.Size(66, 20);
@@ -158,6 +160,13 @@
             this.toolStripMenuItemIngatlanNyilvantartas.Size = new System.Drawing.Size(187, 22);
             this.toolStripMenuItemIngatlanNyilvantartas.Text = "Ingatlan nyilvántartás";
             this.toolStripMenuItemIngatlanNyilvantartas.Click += new System.EventHandler(this.toolStripMenuItemIngatlanNyilvantartas_Click);
+            // 
+            // toolStripMenuItemHirdetesekKezelese
+            // 
+            this.toolStripMenuItemHirdetesekKezelese.Name = "toolStripMenuItemHirdetesekKezelese";
+            this.toolStripMenuItemHirdetesekKezelese.Size = new System.Drawing.Size(187, 22);
+            this.toolStripMenuItemHirdetesekKezelese.Text = "Hirdetések kezelése";
+            this.toolStripMenuItemHirdetesekKezelese.Click += new System.EventHandler(this.toolStripMenuItemHirdetesekKezelese_Click);
             // 
             // toolStripMenuItemFelhasznaloKezeles
             // 
@@ -964,6 +973,7 @@
         private System.Windows.Forms.Label labelEladoLakcim;
         private System.Windows.Forms.Label labelEladoAdoszam;
         private System.Windows.Forms.Label labelEladoVezeteknev;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHirdetesekKezelese;
         private System.Windows.Forms.Label labelEladoTelepules;
         private System.Windows.Forms.ComboBox comboBoxEladoTelepules;
         private System.Windows.Forms.Button buttonHozzaadUgynokot;
