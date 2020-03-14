@@ -27,9 +27,24 @@ namespace IngatlanCentrum.Validation
                 throw new UgynokException("Ügynök azonosítójának tartalmaznia kell számot!");
             }
 
-            if (MeghatarozottSzamuKaraktertTartalmazE(ugynok.Id, 6))
+            if (!MeghatarozottSzamuKaraktertTartalmazE(ugynok.Id, 6))
             {
                 throw new UgynokException("Ügynök azonosítójának 6 karaktert kell tartalmazzon!");
+            }
+
+            if (!TartalmazEBetut(ugynok.Jelszo))
+            {
+                throw new UgynokException("Ügynök jelszavának tartalmaznia kell betűt!");
+            }
+
+            if (!MeghatarozottSzamuKaraktertTartalmazE(ugynok.Jelszo, 10))
+            {
+                throw new UgynokException("Ügynök jelszavának 10 karakter hosszúnak kell lennie!");
+            }
+
+            if (!TartalmazESzamot(ugynok.Jelszo))
+            {
+                throw new UgynokException("Ügynök jelszavának tartalaznia kell számot!");
             }
 
             if (UresE(ugynok.Vezeteknev) || UresE(ugynok.Keresztnev))
@@ -137,7 +152,7 @@ namespace IngatlanCentrum.Validation
 
         private static bool MeghatarozottSzamuKaraktertTartalmazE(string bemenet, int katakterekSzama)
         {
-            if (bemenet.Length > katakterekSzama)
+            if (bemenet.Length == katakterekSzama)
             {
                 return true;
             }
