@@ -138,7 +138,7 @@ namespace IngatlanCentrum.ViewController
 
         private void toolStripMenuItemFelhasznaloKezeles_Click(object sender, EventArgs e)
         {
-            if (Munkamenet.UgynokKategoria == "default")
+            if (Munkamenet.UgynokJogosultsag == "default")
             {
                 MessageBox.Show("Default jogosultsággal a felhasználó kezelés nem elérhető!", "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -270,6 +270,9 @@ namespace IngatlanCentrum.ViewController
                 ingatlan.Allapot = comboBoxIngatlanAllapotok.SelectedItem.ToString();
                 ingatlan.Elado = elado;
 
+                EladoValidator.Validate(elado);
+                IngatlanValidator.Validate(ingatlan);
+
                 eladoService.HozzaadElado(elado);
                 ingatlanService.HozzaadIngatlan(ingatlan);
 
@@ -341,6 +344,8 @@ namespace IngatlanCentrum.ViewController
                     elado.Telepules = comboBoxEladoTelepules.SelectedItem.ToString();
                     elado.Lakcim = textBoxEladoLakcim.Text;
                     elado.Email = textBoxEladoEmail.Text;
+
+                    EladoValidator.Validate(elado);
 
                     eladoService.ModositElado(elado);
                 }
@@ -438,7 +443,7 @@ namespace IngatlanCentrum.ViewController
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl.SelectedTab == tabControl.TabPages[1] && Munkamenet.UgynokKategoria == "default")
+            if (tabControl.SelectedTab == tabControl.TabPages[1] && Munkamenet.UgynokJogosultsag == "default")
             {
                 MessageBox.Show("Default jogosultsággal a felhasználó kezelés nem elérhető!", "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 tabControl.SelectedTab = tabControl.TabPages[0];

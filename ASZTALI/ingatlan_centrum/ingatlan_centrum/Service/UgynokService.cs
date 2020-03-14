@@ -39,7 +39,7 @@ namespace IngatlanCentrum.Service
                 if (ugynok.Id == azonosito && ugynok.Jelszo == jelszo)
                 {
                     Munkamenet.UgynokAzonosito = ugynok.Id;
-                    Munkamenet.UgynokKategoria = ugynok.Jogosultsag;
+                    Munkamenet.UgynokJogosultsag = ugynok.Jogosultsag;
                     Munkamenet.UgynokNeve = $"{ugynok.Vezeteknev} {ugynok.Keresztnev}";
                     return true;
                 }
