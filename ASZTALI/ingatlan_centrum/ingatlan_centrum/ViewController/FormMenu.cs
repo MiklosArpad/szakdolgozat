@@ -312,10 +312,16 @@ namespace IngatlanCentrum.ViewController
 
                     ingatlanService.ModositIngatlan(ingatlan);
 
-                    listViewIngatlanok.Items.RemoveAt(index);
-
                     ListViewItem listViewItemModositottIngatlan = new ListViewItem();
+                    listViewItemModositottIngatlan.Text = ingatlan.HelyrajziSzam;
+                    listViewItemModositottIngatlan.SubItems.Add(ingatlan.Telepules);
+                    listViewItemModositottIngatlan.SubItems.Add(ingatlan.Elado.Vezeteknev);
+                    listViewItemModositottIngatlan.SubItems.Add(ingatlan.Elado.Keresztnev);
+                    listViewItemModositottIngatlan.SubItems.Add(ingatlan.Alapterulet.ToString());
+                    listViewItemModositottIngatlan.SubItems.Add(ingatlan.Kategoria);
+                    listViewItemModositottIngatlan.SubItems.Add(ingatlan.Allapot);
 
+                    listViewIngatlanok.Items.RemoveAt(index);
                     listViewIngatlanok.Items.Insert(index, listViewItemModositottIngatlan);
 
                     IngatlanEsEladoPanelenVezerlokAlaphelyzetbeAllitasa();
