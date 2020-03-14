@@ -197,7 +197,6 @@ namespace IngatlanCentrum.ViewController
                 textBoxUgynokVezeteknev.Text = listViewUgynokok.SelectedItems[0].SubItems[1].Text;
                 textBoxUgynokKeresztnev.Text = listViewUgynokok.SelectedItems[0].SubItems[2].Text;
                 textBoxUgynokTelefonszam.Text = listViewUgynokok.SelectedItems[0].SubItems[3].Text;
-
                 comboBoxUgynokJogosultsagok.SelectedItem = listViewUgynokok.SelectedItems[0].SubItems[4].Text;
             }
             else
@@ -257,17 +256,39 @@ namespace IngatlanCentrum.ViewController
                 elado.Vezeteknev = textBoxEladoVezeteknev.Text;
                 elado.Keresztnev = textBoxEladoKeresztnev.Text;
                 elado.Adoazonosito = textBoxEladoAdoszam.Text;
-                elado.Telepules = comboBoxEladoTelepules.SelectedItem.ToString();
+
+                if (comboBoxEladoTelepules.SelectedIndex > 0)
+                {
+                    elado.Telepules = comboBoxEladoTelepules.SelectedItem.ToString();
+                }
+
                 elado.Lakcim = textBoxEladoLakcim.Text;
                 elado.Telefonszam = textBoxEladoTelefonszam.Text;
                 elado.Email = textBoxEladoEmail.Text;
 
                 Ingatlan ingatlan = new Ingatlan();
                 ingatlan.HelyrajziSzam = textBoxHelyrajziSzam.Text;
-                ingatlan.Telepules = comboBoxIngatlanTelepulesek.SelectedItem.ToString();
-                ingatlan.Alapterulet = Convert.ToInt32(textBoxAlapterulet.Text);
-                ingatlan.Kategoria = comboBoxIngatlanKategoriak.SelectedItem.ToString();
-                ingatlan.Allapot = comboBoxIngatlanAllapotok.SelectedItem.ToString();
+
+                if (comboBoxIngatlanTelepulesek.SelectedIndex > 0)
+                {
+                    ingatlan.Telepules = comboBoxIngatlanTelepulesek.SelectedItem.ToString();
+                }
+
+                if (!string.IsNullOrEmpty(textBoxAlapterulet.Text))
+                {
+                    ingatlan.Alapterulet = Convert.ToInt32(textBoxAlapterulet.Text);
+                }
+
+                if (comboBoxIngatlanKategoriak.SelectedIndex > 0)
+                {
+                    ingatlan.Kategoria = comboBoxIngatlanKategoriak.SelectedItem.ToString();
+                }
+
+                if (comboBoxIngatlanAllapotok.SelectedIndex > 0)
+                {
+                    ingatlan.Allapot = comboBoxIngatlanAllapotok.SelectedItem.ToString();
+                }
+
                 ingatlan.Elado = elado;
 
                 EladoValidator.Validate(elado);
