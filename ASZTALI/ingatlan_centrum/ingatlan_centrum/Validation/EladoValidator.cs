@@ -19,7 +19,7 @@ namespace IngatlanCentrum.Validation
 
             if (!AdoazonositoMegfeleloHosszuE(elado.Adoazonosito))
             {
-                throw new EladoException("Eladó adószonosítója 10 karakter hosszúnak kell lennie!");
+                throw new EladoException("Eladó adószonosítója pontosan 10 karakter hosszúnak kell lennie!");
             }
 
             if (UresE(elado.Vezeteknev) || UresE(elado.Keresztnev))
@@ -62,12 +62,17 @@ namespace IngatlanCentrum.Validation
                 throw new EladoException("Eladó adóazonosítója nem tartalmazhat betűt!");
             }
 
+            if (LakcimKisebtuvelKezdodik(elado.Lakcim))
+            {
+                throw new EladoException("Eladó lakcíme nem kezdődhet kisbetűvel!");
+            }
+
             if (TelefonszamTartalmazEBetut(elado.Telefonszam))
             {
                 throw new EladoException("Eladó telefonszáma nem tartalmazhat betűt!");
             }
 
-            if (!EmailCimTartalmazEPontotVagyKukacot(elado.Email))
+            if (!EmailCimTartalmazEPontotEsKukacot(elado.Email))
             {
                 throw new EladoException("Eladó e-mail címe nem tartalmaz pontot vagy kukac karaktert!\nHelytelen formátum!");
             }
@@ -142,9 +147,19 @@ namespace IngatlanCentrum.Validation
             return false;
         }
 
-        private static bool EmailCimTartalmazEPontotVagyKukacot(string email)
+        private static bool EmailCimTartalmazEPontotEsKukacot(string email)
         {
-            if (email.Contains("@") || email.Contains("."))
+            if (email.Contains("@") && email.Contains("."))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private static bool LakcimKisebtuvelKezdodik(string lakcim)
+        {
+            if (char.IsLower(lakcim[0]))
             {
                 return true;
             }

@@ -46,6 +46,11 @@ namespace IngatlanCentrum.Validation
             {
                 throw new IngatlanException("Ingatlan alapterülete nem tartalmazhat betűt!");
             }
+
+            if (!HelyrajziSzamTartalmazBetut(ingatlan.HelyrajziSzam))
+            {
+                throw new IngatlanException("Helyrajszi számnak tartalmaznia kell számot!");
+            }
         }
 
         private static bool UresE(string bemenet)
@@ -71,6 +76,19 @@ namespace IngatlanCentrum.Validation
         private static bool AlapteruletTartalmazEBetut(string alapterulet)
         {
             foreach (char karakter in alapterulet)
+            {
+                if (char.IsLetter(karakter))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static bool HelyrajziSzamTartalmazBetut(string helyrajziSzam)
+        {
+            foreach (char karakter in helyrajziSzam)
             {
                 if (char.IsLetter(karakter))
                 {
