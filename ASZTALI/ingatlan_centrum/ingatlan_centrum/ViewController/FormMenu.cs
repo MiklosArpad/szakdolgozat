@@ -310,7 +310,7 @@ namespace IngatlanCentrum.ViewController
                 elado.Keresztnev = textBoxEladoKeresztnev.Text;
                 elado.Adoazonosito = textBoxEladoAdoszam.Text;
 
-                if (comboBoxEladoTelepules.SelectedIndex > 0)
+                if (comboBoxEladoTelepules.SelectedIndex >= 0)
                 {
                     elado.Telepules = comboBoxEladoTelepules.SelectedItem.ToString();
                 }
@@ -322,7 +322,7 @@ namespace IngatlanCentrum.ViewController
                 Ingatlan ingatlan = new Ingatlan();
                 ingatlan.HelyrajziSzam = textBoxHelyrajziSzam.Text;
 
-                if (comboBoxIngatlanTelepulesek.SelectedIndex > 0)
+                if (comboBoxIngatlanTelepulesek.SelectedIndex >= 0)
                 {
                     ingatlan.Telepules = comboBoxIngatlanTelepulesek.SelectedItem.ToString();
                 }
@@ -332,12 +332,12 @@ namespace IngatlanCentrum.ViewController
                     ingatlan.Alapterulet = Convert.ToInt32(textBoxAlapterulet.Text);
                 }
 
-                if (comboBoxIngatlanKategoriak.SelectedIndex > 0)
+                if (comboBoxIngatlanKategoriak.SelectedIndex >= 0)
                 {
                     ingatlan.Kategoria = comboBoxIngatlanKategoriak.SelectedItem.ToString();
                 }
 
-                if (comboBoxIngatlanAllapotok.SelectedIndex > 0)
+                if (comboBoxIngatlanAllapotok.SelectedIndex >= 0)
                 {
                     ingatlan.Allapot = comboBoxIngatlanAllapotok.SelectedItem.ToString();
                 }
