@@ -385,6 +385,8 @@ namespace IngatlanCentrum.ViewController
                     ingatlan.Allapot = comboBoxIngatlanAllapotok.SelectedItem.ToString();
                     ingatlan.Elado = eladoService.GetEladoAdoazonositoAlapjan(textBoxEladoAdoszam.Text);
 
+                    IngatlanValidator.Validate(ingatlan);
+
                     ingatlanService.ModositIngatlan(ingatlan);
 
                     ListViewItem listViewItemModositottIngatlan = new ListViewItem();

@@ -61,6 +61,16 @@ namespace IngatlanCentrum.Validation
             {
                 throw new EladoException("Eladó adóazonosítója nem tartalmazhat betűt!");
             }
+
+            if (TelefonszamTartalmazEBetut(elado.Telefonszam))
+            {
+                throw new EladoException("Eladó telefonszáma nem tartalmazhat betűt!");
+            }
+
+            if (!EmailCimTartalmazEPontotVagyKukacot(elado.Email))
+            {
+                throw new EladoException("Eladó e-mail címe nem tartalmaz pontot vagy kukac karaktert!\nHelytelen formátum!");
+            }
         }
 
         private static bool UresE(string bemenet)
@@ -112,6 +122,29 @@ namespace IngatlanCentrum.Validation
         private static bool AdoazonositoMegfeleloHosszuE(string adoazonosito)
         {
             if (adoazonosito.Length == 10)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private static bool TelefonszamTartalmazEBetut(string telefonszam)
+        {
+            foreach (char kartakter in telefonszam)
+            {
+                if (char.IsLetter(kartakter))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static bool EmailCimTartalmazEPontotVagyKukacot(string email)
+        {
+            if (email.Contains("@") || email.Contains("."))
             {
                 return true;
             }
