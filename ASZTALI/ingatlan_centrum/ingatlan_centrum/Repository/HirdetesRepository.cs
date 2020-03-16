@@ -33,7 +33,7 @@ namespace IngatlanCentrum.Repository
                         Ar = Convert.ToInt32(row[3]),
                         Ingatlan = GetIngatlanok().Find(x => x.HelyrajziSzam == row[4].ToString()),
                         Ugynok = GetUgynokok().Find(x => x.Id == row[5].ToString()),
-                        HirdetesDatuma = row[6].ToString(),
+                        Datum = row[6].ToString(),
                         Aktiv = Convert.ToBoolean(row[7])
                     });
                 }
@@ -63,7 +63,7 @@ namespace IngatlanCentrum.Repository
                 {
                     h.Ingatlan = hirdetes.Ingatlan;
                     h.Ugynok = hirdetes.Ugynok;
-                    h.HirdetesDatuma = hirdetes.HirdetesDatuma;
+                    h.Datum = hirdetes.Datum;
                     h.Aktiv = hirdetes.Aktiv;
                     return;
                 }

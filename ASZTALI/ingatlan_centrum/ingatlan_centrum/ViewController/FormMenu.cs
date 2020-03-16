@@ -52,20 +52,15 @@ namespace IngatlanCentrum.ViewController
         {
             FeltoltIngatlanokListView();
             FeltoltUgynokokListView();
-
-            //FeltoltIngatlanAllapotokComboBox(comboBoxIngAllapotok);
+            FeltoltHirdetesekListView();
             FeltoltIngatlanAllapotokComboBox(comboBoxIngatlanAllapotok);
-
             FeltoltIngatlanKategoriakComboBox(comboBoxIngatlanKategoriak);
-            //FeltoltIngatlanKategoriakComboBox(comboBoxIngKategoriak);
-
             FeltoltTelepulesekComboBox(comboBoxIngatlanTelepulesek);
-            //FeltoltTelepulesekComboBox(comboBoxIngTelepulesek);
             FeltoltTelepulesekComboBox(comboBoxEladoTelepules);
-
             FeltoltUgynokJogosultsagokComboBox();
+            FeltoltHirdetesIngatlanComboBox();
 
-            toolStripStatusLabelSession.Text += $" {Munkamenet.UgynokAzonosito} ({Munkamenet.UgynokNeve})";
+            toolStripStatusLabelSession.Text += $" {Munkamenet.UgynokAzonosito}/{Munkamenet.UgynokNeve}/ ({Munkamenet.UgynokJogosultsag})";
         }
 
         #region ComboBox
@@ -90,6 +85,29 @@ namespace IngatlanCentrum.ViewController
             {
                 comboBoxUgynokJogosultsagok.Items.Add(ugynokKategoria.Elnevezes);
             }
+        }
+
+        private void FeltoltHirdetesIngatlanComboBox()
+        {
+            comboBoxHirdetesIngatlanok.Items.Clear();
+
+            foreach (Ingatlan ingatlan in ingatlanService.GetIngatlanok())
+            {
+                comboBoxHirdetesIngatlanok.Items.Add(ingatlan.HelyrajziSzam);
+            }
+        }
+
+        private void comboBoxHirdetesIngatlanok_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string helyrajziSzam = comboBoxHirdetesIngatlanok.SelectedItem.ToString();
+            Ingatlan ingatlan = ingatlanService.GetIngatlan(helyrajziSzam);
+
+            labelHirdetesbenSzereploIngatlanEsEladoAdatok.Text = "";
+            labelHirdetesbenSzereploIngatlanEsEladoAdatok.Text +=
+                $"Ingatlan adatai\n\nIngatlan alapterülete: {ingatlan.Alapterulet} m2\ntelepülés: {ingatlan.Telepules}\n" +
+                $"kategória: {ingatlan.Kategoria}\nállapot: {ingatlan.Allapot}\n\n" +
+                $"Eladó neve: {ingatlan.Elado.Vezeteknev} {ingatlan.Elado.Keresztnev}\n" +
+                $"telefonszám: {ingatlan.Elado.Telefonszam}\ne-mail cím: {ingatlan.Elado.Email}";
         }
 
         private void FeltoltTelepulesekComboBox(ComboBox comboBoxTelepulesek)
@@ -184,6 +202,14 @@ namespace IngatlanCentrum.ViewController
             }
         }
 
+        private void listViewHirdetesek_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewHirdetesek.SelectedItems.Count > 0)
+            {
+
+            }
+        }
+
         private void listViewUgynokok_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listViewUgynokok.SelectedItems.Count > 0)
@@ -225,6 +251,33 @@ namespace IngatlanCentrum.ViewController
                 listViewItemIngatlanok.SubItems.Add(ingatlan.Kategoria);
                 listViewItemIngatlanok.SubItems.Add(ingatlan.Allapot);
                 listViewIngatlanok.Items.Add(listViewItemIngatlanok);
+            }
+        }
+
+        private void FeltoltHirdetesekListView()
+        {
+            foreach (Hirdetes hirdetes in hirdetesService.GetHirdetesek())
+            {
+                ListViewItem listViewItemHirdetesek = new ListViewItem();
+
+                listViewItemHirdetesek.Text = hirdetes.Id.ToString();
+                listViewItemHirdetesek.SubItems.Add(hirdetes.Ingatlan.HelyrajziSzam);
+                listViewItemHirdetesek.SubItems.Add($"{hirdetes.Ingatlan.Elado.Vezeteknev} {hirdetes.Ingatlan.Elado.Keresztnev}");
+                listViewItemHirdetesek.SubItems.Add(hirdetes.Cim);
+                listViewItemHirdetesek.SubItems.Add(hirdetes.Leiras);
+                listViewItemHirdetesek.SubItems.Add(hirdetes.Ar.ToString("C0"));
+                listViewItemHirdetesek.SubItems.Add(hirdetes.Datum);
+
+                if (hirdetes.Aktiv)
+                {
+                    listViewItemHirdetesek.SubItems.Add("Igen");
+                }
+                else
+                {
+                    listViewItemHirdetesek.SubItems.Add("Nem");
+                }
+
+                listViewHirdetesek.Items.Add(listViewItemHirdetesek);
             }
         }
 
@@ -308,6 +361,7 @@ namespace IngatlanCentrum.ViewController
                 listViewIngatlanok.Items.Add(listViewItemUjIngatlan);
 
                 IngatlanEsEladoPanelenVezerlokAlaphelyzetbeAllitasa();
+                FeltoltHirdetesIngatlanComboBox();
             }
             catch (Exception ex)
             {
@@ -387,8 +441,30 @@ namespace IngatlanCentrum.ViewController
             }
         }
 
+        private void buttonHirdetesHozzaadas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string helyrajziSzam = comboBoxHirdetesIngatlanok.SelectedItem.ToString();
+
+                Hirdetes hirdetes = new Hirdetes();
+                hirdetes.Ingatlan = ingatlanService.GetIngatlan(helyrajziSzam);
+                hirdetesService.IngatlanSzerepelEHirdetesben(helyrajziSzam);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonHirdetesModositas_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void buttonSzures_Click(object sender, EventArgs e)
         {
+
         }
 
         private void buttonHozzaadUgynokot_Click(object sender, EventArgs e)

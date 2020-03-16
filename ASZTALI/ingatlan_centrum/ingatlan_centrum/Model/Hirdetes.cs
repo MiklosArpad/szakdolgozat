@@ -11,12 +11,12 @@
         public int Ar { get; set; }
         public Ingatlan Ingatlan { get; set; }
         public Ugynok Ugynok { get; set; }
-        public string HirdetesDatuma { get; set; }
+        public string Datum { get; set; }
         public bool Aktiv { get; set; }
 
         public override string ToString()
         {
-            return $"{Id} {Cim} {Leiras} {Ar} {Ingatlan} {Ugynok} {HirdetesDatuma} {Aktiv}";
+            return $"{Id} {Cim} {Leiras} {Ar} {Ingatlan} {Ugynok} {Datum} {Aktiv}";
         }
     }
 }

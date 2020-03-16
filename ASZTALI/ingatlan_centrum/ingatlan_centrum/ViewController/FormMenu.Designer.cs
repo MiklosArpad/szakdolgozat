@@ -81,6 +81,28 @@
             this.columnHeaderKategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderAllapot = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageHirdetesekKezelese = new System.Windows.Forms.TabPage();
+            this.groupBoxHirdetesekKezelese = new System.Windows.Forms.GroupBox();
+            this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai = new System.Windows.Forms.GroupBox();
+            this.labelHirdetesbenSzereploIngatlanEsEladoAdatok = new System.Windows.Forms.Label();
+            this.labelHirdetesLeiras = new System.Windows.Forms.Label();
+            this.textBoxHirdetesLeiras = new System.Windows.Forms.TextBox();
+            this.labelHirdetesIngatlan = new System.Windows.Forms.Label();
+            this.labelHirdetesbenSzereploCim = new System.Windows.Forms.Label();
+            this.textBoxHirdetesbenSzereploCim = new System.Windows.Forms.TextBox();
+            this.labelHirdetesAzonosito = new System.Windows.Forms.Label();
+            this.textBoxHirdetesAzonosito = new System.Windows.Forms.TextBox();
+            this.comboBoxHirdetesIngatlanok = new System.Windows.Forms.ComboBox();
+            this.buttonHirdetesDekativalas = new System.Windows.Forms.Button();
+            this.buttonHirdetesModositas = new System.Windows.Forms.Button();
+            this.buttonHirdetesHozzaadas = new System.Windows.Forms.Button();
+            this.listViewHirdetesek = new System.Windows.Forms.ListView();
+            this.columnHeaderHirdetesAzonosito = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderIngatlanHelyrajziSzam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderHirdetesCim = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderHirdetesLeiras = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderHirdetesAr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderHirdetesDatum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderHirdetesAktiv = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageFelhasznaloKezeles = new System.Windows.Forms.TabPage();
             this.listViewUgynokok = new System.Windows.Forms.ListView();
             this.columnHeaderUgynokAzonosito = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -114,6 +136,9 @@
             this.groupBoxIngatlanokKezelese.SuspendLayout();
             this.groupBoxEladoAdatai.SuspendLayout();
             this.groupBoxIngatlanAdatai.SuspendLayout();
+            this.tabPageHirdetesekKezelese.SuspendLayout();
+            this.groupBoxHirdetesekKezelese.SuspendLayout();
+            this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai.SuspendLayout();
             this.tabPageFelhasznaloKezeles.SuspendLayout();
             this.groupBoxUgynokok.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -633,6 +658,8 @@
             // 
             // tabPageHirdetesekKezelese
             // 
+            this.tabPageHirdetesekKezelese.Controls.Add(this.groupBoxHirdetesekKezelese);
+            this.tabPageHirdetesekKezelese.Controls.Add(this.listViewHirdetesek);
             this.tabPageHirdetesekKezelese.Location = new System.Drawing.Point(4, 22);
             this.tabPageHirdetesekKezelese.Name = "tabPageHirdetesekKezelese";
             this.tabPageHirdetesekKezelese.Padding = new System.Windows.Forms.Padding(3);
@@ -640,6 +667,226 @@
             this.tabPageHirdetesekKezelese.TabIndex = 2;
             this.tabPageHirdetesekKezelese.Text = "Hirdetések kezelése";
             this.tabPageHirdetesekKezelese.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxHirdetesekKezelese
+            // 
+            this.groupBoxHirdetesekKezelese.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxHirdetesekKezelese.Controls.Add(this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai);
+            this.groupBoxHirdetesekKezelese.Controls.Add(this.labelHirdetesLeiras);
+            this.groupBoxHirdetesekKezelese.Controls.Add(this.textBoxHirdetesLeiras);
+            this.groupBoxHirdetesekKezelese.Controls.Add(this.labelHirdetesIngatlan);
+            this.groupBoxHirdetesekKezelese.Controls.Add(this.labelHirdetesbenSzereploCim);
+            this.groupBoxHirdetesekKezelese.Controls.Add(this.textBoxHirdetesbenSzereploCim);
+            this.groupBoxHirdetesekKezelese.Controls.Add(this.labelHirdetesAzonosito);
+            this.groupBoxHirdetesekKezelese.Controls.Add(this.textBoxHirdetesAzonosito);
+            this.groupBoxHirdetesekKezelese.Controls.Add(this.comboBoxHirdetesIngatlanok);
+            this.groupBoxHirdetesekKezelese.Controls.Add(this.buttonHirdetesDekativalas);
+            this.groupBoxHirdetesekKezelese.Controls.Add(this.buttonHirdetesModositas);
+            this.groupBoxHirdetesekKezelese.Controls.Add(this.buttonHirdetesHozzaadas);
+            this.groupBoxHirdetesekKezelese.Location = new System.Drawing.Point(6, 262);
+            this.groupBoxHirdetesekKezelese.Name = "groupBoxHirdetesekKezelese";
+            this.groupBoxHirdetesekKezelese.Size = new System.Drawing.Size(730, 403);
+            this.groupBoxHirdetesekKezelese.TabIndex = 15;
+            this.groupBoxHirdetesekKezelese.TabStop = false;
+            this.groupBoxHirdetesekKezelese.Text = "Hirdetések kezelése";
+            // 
+            // groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai
+            // 
+            this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai.Controls.Add(this.labelHirdetesbenSzereploIngatlanEsEladoAdatok);
+            this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai.Location = new System.Drawing.Point(6, 132);
+            this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai.Name = "groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai";
+            this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai.Size = new System.Drawing.Size(341, 191);
+            this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai.TabIndex = 40;
+            this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai.TabStop = false;
+            // 
+            // labelHirdetesbenSzereploIngatlanEsEladoAdatok
+            // 
+            this.labelHirdetesbenSzereploIngatlanEsEladoAdatok.AutoSize = true;
+            this.labelHirdetesbenSzereploIngatlanEsEladoAdatok.Location = new System.Drawing.Point(7, 28);
+            this.labelHirdetesbenSzereploIngatlanEsEladoAdatok.Name = "labelHirdetesbenSzereploIngatlanEsEladoAdatok";
+            this.labelHirdetesbenSzereploIngatlanEsEladoAdatok.Size = new System.Drawing.Size(0, 13);
+            this.labelHirdetesbenSzereploIngatlanEsEladoAdatok.TabIndex = 0;
+            // 
+            // labelHirdetesLeiras
+            // 
+            this.labelHirdetesLeiras.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelHirdetesLeiras.AutoSize = true;
+            this.labelHirdetesLeiras.Location = new System.Drawing.Point(404, 108);
+            this.labelHirdetesLeiras.Name = "labelHirdetesLeiras";
+            this.labelHirdetesLeiras.Size = new System.Drawing.Size(81, 13);
+            this.labelHirdetesLeiras.TabIndex = 39;
+            this.labelHirdetesLeiras.Text = "Hirdetés leírása";
+            // 
+            // textBoxHirdetesLeiras
+            // 
+            this.textBoxHirdetesLeiras.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxHirdetesLeiras.Location = new System.Drawing.Point(491, 105);
+            this.textBoxHirdetesLeiras.Multiline = true;
+            this.textBoxHirdetesLeiras.Name = "textBoxHirdetesLeiras";
+            this.textBoxHirdetesLeiras.Size = new System.Drawing.Size(224, 99);
+            this.textBoxHirdetesLeiras.TabIndex = 38;
+            // 
+            // labelHirdetesIngatlan
+            // 
+            this.labelHirdetesIngatlan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelHirdetesIngatlan.AutoSize = true;
+            this.labelHirdetesIngatlan.Location = new System.Drawing.Point(6, 108);
+            this.labelHirdetesIngatlan.Name = "labelHirdetesIngatlan";
+            this.labelHirdetesIngatlan.Size = new System.Drawing.Size(111, 13);
+            this.labelHirdetesIngatlan.TabIndex = 37;
+            this.labelHirdetesIngatlan.Text = "Hirdetendő ingatlanok";
+            // 
+            // labelHirdetesbenSzereploCim
+            // 
+            this.labelHirdetesbenSzereploCim.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelHirdetesbenSzereploCim.AutoSize = true;
+            this.labelHirdetesbenSzereploCim.Location = new System.Drawing.Point(358, 53);
+            this.labelHirdetesbenSzereploCim.Name = "labelHirdetesbenSzereploCim";
+            this.labelHirdetesbenSzereploCim.Size = new System.Drawing.Size(127, 13);
+            this.labelHirdetesbenSzereploCim.TabIndex = 36;
+            this.labelHirdetesbenSzereploCim.Text = "Hirdetésben szereplő cím";
+            // 
+            // textBoxHirdetesbenSzereploCim
+            // 
+            this.textBoxHirdetesbenSzereploCim.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxHirdetesbenSzereploCim.Location = new System.Drawing.Point(491, 50);
+            this.textBoxHirdetesbenSzereploCim.Name = "textBoxHirdetesbenSzereploCim";
+            this.textBoxHirdetesbenSzereploCim.Size = new System.Drawing.Size(224, 20);
+            this.textBoxHirdetesbenSzereploCim.TabIndex = 35;
+            // 
+            // labelHirdetesAzonosito
+            // 
+            this.labelHirdetesAzonosito.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelHirdetesAzonosito.AutoSize = true;
+            this.labelHirdetesAzonosito.Location = new System.Drawing.Point(13, 53);
+            this.labelHirdetesAzonosito.Name = "labelHirdetesAzonosito";
+            this.labelHirdetesAzonosito.Size = new System.Drawing.Size(104, 13);
+            this.labelHirdetesAzonosito.TabIndex = 34;
+            this.labelHirdetesAzonosito.Text = "Hirdetés azonosítója";
+            // 
+            // textBoxHirdetesAzonosito
+            // 
+            this.textBoxHirdetesAzonosito.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxHirdetesAzonosito.Location = new System.Drawing.Point(123, 50);
+            this.textBoxHirdetesAzonosito.Name = "textBoxHirdetesAzonosito";
+            this.textBoxHirdetesAzonosito.ReadOnly = true;
+            this.textBoxHirdetesAzonosito.Size = new System.Drawing.Size(224, 20);
+            this.textBoxHirdetesAzonosito.TabIndex = 33;
+            // 
+            // comboBoxHirdetesIngatlanok
+            // 
+            this.comboBoxHirdetesIngatlanok.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxHirdetesIngatlanok.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHirdetesIngatlanok.FormattingEnabled = true;
+            this.comboBoxHirdetesIngatlanok.Location = new System.Drawing.Point(123, 105);
+            this.comboBoxHirdetesIngatlanok.Name = "comboBoxHirdetesIngatlanok";
+            this.comboBoxHirdetesIngatlanok.Size = new System.Drawing.Size(224, 21);
+            this.comboBoxHirdetesIngatlanok.TabIndex = 32;
+            this.comboBoxHirdetesIngatlanok.SelectedIndexChanged += new System.EventHandler(this.comboBoxHirdetesIngatlanok_SelectedIndexChanged);
+            // 
+            // buttonHirdetesDekativalas
+            // 
+            this.buttonHirdetesDekativalas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonHirdetesDekativalas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonHirdetesDekativalas.Image = ((System.Drawing.Image)(resources.GetObject("buttonHirdetesDekativalas.Image")));
+            this.buttonHirdetesDekativalas.Location = new System.Drawing.Point(304, 329);
+            this.buttonHirdetesDekativalas.Name = "buttonHirdetesDekativalas";
+            this.buttonHirdetesDekativalas.Size = new System.Drawing.Size(143, 68);
+            this.buttonHirdetesDekativalas.TabIndex = 15;
+            this.buttonHirdetesDekativalas.Text = "Hirdetés deaktiválása";
+            this.buttonHirdetesDekativalas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonHirdetesDekativalas.UseVisualStyleBackColor = true;
+            // 
+            // buttonHirdetesModositas
+            // 
+            this.buttonHirdetesModositas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonHirdetesModositas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonHirdetesModositas.Image = ((System.Drawing.Image)(resources.GetObject("buttonHirdetesModositas.Image")));
+            this.buttonHirdetesModositas.Location = new System.Drawing.Point(155, 329);
+            this.buttonHirdetesModositas.Name = "buttonHirdetesModositas";
+            this.buttonHirdetesModositas.Size = new System.Drawing.Size(143, 68);
+            this.buttonHirdetesModositas.TabIndex = 14;
+            this.buttonHirdetesModositas.Text = "Hirdetés módosítása";
+            this.buttonHirdetesModositas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonHirdetesModositas.UseVisualStyleBackColor = true;
+            this.buttonHirdetesModositas.Click += new System.EventHandler(this.buttonHirdetesModositas_Click);
+            // 
+            // buttonHirdetesHozzaadas
+            // 
+            this.buttonHirdetesHozzaadas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonHirdetesHozzaadas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonHirdetesHozzaadas.Image = ((System.Drawing.Image)(resources.GetObject("buttonHirdetesHozzaadas.Image")));
+            this.buttonHirdetesHozzaadas.Location = new System.Drawing.Point(6, 329);
+            this.buttonHirdetesHozzaadas.Name = "buttonHirdetesHozzaadas";
+            this.buttonHirdetesHozzaadas.Size = new System.Drawing.Size(143, 68);
+            this.buttonHirdetesHozzaadas.TabIndex = 13;
+            this.buttonHirdetesHozzaadas.Text = "Ingatlan meghirdetése";
+            this.buttonHirdetesHozzaadas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonHirdetesHozzaadas.UseVisualStyleBackColor = true;
+            this.buttonHirdetesHozzaadas.Click += new System.EventHandler(this.buttonHirdetesHozzaadas_Click);
+            // 
+            // listViewHirdetesek
+            // 
+            this.listViewHirdetesek.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewHirdetesek.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderHirdetesAzonosito,
+            this.columnHeaderIngatlanHelyrajziSzam,
+            this.columnHeaderHirdetesCim,
+            this.columnHeaderHirdetesLeiras,
+            this.columnHeaderHirdetesAr,
+            this.columnHeaderHirdetesDatum,
+            this.columnHeaderHirdetesAktiv});
+            this.listViewHirdetesek.FullRowSelect = true;
+            this.listViewHirdetesek.GridLines = true;
+            this.listViewHirdetesek.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listViewHirdetesek.HideSelection = false;
+            this.listViewHirdetesek.Location = new System.Drawing.Point(6, 6);
+            this.listViewHirdetesek.MultiSelect = false;
+            this.listViewHirdetesek.Name = "listViewHirdetesek";
+            this.listViewHirdetesek.Size = new System.Drawing.Size(730, 250);
+            this.listViewHirdetesek.TabIndex = 5;
+            this.listViewHirdetesek.UseCompatibleStateImageBehavior = false;
+            this.listViewHirdetesek.View = System.Windows.Forms.View.Details;
+            this.listViewHirdetesek.SelectedIndexChanged += new System.EventHandler(this.listViewHirdetesek_SelectedIndexChanged);
+            // 
+            // columnHeaderHirdetesAzonosito
+            // 
+            this.columnHeaderHirdetesAzonosito.Text = "Hirdetés azonosítója";
+            this.columnHeaderHirdetesAzonosito.Width = 150;
+            // 
+            // columnHeaderIngatlanHelyrajziSzam
+            // 
+            this.columnHeaderIngatlanHelyrajziSzam.Text = "Ingatlan helyrajzi száma";
+            this.columnHeaderIngatlanHelyrajziSzam.Width = 150;
+            // 
+            // columnHeaderHirdetesCim
+            // 
+            this.columnHeaderHirdetesCim.Text = "Hirdetésben szereplő címe";
+            this.columnHeaderHirdetesCim.Width = 150;
+            // 
+            // columnHeaderHirdetesLeiras
+            // 
+            this.columnHeaderHirdetesLeiras.Text = "Hirdetés leírása";
+            this.columnHeaderHirdetesLeiras.Width = 150;
+            // 
+            // columnHeaderHirdetesAr
+            // 
+            this.columnHeaderHirdetesAr.Text = "Hirdetésben szereplő ár";
+            this.columnHeaderHirdetesAr.Width = 150;
+            // 
+            // columnHeaderHirdetesDatum
+            // 
+            this.columnHeaderHirdetesDatum.Text = "Hirdetés dátuma";
+            this.columnHeaderHirdetesDatum.Width = 150;
+            // 
+            // columnHeaderHirdetesAktiv
+            // 
+            this.columnHeaderHirdetesAktiv.Text = "Aktív hirdetés?";
+            this.columnHeaderHirdetesAktiv.Width = 150;
             // 
             // tabPageFelhasznaloKezeles
             // 
@@ -925,6 +1172,11 @@
             this.groupBoxEladoAdatai.PerformLayout();
             this.groupBoxIngatlanAdatai.ResumeLayout(false);
             this.groupBoxIngatlanAdatai.PerformLayout();
+            this.tabPageHirdetesekKezelese.ResumeLayout(false);
+            this.groupBoxHirdetesekKezelese.ResumeLayout(false);
+            this.groupBoxHirdetesekKezelese.PerformLayout();
+            this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai.ResumeLayout(false);
+            this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai.PerformLayout();
             this.tabPageFelhasznaloKezeles.ResumeLayout(false);
             this.groupBoxUgynokok.ResumeLayout(false);
             this.groupBoxUgynokok.PerformLayout();
@@ -1014,5 +1266,27 @@
         private System.Windows.Forms.Label labelEladoKeresztnev;
         private System.Windows.Forms.TextBox textBoxEladoKeresztnev;
         private System.Windows.Forms.ColumnHeader columnHeaderTulajdonosKeresztnev;
+        private System.Windows.Forms.ListView listViewHirdetesek;
+        private System.Windows.Forms.ColumnHeader columnHeaderHirdetesAzonosito;
+        private System.Windows.Forms.ColumnHeader columnHeaderIngatlanHelyrajziSzam;
+        private System.Windows.Forms.ColumnHeader columnHeaderHirdetesCim;
+        private System.Windows.Forms.ColumnHeader columnHeaderHirdetesLeiras;
+        private System.Windows.Forms.ColumnHeader columnHeaderHirdetesAr;
+        private System.Windows.Forms.ColumnHeader columnHeaderHirdetesDatum;
+        private System.Windows.Forms.ColumnHeader columnHeaderHirdetesAktiv;
+        private System.Windows.Forms.Button buttonHirdetesModositas;
+        private System.Windows.Forms.Button buttonHirdetesHozzaadas;
+        private System.Windows.Forms.GroupBox groupBoxHirdetesekKezelese;
+        private System.Windows.Forms.Button buttonHirdetesDekativalas;
+        private System.Windows.Forms.Label labelHirdetesAzonosito;
+        private System.Windows.Forms.TextBox textBoxHirdetesAzonosito;
+        private System.Windows.Forms.ComboBox comboBoxHirdetesIngatlanok;
+        private System.Windows.Forms.Label labelHirdetesbenSzereploCim;
+        private System.Windows.Forms.TextBox textBoxHirdetesbenSzereploCim;
+        private System.Windows.Forms.Label labelHirdetesIngatlan;
+        private System.Windows.Forms.Label labelHirdetesLeiras;
+        private System.Windows.Forms.TextBox textBoxHirdetesLeiras;
+        private System.Windows.Forms.GroupBox groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai;
+        private System.Windows.Forms.Label labelHirdetesbenSzereploIngatlanEsEladoAdatok;
     }
 }

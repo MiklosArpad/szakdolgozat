@@ -56,5 +56,18 @@ namespace IngatlanCentrum.Service
 
             return hirdetettIngatlanokUgynokSzerint;
         }
+
+        public bool IngatlanSzerepelEHirdetesben(string helyrajziSzam)
+        {
+            foreach (Hirdetes hirdetes in GetHirdetesek())
+            {
+                if (hirdetes.Ingatlan.HelyrajziSzam == helyrajziSzam)
+                {
+                    throw new IngatlanException("Az ingatlan már meg van hirdetve!\nA hirdetés deaktiválása során van lehetőség újbóli meghirdetésre!");
+                }
+            }
+
+            return false;
+        }
     }
 }

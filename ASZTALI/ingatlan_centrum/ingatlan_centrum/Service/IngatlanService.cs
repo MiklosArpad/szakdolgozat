@@ -33,7 +33,7 @@ namespace IngatlanCentrum.Service
                 }
             }
 
-            throw new IngatlanException("Ilyen leírással nem létezik ingatlan!");
+            throw new IngatlanException("Nincs létezik ingatlan adott helyrajzi számmal!");
         }
 
         public List<Ingatlan> GetIngatlan(int alapterulet)
