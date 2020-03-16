@@ -1,5 +1,6 @@
 ﻿using IngatlanCentrum.Exceptions;
 using IngatlanCentrum.Model;
+using System;
 
 namespace IngatlanCentrum.Validation
 {
@@ -22,11 +23,6 @@ namespace IngatlanCentrum.Validation
                 throw new IngatlanException("Ingatlan települése nem lehet üres!");
             }
 
-            if (UresE(ingatlan.Alapterulet.ToString()))
-            {
-                throw new IngatlanException("Ingatlan  nem lehet üres!");
-            }
-
             if (UresE(ingatlan.Kategoria))
             {
                 throw new IngatlanException("Ingatlan kategóriája nem lehet üres!");
@@ -37,20 +33,38 @@ namespace IngatlanCentrum.Validation
                 throw new IngatlanException("Ingatlan állapota nem lehet üres!");
             }
 
-            if (AlapteruletKisebbENullanal(ingatlan.Alapterulet))
+            if (!HelyrajziSzamTartalmazSzamot(ingatlan.HelyrajziSzam))
             {
-                throw new IngatlanException("Ingatlan alapterülete nem lehet negatív szám!");
+                throw new IngatlanException("Helyrajszi számnak tartalmaznia kell számot!");
+            }
+
+            if (HelyrajziSzamKisbetutTartalmaz(ingatlan.HelyrajziSzam))
+            {
+                throw new IngatlanException("Amennyiben a helyrajzi szám tartalmaz betűt, nagybetűvel kell feltüntetni!");
+            }
+
+            if (AlapteruletKisebbENullanalVagyNulla(ingatlan.Alapterulet))
+            {
+                throw new IngatlanException("Ingatlan alapterülete nem lehet nulla vagy negatív szám!");
             }
 
             if (AlapteruletTartalmazEBetut(ingatlan.Alapterulet.ToString()))
             {
                 throw new IngatlanException("Ingatlan alapterülete nem tartalmazhat betűt!");
             }
+        }
 
-            if (!HelyrajziSzamTartalmazBetut(ingatlan.HelyrajziSzam))
+        private static bool HelyrajziSzamKisbetutTartalmaz(string helyrajziSzam)
+        {
+            foreach (char karakter in helyrajziSzam)
             {
-                throw new IngatlanException("Helyrajszi számnak tartalmaznia kell számot!");
+                if (char.IsLower(karakter))
+                {
+                    return true;
+                }
             }
+
+            return false;
         }
 
         private static bool UresE(string bemenet)
@@ -63,9 +77,9 @@ namespace IngatlanCentrum.Validation
             return false;
         }
 
-        private static bool AlapteruletKisebbENullanal(int alapterulet)
+        private static bool AlapteruletKisebbENullanalVagyNulla(int alapterulet)
         {
-            if (alapterulet < 0)
+            if (alapterulet <= 0)
             {
                 return true;
             }
@@ -86,11 +100,11 @@ namespace IngatlanCentrum.Validation
             return false;
         }
 
-        private static bool HelyrajziSzamTartalmazBetut(string helyrajziSzam)
+        private static bool HelyrajziSzamTartalmazSzamot(string helyrajziSzam)
         {
             foreach (char karakter in helyrajziSzam)
             {
-                if (char.IsLetter(karakter))
+                if (char.IsDigit(karakter))
                 {
                     return true;
                 }
