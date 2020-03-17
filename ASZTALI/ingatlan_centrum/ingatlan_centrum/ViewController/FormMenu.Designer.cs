@@ -129,6 +129,7 @@
             this.labelUgynokAzonosito = new System.Windows.Forms.Label();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelSession = new System.Windows.Forms.ToolStripStatusLabel();
+            this.buttonHirdetesAktivalas = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -673,6 +674,7 @@
             this.groupBoxHirdetesekKezelese.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxHirdetesekKezelese.Controls.Add(this.buttonHirdetesAktivalas);
             this.groupBoxHirdetesekKezelese.Controls.Add(this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai);
             this.groupBoxHirdetesekKezelese.Controls.Add(this.labelHirdetesLeiras);
             this.groupBoxHirdetesekKezelese.Controls.Add(this.textBoxHirdetesLeiras);
@@ -685,9 +687,9 @@
             this.groupBoxHirdetesekKezelese.Controls.Add(this.buttonHirdetesDekativalas);
             this.groupBoxHirdetesekKezelese.Controls.Add(this.buttonHirdetesModositas);
             this.groupBoxHirdetesekKezelese.Controls.Add(this.buttonHirdetesHozzaadas);
-            this.groupBoxHirdetesekKezelese.Location = new System.Drawing.Point(6, 262);
+            this.groupBoxHirdetesekKezelese.Location = new System.Drawing.Point(6, 173);
             this.groupBoxHirdetesekKezelese.Name = "groupBoxHirdetesekKezelese";
-            this.groupBoxHirdetesekKezelese.Size = new System.Drawing.Size(730, 403);
+            this.groupBoxHirdetesekKezelese.Size = new System.Drawing.Size(730, 492);
             this.groupBoxHirdetesekKezelese.TabIndex = 15;
             this.groupBoxHirdetesekKezelese.TabStop = false;
             this.groupBoxHirdetesekKezelese.Text = "Hirdetések kezelése";
@@ -696,7 +698,7 @@
             // 
             this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai.Controls.Add(this.labelHirdetesbenSzereploIngatlanEsEladoAdatok);
-            this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai.Location = new System.Drawing.Point(6, 132);
+            this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai.Location = new System.Drawing.Point(6, 221);
             this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai.Name = "groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai";
             this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai.Size = new System.Drawing.Size(341, 191);
             this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai.TabIndex = 40;
@@ -714,7 +716,7 @@
             // 
             this.labelHirdetesLeiras.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelHirdetesLeiras.AutoSize = true;
-            this.labelHirdetesLeiras.Location = new System.Drawing.Point(404, 108);
+            this.labelHirdetesLeiras.Location = new System.Drawing.Point(59, 88);
             this.labelHirdetesLeiras.Name = "labelHirdetesLeiras";
             this.labelHirdetesLeiras.Size = new System.Drawing.Size(81, 13);
             this.labelHirdetesLeiras.TabIndex = 39;
@@ -723,7 +725,7 @@
             // textBoxHirdetesLeiras
             // 
             this.textBoxHirdetesLeiras.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxHirdetesLeiras.Location = new System.Drawing.Point(491, 105);
+            this.textBoxHirdetesLeiras.Location = new System.Drawing.Point(146, 85);
             this.textBoxHirdetesLeiras.Multiline = true;
             this.textBoxHirdetesLeiras.Name = "textBoxHirdetesLeiras";
             this.textBoxHirdetesLeiras.Size = new System.Drawing.Size(224, 99);
@@ -733,7 +735,7 @@
             // 
             this.labelHirdetesIngatlan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelHirdetesIngatlan.AutoSize = true;
-            this.labelHirdetesIngatlan.Location = new System.Drawing.Point(6, 108);
+            this.labelHirdetesIngatlan.Location = new System.Drawing.Point(6, 200);
             this.labelHirdetesIngatlan.Name = "labelHirdetesIngatlan";
             this.labelHirdetesIngatlan.Size = new System.Drawing.Size(111, 13);
             this.labelHirdetesIngatlan.TabIndex = 37;
@@ -743,7 +745,7 @@
             // 
             this.labelHirdetesbenSzereploCim.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelHirdetesbenSzereploCim.AutoSize = true;
-            this.labelHirdetesbenSzereploCim.Location = new System.Drawing.Point(358, 53);
+            this.labelHirdetesbenSzereploCim.Location = new System.Drawing.Point(13, 62);
             this.labelHirdetesbenSzereploCim.Name = "labelHirdetesbenSzereploCim";
             this.labelHirdetesbenSzereploCim.Size = new System.Drawing.Size(127, 13);
             this.labelHirdetesbenSzereploCim.TabIndex = 36;
@@ -752,7 +754,7 @@
             // textBoxHirdetesbenSzereploCim
             // 
             this.textBoxHirdetesbenSzereploCim.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxHirdetesbenSzereploCim.Location = new System.Drawing.Point(491, 50);
+            this.textBoxHirdetesbenSzereploCim.Location = new System.Drawing.Point(146, 59);
             this.textBoxHirdetesbenSzereploCim.Name = "textBoxHirdetesbenSzereploCim";
             this.textBoxHirdetesbenSzereploCim.Size = new System.Drawing.Size(224, 20);
             this.textBoxHirdetesbenSzereploCim.TabIndex = 35;
@@ -761,7 +763,7 @@
             // 
             this.labelHirdetesAzonosito.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelHirdetesAzonosito.AutoSize = true;
-            this.labelHirdetesAzonosito.Location = new System.Drawing.Point(13, 53);
+            this.labelHirdetesAzonosito.Location = new System.Drawing.Point(36, 36);
             this.labelHirdetesAzonosito.Name = "labelHirdetesAzonosito";
             this.labelHirdetesAzonosito.Size = new System.Drawing.Size(104, 13);
             this.labelHirdetesAzonosito.TabIndex = 34;
@@ -770,7 +772,7 @@
             // textBoxHirdetesAzonosito
             // 
             this.textBoxHirdetesAzonosito.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxHirdetesAzonosito.Location = new System.Drawing.Point(123, 50);
+            this.textBoxHirdetesAzonosito.Location = new System.Drawing.Point(146, 33);
             this.textBoxHirdetesAzonosito.Name = "textBoxHirdetesAzonosito";
             this.textBoxHirdetesAzonosito.ReadOnly = true;
             this.textBoxHirdetesAzonosito.Size = new System.Drawing.Size(224, 20);
@@ -781,7 +783,7 @@
             this.comboBoxHirdetesIngatlanok.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBoxHirdetesIngatlanok.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxHirdetesIngatlanok.FormattingEnabled = true;
-            this.comboBoxHirdetesIngatlanok.Location = new System.Drawing.Point(123, 105);
+            this.comboBoxHirdetesIngatlanok.Location = new System.Drawing.Point(123, 197);
             this.comboBoxHirdetesIngatlanok.Name = "comboBoxHirdetesIngatlanok";
             this.comboBoxHirdetesIngatlanok.Size = new System.Drawing.Size(224, 21);
             this.comboBoxHirdetesIngatlanok.TabIndex = 32;
@@ -789,10 +791,10 @@
             // 
             // buttonHirdetesDekativalas
             // 
-            this.buttonHirdetesDekativalas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonHirdetesDekativalas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonHirdetesDekativalas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonHirdetesDekativalas.Image = ((System.Drawing.Image)(resources.GetObject("buttonHirdetesDekativalas.Image")));
-            this.buttonHirdetesDekativalas.Location = new System.Drawing.Point(304, 329);
+            this.buttonHirdetesDekativalas.Location = new System.Drawing.Point(581, 418);
             this.buttonHirdetesDekativalas.Name = "buttonHirdetesDekativalas";
             this.buttonHirdetesDekativalas.Size = new System.Drawing.Size(143, 68);
             this.buttonHirdetesDekativalas.TabIndex = 15;
@@ -806,7 +808,7 @@
             this.buttonHirdetesModositas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonHirdetesModositas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonHirdetesModositas.Image = ((System.Drawing.Image)(resources.GetObject("buttonHirdetesModositas.Image")));
-            this.buttonHirdetesModositas.Location = new System.Drawing.Point(155, 329);
+            this.buttonHirdetesModositas.Location = new System.Drawing.Point(155, 418);
             this.buttonHirdetesModositas.Name = "buttonHirdetesModositas";
             this.buttonHirdetesModositas.Size = new System.Drawing.Size(143, 68);
             this.buttonHirdetesModositas.TabIndex = 14;
@@ -820,7 +822,7 @@
             this.buttonHirdetesHozzaadas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonHirdetesHozzaadas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonHirdetesHozzaadas.Image = ((System.Drawing.Image)(resources.GetObject("buttonHirdetesHozzaadas.Image")));
-            this.buttonHirdetesHozzaadas.Location = new System.Drawing.Point(6, 329);
+            this.buttonHirdetesHozzaadas.Location = new System.Drawing.Point(6, 418);
             this.buttonHirdetesHozzaadas.Name = "buttonHirdetesHozzaadas";
             this.buttonHirdetesHozzaadas.Size = new System.Drawing.Size(143, 68);
             this.buttonHirdetesHozzaadas.TabIndex = 13;
@@ -848,7 +850,7 @@
             this.listViewHirdetesek.Location = new System.Drawing.Point(6, 6);
             this.listViewHirdetesek.MultiSelect = false;
             this.listViewHirdetesek.Name = "listViewHirdetesek";
-            this.listViewHirdetesek.Size = new System.Drawing.Size(730, 250);
+            this.listViewHirdetesek.Size = new System.Drawing.Size(730, 161);
             this.listViewHirdetesek.TabIndex = 5;
             this.listViewHirdetesek.UseCompatibleStateImageBehavior = false;
             this.listViewHirdetesek.View = System.Windows.Forms.View.Details;
@@ -1146,6 +1148,20 @@
             this.toolStripStatusLabelSession.Size = new System.Drawing.Size(158, 20);
             this.toolStripStatusLabelSession.Text = "Bejelentkezett ügynök:";
             // 
+            // buttonHirdetesAktivalas
+            // 
+            this.buttonHirdetesAktivalas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonHirdetesAktivalas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonHirdetesAktivalas.Image = ((System.Drawing.Image)(resources.GetObject("buttonHirdetesAktivalas.Image")));
+            this.buttonHirdetesAktivalas.Location = new System.Drawing.Point(432, 418);
+            this.buttonHirdetesAktivalas.Name = "buttonHirdetesAktivalas";
+            this.buttonHirdetesAktivalas.Size = new System.Drawing.Size(143, 68);
+            this.buttonHirdetesAktivalas.TabIndex = 41;
+            this.buttonHirdetesAktivalas.Text = "Hirdetés aktiválása";
+            this.buttonHirdetesAktivalas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonHirdetesAktivalas.UseVisualStyleBackColor = true;
+            this.buttonHirdetesAktivalas.Click += new System.EventHandler(this.buttonHirdetesAktivalas_Click);
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1289,5 +1305,6 @@
         private System.Windows.Forms.TextBox textBoxHirdetesLeiras;
         private System.Windows.Forms.GroupBox groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai;
         private System.Windows.Forms.Label labelHirdetesbenSzereploIngatlanEsEladoAdatok;
+        private System.Windows.Forms.Button buttonHirdetesAktivalas;
     }
 }

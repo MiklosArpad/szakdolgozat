@@ -428,9 +428,16 @@ namespace IngatlanCentrum.ViewController
                     elado.Adoazonosito = textBoxEladoAdoszam.Text;
                     elado.Telepules = comboBoxEladoTelepules.SelectedItem.ToString();
                     elado.Lakcim = textBoxEladoLakcim.Text;
+                    elado.Telefonszam = textBoxEladoTelefonszam.Text;
                     elado.Email = textBoxEladoEmail.Text;
 
                     EladoValidator.Validate(elado);
+
+                    string helyrajziSzam = textBoxHelyrajziSzam.Text;
+
+                    Ingatlan ingatlan = ingatlanService.GetIngatlan(helyrajziSzam);
+                    ingatlan.Elado = elado;
+                    ingatlanService.ModositIngatlan(ingatlan);
 
                     eladoService.ModositElado(elado);
                 }
@@ -449,7 +456,17 @@ namespace IngatlanCentrum.ViewController
         {
             try
             {
-                string helyrajziSzam = comboBoxHirdetesIngatlanok.SelectedItem.ToString();
+                string helyrajziSzam = "";
+
+                if (comboBoxHirdetesIngatlanok.SelectedIndex >= 0)
+                {
+                    helyrajziSzam = comboBoxHirdetesIngatlanok.SelectedItem.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Nincs kijelölt ingatlan meghirdetéshez!", "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 Hirdetes hirdetes = new Hirdetes();
                 hirdetes.Ingatlan = ingatlanService.GetIngatlan(helyrajziSzam);
@@ -544,6 +561,62 @@ namespace IngatlanCentrum.ViewController
             }
         }
 
+        private void buttonHirdetesDekativalas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (comboBoxHirdetesIngatlanok.SelectedIndex >= 0)
+                {
+                    string helyrajziSzam = comboBoxHirdetesIngatlanok.SelectedItem.ToString();
+                    Hirdetes hirdetes = hirdetesService.GetHirdetes(helyrajziSzam);
+
+                    hirdetesService.HirdetesDeaktivalas(hirdetes);
+
+                    // GUI módosítás:
+                    //
+                    // adott rekord törlése a Listboxból, amelyiknél deaktiváltuk a hirdetést ...
+
+                    FeltoltHirdetesIngatlanComboBox();
+                }
+                else
+                {
+                    MessageBox.Show("Nincs kijelölt hirdetés deaktiváláshoz!", "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonHirdetesAktivalas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (comboBoxHirdetesIngatlanok.SelectedIndex >= 0)
+                {
+                    string helyrajziSzam = comboBoxHirdetesIngatlanok.SelectedItem.ToString();
+                    Hirdetes hirdetes = hirdetesService.GetHirdetes(helyrajziSzam);
+
+                    hirdetesService.HirdetesAktivalas(hirdetes);
+
+                    // GUI módosítás:
+                    //
+                    // adott rekord törlése a Listboxból, amelyiknél deaktiváltuk a hirdetést ...
+
+                    FeltoltHirdetesIngatlanComboBox();
+                }
+                else
+                {
+                    MessageBox.Show("Nincs kijelölt hirdetés aktiváláshoz!", "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         #endregion
 
         #region TabControl
@@ -558,25 +631,5 @@ namespace IngatlanCentrum.ViewController
         }
 
         #endregion
-
-        private void buttonHirdetesDekativalas_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (comboBoxHirdetesIngatlanok.SelectedIndex >= 0)
-                {
-                    string helyrajziSzam = comboBoxHirdetesIngatlanok.SelectedItem.ToString();
-                    Hirdetes hirdetes = hirdetesService.GetHirdetes(helyrajziSzam);
-
-                    hirdetesService.HirdetesDeaktivalas(hirdetes);
-
-                    /// GUI módosítás
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
     }
 }
