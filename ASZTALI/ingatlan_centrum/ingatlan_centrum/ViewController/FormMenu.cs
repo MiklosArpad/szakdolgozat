@@ -93,7 +93,10 @@ namespace IngatlanCentrum.ViewController
 
             foreach (Ingatlan ingatlan in ingatlanService.GetIngatlanok())
             {
-                comboBoxHirdetesIngatlanok.Items.Add(ingatlan.HelyrajziSzam);
+                if (!hirdetesService.IngatlanSzerepelEHirdetesben(ingatlan.HelyrajziSzam))
+                {
+                    comboBoxHirdetesIngatlanok.Items.Add(ingatlan.HelyrajziSzam);
+                }
             }
         }
 
@@ -262,7 +265,6 @@ namespace IngatlanCentrum.ViewController
 
                 listViewItemHirdetesek.Text = hirdetes.Id.ToString();
                 listViewItemHirdetesek.SubItems.Add(hirdetes.Ingatlan.HelyrajziSzam);
-                listViewItemHirdetesek.SubItems.Add($"{hirdetes.Ingatlan.Elado.Vezeteknev} {hirdetes.Ingatlan.Elado.Keresztnev}");
                 listViewItemHirdetesek.SubItems.Add(hirdetes.Cim);
                 listViewItemHirdetesek.SubItems.Add(hirdetes.Leiras);
                 listViewItemHirdetesek.SubItems.Add(hirdetes.Ar.ToString("C0"));
@@ -556,5 +558,25 @@ namespace IngatlanCentrum.ViewController
         }
 
         #endregion
+
+        private void buttonHirdetesDekativalas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (comboBoxHirdetesIngatlanok.SelectedIndex >= 0)
+                {
+                    string helyrajziSzam = comboBoxHirdetesIngatlanok.SelectedItem.ToString();
+                    Hirdetes hirdetes = hirdetesService.GetHirdetes(helyrajziSzam);
+
+                    hirdetesService.HirdetesDeaktivalas(hirdetes);
+
+                    /// GUI módosítás
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

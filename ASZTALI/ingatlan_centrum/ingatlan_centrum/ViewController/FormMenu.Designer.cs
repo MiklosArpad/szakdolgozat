@@ -799,6 +799,7 @@
             this.buttonHirdetesDekativalas.Text = "Hirdetés deaktiválása";
             this.buttonHirdetesDekativalas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonHirdetesDekativalas.UseVisualStyleBackColor = true;
+            this.buttonHirdetesDekativalas.Click += new System.EventHandler(this.buttonHirdetesDekativalas_Click);
             // 
             // buttonHirdetesModositas
             // 

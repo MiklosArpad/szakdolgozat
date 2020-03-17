@@ -63,11 +63,52 @@ namespace IngatlanCentrum.Service
             {
                 if (hirdetes.Ingatlan.HelyrajziSzam == helyrajziSzam)
                 {
-                    throw new IngatlanException("Az ingatlan már meg van hirdetve!\nA hirdetés deaktiválása során van lehetőség újbóli meghirdetésre!");
+                    return true;
                 }
             }
 
             return false;
+        }
+
+        public Hirdetes GetHirdetes(string helyrajziSzam)
+        {
+            foreach (Hirdetes hirdetes in GetHirdetesek())
+            {
+                if (hirdetes.Ingatlan.HelyrajziSzam == helyrajziSzam)
+                {
+                    return hirdetes;
+                }
+            }
+
+            throw new IngatlanException($"Nincs meghirdetve az alábbi helyrajzi számmal: ({helyrajziSzam}) hirdetés!");
+        }
+
+        public void HirdetesDeaktivalas(Hirdetes hirdetes)
+        {
+            foreach (Hirdetes h in GetHirdetesek())
+            {
+                if (h.Id == hirdetes.Id && h.Aktiv == true)
+                {
+                    h.Aktiv = false;
+                    return;
+                }
+            }
+
+            throw new HirdetesException($"Nem található hirdetés az alábbi azonosítóval: {hirdetes.Id}\nvagy a hirdetés már eleve deaktivizált!");
+        }
+
+        public void HirdetesAktivalasa(Hirdetes hirdetes)
+        {
+            foreach (Hirdetes h in GetHirdetesek())
+            {
+                if (h.Id == hirdetes.Id && h.Aktiv == false)
+                {
+                    h.Aktiv = true;
+                    return;
+                }
+            }
+
+            throw new HirdetesException($"Nem található hirdetés az alábbi azonosítóval: {hirdetes.Id}\nvagy a hirdetés már eleve aktív!");
         }
     }
 }
