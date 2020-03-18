@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Már 18. 19:43
+-- Létrehozás ideje: 2020. Már 18. 20:07
 -- Kiszolgáló verziója: 10.4.11-MariaDB
 -- PHP verzió: 7.4.2
 
@@ -116,11 +116,14 @@ CREATE TABLE IF NOT EXISTS `ingatlanok` (
 --
 
 INSERT INTO `ingatlanok` (`helyrajzi_szam`, `telepules`, `alapterulet`, `kategoria`, `allapot`, `elado`) VALUES
+('06/05', 'Bordány', 1300, 'kert', 'új', '1122334455'),
 ('06/4', 'Ferencszállás', 13000, 'családi ház', 'használt', '2147483647'),
+('0725', 'Algyő', 2470, 'kert', 'új', '9988776655'),
 ('10003', 'Ambrózfalva', 148, 'családi ház', 'használt', '0123456789'),
 ('10980', 'Makó', 1234, 'kert', 'használt', '9988776655'),
 ('11003', 'Nagylak', 1356, 'bérleti jog', 'felújítandó', '5544332211'),
 ('3000', 'Balástya', 187, 'családi ház', 'használt', '1122334455'),
+('8700/5', 'Baks', 100, 'garázs', 'új', '0123456789'),
 ('98/5', 'Csanytelek', 35, 'bérleti jog', 'használt', '5566778899');
 
 -- --------------------------------------------------------
