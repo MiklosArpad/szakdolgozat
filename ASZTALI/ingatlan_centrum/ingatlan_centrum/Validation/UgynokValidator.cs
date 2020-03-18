@@ -17,6 +17,21 @@ namespace IngatlanCentrum.Validation
                 throw new UgynokException("Ügynök azonosítója nem lehet üres!");
             }
 
+            if (UresE(ugynok.Vezeteknev) || UresE(ugynok.Keresztnev))
+            {
+                throw new UgynokException("Ügynök vezeték- vagy keresztneve nem lehet üres!");
+            }
+
+            if (UresE(ugynok.Telefonszam))
+            {
+                throw new UgynokException("Ügynök telefonszáma nem lehet üres!");
+            }
+
+            if (UresE(ugynok.Jogosultsag))
+            {
+                throw new UgynokException("Ügynök jogosultsága nem lehet üres!");
+            }
+
             if (TartalmazEKisbetut(ugynok.Id))
             {
                 throw new UgynokException("Ügynök azonosítója nem tartalmazhat kisbetűt!");
@@ -45,21 +60,6 @@ namespace IngatlanCentrum.Validation
             if (!TartalmazESzamot(ugynok.Jelszo))
             {
                 throw new UgynokException("Ügynök jelszavának tartalaznia kell számot!");
-            }
-
-            if (UresE(ugynok.Vezeteknev) || UresE(ugynok.Keresztnev))
-            {
-                throw new UgynokException("Ügynök vezeték- vagy keresztneve nem lehet üres!");
-            }
-
-            if (UresE(ugynok.Telefonszam))
-            {
-                throw new UgynokException("Ügynök telefonszáma nem lehet üres!");
-            }
-
-            if (UresE(ugynok.Jogosultsag))
-            {
-                throw new UgynokException("Ügynök jogosultsága nem lehet üres!");
             }
 
             if (UgynokNeveKisbetuvelKezdodik(ugynok.Vezeteknev) || UgynokNeveKisbetuvelKezdodik(ugynok.Keresztnev))
