@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Már 12. 14:48
+-- Létrehozás ideje: 2020. Már 18. 19:43
 -- Kiszolgáló verziója: 10.4.11-MariaDB
 -- PHP verzió: 7.4.2
 
@@ -83,12 +83,12 @@ CREATE TABLE IF NOT EXISTS `hirdetesek` (
 --
 
 INSERT INTO `hirdetesek` (`azonosito`, `cim`, `leiras`, `ar`, `ingatlan`, `ugynok`, `hirdetes_datuma`, `aktiv`) VALUES
-(1, 'Nagy ház', 'Nagy ház', 12000000, '10980', 'XYZ987', '2020-02-26 16:12:54', 1),
-(2, 'Kis panellakás a városban!', 'Kis panellakás a városban!', 2000000, '11003', 'ABC123', '2020-02-26 16:12:57', 1),
-(3, 'Nagy villa', 'Nagy villa', 12000000, '06/4', 'XYZ987', '2020-02-27 11:12:30', 1),
-(4, 'Kis panel', 'Kis panel', 17000000, '98/5', 'ABC123', '2020-02-27 11:13:19', 1),
-(5, 'Családi fészek', 'Családi fészek', 23000000, '10003', 'XYZ987', '2020-02-27 11:13:54', 1),
-(6, 'Polgári palota', 'Polgári palota', 40500000, '3000', 'ABC123', '2020-02-27 11:14:36', 1);
+(1, 'Nagy ház', 'Zöld, fákkal teli kertes házikó kerül eladásra Makó kertvárosi övezetében! 2 konyhás, 2 fürdőszobás, emeletes használt ingatlan!', 12000000, '10980', 'XYZ987', '2020-02-26 16:12:54', 1),
+(2, 'Kis panellakás a városban!', 'Nagylakon kiadó, elegáns, kis panel lakás közel a határhoz! Két hónap kaució szükséges!', 2000000, '11003', 'ABC123', '2020-02-26 16:12:57', 1),
+(3, 'Nagy villa', 'Mindig is vágytál álmaid házára? Pláne hogyha palota! Ferencszálláson eladó használt családi villánk!', 12000000, '06/4', 'XYZ987', '2020-02-27 11:12:30', 1),
+(4, 'Kis panel', 'Kiadó Csanyteleken bútorozott panellakás! Két hónap kaució szükséges, 1 konyhás, 1 fürdőszobás kényelem.', 17000000, '98/5', 'ABC123', '2020-02-27 11:13:19', 1),
+(5, 'Családi fészek', 'Ambrózfalvi családi ház eladó! Az ár alkuképes!', 23000000, '10003', 'XYZ987', '2020-02-27 11:13:54', 1),
+(6, 'Polgári palota', 'Használt családi ház eladó, 2 fürdőszobával, konyhával!', 40500000, '3000', 'ABC123', '2020-02-27 11:14:36', 1);
 
 -- --------------------------------------------------------
 
@@ -266,8 +266,8 @@ CREATE TABLE IF NOT EXISTS `ugynokok` (
 --
 
 INSERT INTO `ugynokok` (`azonosito`, `jelszo`, `vezeteknev`, `keresztnev`, `telefonszam`, `jogosultsag`) VALUES
-('ABC123', 'Ugynok12', 'Miklós', 'Árpád', '06202346794', 'admin'),
-('XYZ987', 'Ugynok13', 'Teszt', 'Elek', '06302134112', 'default');
+('ABC123', 'arPad19730', 'Miklós', 'Árpád', '06202346794', 'admin'),
+('XYZ987', 'ElEk6919Ab', 'Teszt', 'Elek', '06302134112', 'default');
 
 -- --------------------------------------------------------
 
