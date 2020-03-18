@@ -46,6 +46,7 @@ namespace IngatlanCentrum.ViewController
             textBoxEladoAdoszam.Clear();
             textBoxEladoTelefonszam.Clear();
             textBoxEladoEmail.Clear();
+            FeltoltMeglevoEladokComboBox();
         }
 
         private void HirdetesPanelVezerloketAlaphelyzetbeAllit()
@@ -79,6 +80,7 @@ namespace IngatlanCentrum.ViewController
             FeltoltTelepulesekComboBox(comboBoxEladoTelepules);
             FeltoltUgynokJogosultsagokComboBox();
             FeltoltHirdetendoIngatlanokComboBox();
+            FeltoltMeglevoEladokComboBox();
 
             toolStripStatusLabelSession.Text += $" {Munkamenet.UgynokAzonosito}/{Munkamenet.UgynokNeve}/ ({Munkamenet.UgynokJogosultsag})";
         }
@@ -165,6 +167,16 @@ namespace IngatlanCentrum.ViewController
             }
         }
 
+        private void FeltoltMeglevoEladokComboBox()
+        {
+            comboBoxMeglevoEladok.Items.Clear();
+
+            foreach (Elado elado in eladoService.GetEladok())
+            {
+                comboBoxMeglevoEladok.Items.Add($"{elado.Vezeteknev} {elado.Keresztnev}");
+            }
+        }
+
         #endregion
 
         #region Menüsáv
@@ -209,6 +221,12 @@ namespace IngatlanCentrum.ViewController
         {
             if (listViewIngatlanok.SelectedItems.Count > 0)
             {
+                labelMeglevoEladok.Visible = false;
+                comboBoxMeglevoEladok.Visible = false;
+                buttonUjIngatlan.Visible = false;
+                buttonIngatlanModositas.Visible = true;
+                buttonEladoModositas.Visible = true;
+
                 textBoxHelyrajziSzam.Text = listViewIngatlanok.SelectedItems[0].Text;
                 comboBoxIngatlanTelepulesek.SelectedItem = listViewIngatlanok.SelectedItems[0].SubItems[1].Text;
                 textBoxEladoVezeteknev.Text = listViewIngatlanok.SelectedItems[0].SubItems[2].Text;
@@ -227,6 +245,11 @@ namespace IngatlanCentrum.ViewController
             }
             else
             {
+                buttonUjIngatlan.Visible = true;
+                labelMeglevoEladok.Visible = true;
+                comboBoxMeglevoEladok.Visible = true;
+                buttonIngatlanModositas.Visible = false;
+                buttonEladoModositas.Visible = false;
                 IngatlanEsEladoPanelenVezerlokAlaphelyzetbeAllitasa();
             }
         }
@@ -340,6 +363,7 @@ namespace IngatlanCentrum.ViewController
             try
             {
                 Elado elado = new Elado();
+
                 elado.Vezeteknev = textBoxEladoVezeteknev.Text;
                 elado.Keresztnev = textBoxEladoKeresztnev.Text;
                 elado.Adoazonosito = textBoxEladoAdoszam.Text;
@@ -352,6 +376,11 @@ namespace IngatlanCentrum.ViewController
                 elado.Lakcim = textBoxEladoLakcim.Text;
                 elado.Telefonszam = textBoxEladoTelefonszam.Text;
                 elado.Email = textBoxEladoEmail.Text;
+
+                if (comboBoxMeglevoEladok.SelectedIndex >= 0)
+                {
+                    elado = eladoService.GetElado(comboBoxMeglevoEladok.SelectedItem.ToString());
+                }
 
                 Ingatlan ingatlan = new Ingatlan();
                 ingatlan.HelyrajziSzam = textBoxHelyrajziSzam.Text;

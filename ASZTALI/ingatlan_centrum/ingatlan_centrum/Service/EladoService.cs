@@ -52,26 +52,19 @@ namespace IngatlanCentrum.Service
             return repository.GetEladok();
         }
 
-        /// <summary>
-        /// Függvény, amely adott település névre szűrve visszaadja az eladókat listában
-        /// </summary>
-        /// <param name="telepulesNev">Település neve</param>
-        /// <returns>Településre szűrt eladók listája</returns>
-        public List<Elado> GetEladokTelepulesSzerint(string telepulesNev)
+        public Elado GetElado(string teljesNev)
         {
-            List<Elado> eladokTelepulesSzerint = new List<Elado>();
+            string[] nev = teljesNev.Split(' ');
 
             foreach (Elado elado in GetEladok())
             {
-                if (elado.Telepules == telepulesNev)
+                if (elado.Vezeteknev == nev[0] && elado.Keresztnev == nev[1])
                 {
-                    eladokTelepulesSzerint.Add(elado);
+                    return elado;
                 }
             }
 
-            eladokTelepulesSzerint.Sort();
-
-            return eladokTelepulesSzerint;
+            throw new EladoException("Nincs ilyen nevű eladó!");
         }
 
         /// <summary>
