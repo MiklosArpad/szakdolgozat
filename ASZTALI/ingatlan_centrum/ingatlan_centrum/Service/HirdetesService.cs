@@ -123,5 +123,15 @@ namespace IngatlanCentrum.Service
 
             throw new HirdetesException("A hirdetés már aktív!");
         }
+
+        public int GetNextHirdetesId()
+        {
+            return GetMaxHirdetesAzonosito() + 1;
+        }
+
+        private int GetMaxHirdetesAzonosito()
+        {
+            return 0;
+        }
     }
 }

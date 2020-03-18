@@ -51,7 +51,6 @@ namespace IngatlanCentrum.ViewController
 
         private void HirdetesPanelVezerloketAlaphelyzetbeAllit()
         {
-            textBoxHirdetesAzonosito.Clear();
             textBoxHirdetesbenSzereploCim.Clear();
             textBoxHirdetesLeiras.Clear();
             textBoxMeghirdetettAr.Clear();
@@ -124,6 +123,11 @@ namespace IngatlanCentrum.ViewController
 
         private void comboBoxHirdetesIngatlanok_SelectedIndexChanged(object sender, EventArgs e)
         {
+            buttonHirdetesModositas.Visible = false;
+            buttonHirdetesDeaktivalas.Visible = false;
+            buttonHirdetesAktivalas.Visible = false;
+            buttonHirdetesHozzaadas.Visible = true;
+
             HirdetesPanelVezerloketAlaphelyzetbeAllit();
 
             string helyrajziSzam = comboBoxHirdetesIngatlanok.SelectedItem.ToString();
@@ -258,6 +262,11 @@ namespace IngatlanCentrum.ViewController
         {
             if (listViewHirdetesek.SelectedItems.Count > 0)
             {
+                buttonHirdetesHozzaadas.Visible = false;
+                buttonHirdetesModositas.Visible = true;
+                buttonHirdetesAktivalas.Visible = true;
+                buttonHirdetesDeaktivalas.Visible = true;
+
                 labelHirdetesbenSzereploIngatlanEsEladoAdatok.Text = "";
                 FeltoltHirdetendoIngatlanokComboBox();
 
@@ -271,6 +280,11 @@ namespace IngatlanCentrum.ViewController
             }
             else
             {
+                textBoxHirdetesAzonosito.Text = hirdetesService.GetNextHirdetesId().ToString();
+                buttonHirdetesHozzaadas.Visible = true;
+                buttonHirdetesModositas.Visible = false;
+                buttonHirdetesDeaktivalas.Visible = false;
+                buttonHirdetesAktivalas.Visible = false;
                 HirdetesPanelVezerloketAlaphelyzetbeAllit();
             }
         }

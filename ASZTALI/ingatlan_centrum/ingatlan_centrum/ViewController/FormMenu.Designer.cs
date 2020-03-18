@@ -98,7 +98,7 @@
             this.labelHirdetesbenSzereploIngatlanEsEladoAdatok = new System.Windows.Forms.Label();
             this.labelHirdetesIngatlan = new System.Windows.Forms.Label();
             this.comboBoxHirdetesIngatlanok = new System.Windows.Forms.ComboBox();
-            this.buttonHirdetesDekativalas = new System.Windows.Forms.Button();
+            this.buttonHirdetesDeaktivalas = new System.Windows.Forms.Button();
             this.listViewHirdetesek = new System.Windows.Forms.ListView();
             this.columnHeaderHirdetesAzonosito = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderIngatlanHelyrajziSzam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -696,7 +696,7 @@
             this.groupBoxHirdetesekKezelese.Controls.Add(this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai);
             this.groupBoxHirdetesekKezelese.Controls.Add(this.labelHirdetesIngatlan);
             this.groupBoxHirdetesekKezelese.Controls.Add(this.comboBoxHirdetesIngatlanok);
-            this.groupBoxHirdetesekKezelese.Controls.Add(this.buttonHirdetesDekativalas);
+            this.groupBoxHirdetesekKezelese.Controls.Add(this.buttonHirdetesDeaktivalas);
             this.groupBoxHirdetesekKezelese.Location = new System.Drawing.Point(6, 173);
             this.groupBoxHirdetesekKezelese.Name = "groupBoxHirdetesekKezelese";
             this.groupBoxHirdetesekKezelese.Size = new System.Drawing.Size(730, 492);
@@ -867,17 +867,17 @@
             // 
             // buttonHirdetesDekativalas
             // 
-            this.buttonHirdetesDekativalas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonHirdetesDekativalas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonHirdetesDekativalas.Image = ((System.Drawing.Image)(resources.GetObject("buttonHirdetesDekativalas.Image")));
-            this.buttonHirdetesDekativalas.Location = new System.Drawing.Point(581, 241);
-            this.buttonHirdetesDekativalas.Name = "buttonHirdetesDekativalas";
-            this.buttonHirdetesDekativalas.Size = new System.Drawing.Size(143, 68);
-            this.buttonHirdetesDekativalas.TabIndex = 15;
-            this.buttonHirdetesDekativalas.Text = "Hirdetés deaktiválása";
-            this.buttonHirdetesDekativalas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonHirdetesDekativalas.UseVisualStyleBackColor = true;
-            this.buttonHirdetesDekativalas.Click += new System.EventHandler(this.buttonHirdetesDekativalas_Click);
+            this.buttonHirdetesDeaktivalas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonHirdetesDeaktivalas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonHirdetesDeaktivalas.Image = ((System.Drawing.Image)(resources.GetObject("buttonHirdetesDekativalas.Image")));
+            this.buttonHirdetesDeaktivalas.Location = new System.Drawing.Point(581, 241);
+            this.buttonHirdetesDeaktivalas.Name = "buttonHirdetesDekativalas";
+            this.buttonHirdetesDeaktivalas.Size = new System.Drawing.Size(143, 68);
+            this.buttonHirdetesDeaktivalas.TabIndex = 15;
+            this.buttonHirdetesDeaktivalas.Text = "Hirdetés deaktiválása";
+            this.buttonHirdetesDeaktivalas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonHirdetesDeaktivalas.UseVisualStyleBackColor = true;
+            this.buttonHirdetesDeaktivalas.Click += new System.EventHandler(this.buttonHirdetesDekativalas_Click);
             // 
             // listViewHirdetesek
             // 
@@ -1347,7 +1347,7 @@
         private System.Windows.Forms.ColumnHeader columnHeaderHirdetesAktiv;
         private System.Windows.Forms.Button buttonHirdetesHozzaadas;
         private System.Windows.Forms.GroupBox groupBoxHirdetesekKezelese;
-        private System.Windows.Forms.Button buttonHirdetesDekativalas;
+        private System.Windows.Forms.Button buttonHirdetesDeaktivalas;
         private System.Windows.Forms.ComboBox comboBoxHirdetesIngatlanok;
         private System.Windows.Forms.Label labelHirdetesIngatlan;
         private System.Windows.Forms.GroupBox groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai;
