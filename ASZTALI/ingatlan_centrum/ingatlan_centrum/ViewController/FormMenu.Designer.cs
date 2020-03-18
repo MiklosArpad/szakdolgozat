@@ -83,7 +83,7 @@
             this.tabPageHirdetesekKezelese = new System.Windows.Forms.TabPage();
             this.groupBoxHirdetesekKezelese = new System.Windows.Forms.GroupBox();
             this.labelForint = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelMeghirdetettAr = new System.Windows.Forms.Label();
             this.textBoxMeghirdetettAr = new System.Windows.Forms.TextBox();
             this.labelHirdetesLeiras = new System.Windows.Forms.Label();
             this.textBoxHirdetesLeiras = new System.Windows.Forms.TextBox();
@@ -133,6 +133,8 @@
             this.labelUgynokAzonosito = new System.Windows.Forms.Label();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelSession = new System.Windows.Forms.ToolStripStatusLabel();
+            this.labelMeglevoEladok = new System.Windows.Forms.Label();
+            this.comboBoxMeglevoEladok = new System.Windows.Forms.ComboBox();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -448,6 +450,8 @@
             // 
             this.groupBoxIngatlanAdatai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxIngatlanAdatai.Controls.Add(this.labelMeglevoEladok);
+            this.groupBoxIngatlanAdatai.Controls.Add(this.comboBoxMeglevoEladok);
             this.groupBoxIngatlanAdatai.Controls.Add(this.labelNegyzetmeter);
             this.groupBoxIngatlanAdatai.Controls.Add(this.labelHelyrajziSzam);
             this.groupBoxIngatlanAdatai.Controls.Add(this.textBoxHelyrajziSzam);
@@ -678,7 +682,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxHirdetesekKezelese.Controls.Add(this.labelForint);
-            this.groupBoxHirdetesekKezelese.Controls.Add(this.label1);
+            this.groupBoxHirdetesekKezelese.Controls.Add(this.labelMeghirdetettAr);
             this.groupBoxHirdetesekKezelese.Controls.Add(this.textBoxMeghirdetettAr);
             this.groupBoxHirdetesekKezelese.Controls.Add(this.labelHirdetesLeiras);
             this.groupBoxHirdetesekKezelese.Controls.Add(this.textBoxHirdetesLeiras);
@@ -710,15 +714,15 @@
             this.labelForint.TabIndex = 54;
             this.labelForint.Text = "Forint";
             // 
-            // label1
+            // labelMeghirdetettAr
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(65, 445);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 13);
-            this.label1.TabIndex = 53;
-            this.label1.Text = "Meghirdetett ár";
+            this.labelMeghirdetettAr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelMeghirdetettAr.AutoSize = true;
+            this.labelMeghirdetettAr.Location = new System.Drawing.Point(65, 445);
+            this.labelMeghirdetettAr.Name = "labelMeghirdetettAr";
+            this.labelMeghirdetettAr.Size = new System.Drawing.Size(78, 13);
+            this.labelMeghirdetettAr.TabIndex = 53;
+            this.labelMeghirdetettAr.Text = "Meghirdetett ár";
             // 
             // textBoxMeghirdetettAr
             // 
@@ -1192,6 +1196,26 @@
             this.toolStripStatusLabelSession.Size = new System.Drawing.Size(158, 20);
             this.toolStripStatusLabelSession.Text = "Bejelentkezett ügynök:";
             // 
+            // labelMeglevoEladok
+            // 
+            this.labelMeglevoEladok.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelMeglevoEladok.AutoSize = true;
+            this.labelMeglevoEladok.Location = new System.Drawing.Point(6, 167);
+            this.labelMeglevoEladok.Name = "labelMeglevoEladok";
+            this.labelMeglevoEladok.Size = new System.Drawing.Size(195, 26);
+            this.labelMeglevoEladok.TabIndex = 33;
+            this.labelMeglevoEladok.Text = "Amennyiben az ingatlant már meglévő\r\neladó szeretné eladni, válasszon eladót!\r\n";
+            // 
+            // comboBoxMeglevoEladok
+            // 
+            this.comboBoxMeglevoEladok.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxMeglevoEladok.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMeglevoEladok.FormattingEnabled = true;
+            this.comboBoxMeglevoEladok.Location = new System.Drawing.Point(224, 172);
+            this.comboBoxMeglevoEladok.Name = "comboBoxMeglevoEladok";
+            this.comboBoxMeglevoEladok.Size = new System.Drawing.Size(224, 21);
+            this.comboBoxMeglevoEladok.TabIndex = 34;
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1331,7 +1355,7 @@
         private System.Windows.Forms.Button buttonHirdetesAktivalas;
         private System.Windows.Forms.Button buttonHirdetesModositas;
         private System.Windows.Forms.Label labelForint;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelMeghirdetettAr;
         private System.Windows.Forms.TextBox textBoxMeghirdetettAr;
         private System.Windows.Forms.Label labelHirdetesLeiras;
         private System.Windows.Forms.TextBox textBoxHirdetesLeiras;
@@ -1339,5 +1363,7 @@
         private System.Windows.Forms.TextBox textBoxHirdetesbenSzereploCim;
         private System.Windows.Forms.Label labelHirdetesAzonosito;
         private System.Windows.Forms.TextBox textBoxHirdetesAzonosito;
+        private System.Windows.Forms.Label labelMeglevoEladok;
+        private System.Windows.Forms.ComboBox comboBoxMeglevoEladok;
     }
 }
