@@ -48,6 +48,26 @@ namespace IngatlanCentrum.ViewController
             textBoxEladoEmail.Clear();
         }
 
+        private void HirdetesPanelVezerloketAlaphelyzetbeAllit()
+        {
+            textBoxHirdetesAzonosito.Clear();
+            textBoxHirdetesbenSzereploCim.Clear();
+            textBoxHirdetesLeiras.Clear();
+            textBoxMeghirdetettAr.Clear();
+        }
+
+        private void UgynokPanelenVezerlokAlaphelyzetbeAllitasa()
+        {
+            textBoxUgynokAzonosito.ReadOnly = false;
+            textBoxUgynokAzonosito.Clear();
+            textBoxUgynokJelszo.Clear();
+            textBoxUgynokVezeteknev.Clear();
+            textBoxUgynokKeresztnev.Clear();
+            textBoxUgynokTelefonszam.Clear();
+            FeltoltUgynokJogosultsagokComboBox();
+            labelUgynokJogosultsagLeiras.Text = "";
+        }
+
         private void FormMenu_Load(object sender, EventArgs e)
         {
             FeltoltIngatlanokListView();
@@ -58,7 +78,7 @@ namespace IngatlanCentrum.ViewController
             FeltoltTelepulesekComboBox(comboBoxIngatlanTelepulesek);
             FeltoltTelepulesekComboBox(comboBoxEladoTelepules);
             FeltoltUgynokJogosultsagokComboBox();
-            FeltoltHirdetesIngatlanComboBox();
+            FeltoltHirdetendoIngatlanokComboBox();
 
             toolStripStatusLabelSession.Text += $" {Munkamenet.UgynokAzonosito}/{Munkamenet.UgynokNeve}/ ({Munkamenet.UgynokJogosultsag})";
         }
@@ -87,7 +107,7 @@ namespace IngatlanCentrum.ViewController
             }
         }
 
-        private void FeltoltHirdetesIngatlanComboBox()
+        private void FeltoltHirdetendoIngatlanokComboBox()
         {
             comboBoxHirdetesIngatlanok.Items.Clear();
 
@@ -102,6 +122,8 @@ namespace IngatlanCentrum.ViewController
 
         private void comboBoxHirdetesIngatlanok_SelectedIndexChanged(object sender, EventArgs e)
         {
+            HirdetesPanelVezerloketAlaphelyzetbeAllit();
+
             string helyrajziSzam = comboBoxHirdetesIngatlanok.SelectedItem.ToString();
             Ingatlan ingatlan = ingatlanService.GetIngatlan(helyrajziSzam);
 
@@ -203,13 +225,30 @@ namespace IngatlanCentrum.ViewController
                 textBoxEladoTelefonszam.Text = elado.Telefonszam.ToString();
                 textBoxEladoEmail.Text = elado.Email;
             }
+            else
+            {
+                IngatlanEsEladoPanelenVezerlokAlaphelyzetbeAllitasa();
+            }
         }
 
         private void listViewHirdetesek_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listViewHirdetesek.SelectedItems.Count > 0)
             {
+                labelHirdetesbenSzereploIngatlanEsEladoAdatok.Text = "";
+                FeltoltHirdetendoIngatlanokComboBox();
 
+                int hirdetesAzonosito = Convert.ToInt32(listViewHirdetesek.SelectedItems[0].Text);
+                textBoxHirdetesAzonosito.Text = hirdetesAzonosito.ToString();
+                textBoxHirdetesbenSzereploCim.Text = listViewHirdetesek.SelectedItems[0].SubItems[2].Text;
+                textBoxHirdetesLeiras.Text = listViewHirdetesek.SelectedItems[0].SubItems[3].Text;
+
+                Hirdetes hirdetes = hirdetesService.GetHirdetes(hirdetesAzonosito);
+                textBoxMeghirdetettAr.Text = hirdetes.Ar.ToString();
+            }
+            else
+            {
+                HirdetesPanelVezerloketAlaphelyzetbeAllit();
             }
         }
 
@@ -230,14 +269,7 @@ namespace IngatlanCentrum.ViewController
             }
             else
             {
-                textBoxUgynokAzonosito.ReadOnly = false;
-                textBoxUgynokAzonosito.Clear();
-                textBoxUgynokJelszo.Clear();
-                textBoxUgynokVezeteknev.Clear();
-                textBoxUgynokKeresztnev.Clear();
-                textBoxUgynokTelefonszam.Clear();
-                FeltoltUgynokJogosultsagokComboBox();
-                labelUgynokJogosultsagLeiras.Text = "";
+                UgynokPanelenVezerlokAlaphelyzetbeAllitasa();
             }
         }
 
@@ -363,7 +395,7 @@ namespace IngatlanCentrum.ViewController
                 listViewIngatlanok.Items.Add(listViewItemUjIngatlan);
 
                 IngatlanEsEladoPanelenVezerlokAlaphelyzetbeAllitasa();
-                FeltoltHirdetesIngatlanComboBox();
+                FeltoltHirdetendoIngatlanokComboBox();
             }
             catch (Exception ex)
             {
@@ -483,11 +515,6 @@ namespace IngatlanCentrum.ViewController
 
         }
 
-        private void buttonSzures_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonHozzaadUgynokot_Click(object sender, EventArgs e)
         {
             try
@@ -498,7 +525,16 @@ namespace IngatlanCentrum.ViewController
                 ugynok.Vezeteknev = textBoxUgynokVezeteknev.Text;
                 ugynok.Keresztnev = textBoxUgynokKeresztnev.Text;
                 ugynok.Telefonszam = textBoxUgynokTelefonszam.Text;
-                ugynok.Jogosultsag = comboBoxUgynokJogosultsagok.SelectedItem.ToString();
+
+                if (comboBoxUgynokJogosultsagok.SelectedIndex >= 0)
+                {
+                    ugynok.Jogosultsag = comboBoxUgynokJogosultsagok.SelectedItem.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Nincs kijelölt ügynök jogosultság!", "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 UgynokValidator.Validate(ugynok);
 
@@ -513,6 +549,8 @@ namespace IngatlanCentrum.ViewController
                 listViewItemUjUgynok.SubItems.Add(ugynok.Jogosultsag);
 
                 listViewUgynokok.Items.Add(listViewItemUjUgynok);
+
+                UgynokPanelenVezerlokAlaphelyzetbeAllitasa();
             }
             catch (Exception ex)
             {
@@ -537,6 +575,8 @@ namespace IngatlanCentrum.ViewController
                 listViewUgynokok.SelectedItems[0].SubItems[1].Text = ugynok.Vezeteknev;
                 listViewUgynokok.SelectedItems[0].SubItems[2].Text = ugynok.Keresztnev;
                 listViewUgynokok.SelectedItems[0].SubItems[3].Text = ugynok.Telefonszam;
+
+                UgynokPanelenVezerlokAlaphelyzetbeAllitasa();
             }
             catch (Exception ex)
             {
@@ -546,14 +586,15 @@ namespace IngatlanCentrum.ViewController
 
         private void buttonModositUgynokJogosultsag_Click(object sender, EventArgs e)
         {
-            Ugynok ugynok = ugynokService.GetUgynok(textBoxUgynokAzonosito.Text);
-            ugynok.Jogosultsag = comboBoxUgynokJogosultsagok.SelectedItem.ToString();
-
             try
             {
+                Ugynok ugynok = ugynokService.GetUgynok(textBoxUgynokAzonosito.Text);
+                ugynok.Jogosultsag = comboBoxUgynokJogosultsagok.SelectedItem.ToString();
                 ugynokService.ModositUgynok(ugynok);
 
                 listViewUgynokok.SelectedItems[0].SubItems[4].Text = ugynok.Jogosultsag;
+
+                UgynokPanelenVezerlokAlaphelyzetbeAllitasa();
             }
             catch (Exception ex)
             {
@@ -565,18 +606,12 @@ namespace IngatlanCentrum.ViewController
         {
             try
             {
-                if (comboBoxHirdetesIngatlanok.SelectedIndex >= 0)
+                if (listViewHirdetesek.SelectedItems.Count > 0)
                 {
-                    string helyrajziSzam = comboBoxHirdetesIngatlanok.SelectedItem.ToString();
-                    Hirdetes hirdetes = hirdetesService.GetHirdetes(helyrajziSzam);
-
+                    int hirdetesAzonosito = Convert.ToInt32(listViewHirdetesek.SelectedItems[0].Text);
+                    Hirdetes hirdetes = hirdetesService.GetHirdetes(hirdetesAzonosito);
                     hirdetesService.HirdetesDeaktivalas(hirdetes);
-
-                    // GUI módosítás:
-                    //
-                    // adott rekord törlése a Listboxból, amelyiknél deaktiváltuk a hirdetést ...
-
-                    FeltoltHirdetesIngatlanComboBox();
+                    listViewHirdetesek.SelectedItems[0].SubItems[6].Text = "Nem";
                 }
                 else
                 {
@@ -593,18 +628,12 @@ namespace IngatlanCentrum.ViewController
         {
             try
             {
-                if (comboBoxHirdetesIngatlanok.SelectedIndex >= 0)
+                if (listViewHirdetesek.SelectedItems.Count > 0)
                 {
-                    string helyrajziSzam = comboBoxHirdetesIngatlanok.SelectedItem.ToString();
-                    Hirdetes hirdetes = hirdetesService.GetHirdetes(helyrajziSzam);
-
+                    int hirdetesAzonosito = Convert.ToInt32(listViewHirdetesek.SelectedItems[0].Text);
+                    Hirdetes hirdetes = hirdetesService.GetHirdetes(hirdetesAzonosito);
                     hirdetesService.HirdetesAktivalas(hirdetes);
-
-                    // GUI módosítás:
-                    //
-                    // adott rekord törlése a Listboxból, amelyiknél deaktiváltuk a hirdetést ...
-
-                    FeltoltHirdetesIngatlanComboBox();
+                    listViewHirdetesek.SelectedItems[0].SubItems[6].Text = "Igen";
                 }
                 else
                 {

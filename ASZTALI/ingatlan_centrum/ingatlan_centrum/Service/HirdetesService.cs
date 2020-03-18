@@ -83,6 +83,19 @@ namespace IngatlanCentrum.Service
             throw new IngatlanException($"Nincs hirdetés az alábbi helyrajzi számmal:\n{helyrajziSzam}");
         }
 
+        public Hirdetes GetHirdetes(int azonosito)
+        {
+            foreach (Hirdetes hirdetes in GetHirdetesek())
+            {
+                if (hirdetes.Id == azonosito)
+                {
+                    return hirdetes;
+                }
+            }
+
+            throw new IngatlanException($"Nincs hirdetés az alábbi azonosítóval: \n{azonosito}");
+        }
+
         public void HirdetesDeaktivalas(Hirdetes hirdetes)
         {
             foreach (Hirdetes h in GetHirdetesek())
@@ -94,7 +107,7 @@ namespace IngatlanCentrum.Service
                 }
             }
 
-            throw new HirdetesException($"Nem található hirdetés az alábbi azonosítóval: {hirdetes.Id}\nvagy a hirdetés már eleve deaktivizált!");
+            throw new HirdetesException("A hirdetés már deaktív!");
         }
 
         public void HirdetesAktivalas(Hirdetes hirdetes)
@@ -108,7 +121,7 @@ namespace IngatlanCentrum.Service
                 }
             }
 
-            throw new HirdetesException($"Nem található hirdetés az alábbi azonosítóval: {hirdetes.Id}\nvagy a hirdetés már eleve aktív!");
+            throw new HirdetesException("A hirdetés már aktív!");
         }
     }
 }
