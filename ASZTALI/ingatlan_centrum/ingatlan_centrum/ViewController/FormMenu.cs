@@ -81,6 +81,7 @@ namespace IngatlanCentrum.ViewController
             FeltoltHirdetendoIngatlanokComboBox();
             FeltoltMeglevoEladokComboBox();
 
+            textBoxHirdetesAzonosito.Text = hirdetesService.GetNextHirdetesId().ToString();
             toolStripStatusLabelSession.Text += $" {Munkamenet.UgynokAzonosito}/{Munkamenet.UgynokNeve}/ ({Munkamenet.UgynokJogosultsag})";
         }
 
@@ -544,8 +545,47 @@ namespace IngatlanCentrum.ViewController
                 }
 
                 Hirdetes hirdetes = new Hirdetes();
+                hirdetes.Id = Convert.ToInt32(textBoxHirdetesAzonosito.Text);
+                hirdetes.Cim = textBoxHirdetesbenSzereploCim.Text;
+                hirdetes.Leiras = textBoxHirdetesLeiras.Text;
+
+                if (!string.IsNullOrEmpty(textBoxMeghirdetettAr.Text))
+                {
+                    hirdetes.Ar = Convert.ToInt32(textBoxMeghirdetettAr.Text);
+                }
+
                 hirdetes.Ingatlan = ingatlanService.GetIngatlan(helyrajziSzam);
-                hirdetesService.IngatlanSzerepelEHirdetesben(helyrajziSzam);
+                hirdetes.Ugynok = ugynokService.GetUgynok(Munkamenet.UgynokAzonosito = "ABC123");
+                hirdetes.Datum = DateTime.Now.ToLongTimeString();
+                hirdetes.Aktiv = true;
+
+                HirdetesValidator.Validate(hirdetes);
+
+                hirdetesService.HozzaadHirdetes(hirdetes);
+                FeltoltHirdetendoIngatlanokComboBox();
+
+                ListViewItem listViewItemUjHirdetes = new ListViewItem();
+                listViewItemUjHirdetes.Text = hirdetes.Id.ToString();
+                listViewItemUjHirdetes.SubItems.Add(hirdetes.Ingatlan.HelyrajziSzam);
+                listViewItemUjHirdetes.SubItems.Add(hirdetes.Cim);
+                listViewItemUjHirdetes.SubItems.Add(hirdetes.Leiras);
+                listViewItemUjHirdetes.SubItems.Add(hirdetes.Ar.ToString("C0"));
+                listViewItemUjHirdetes.SubItems.Add(hirdetes.Datum);
+
+                if (hirdetes.Aktiv)
+                {
+                    listViewItemUjHirdetes.SubItems.Add("Igen");
+                }
+                else
+                {
+                    listViewItemUjHirdetes.SubItems.Add("Nem");
+                }
+
+                listViewHirdetesek.Items.Add(listViewItemUjHirdetes);
+
+                HirdetesPanelVezerloketAlaphelyzetbeAllit();
+
+                textBoxHirdetesAzonosito.Text = hirdetesService.GetNextHirdetesId().ToString();
             }
             catch (Exception ex)
             {

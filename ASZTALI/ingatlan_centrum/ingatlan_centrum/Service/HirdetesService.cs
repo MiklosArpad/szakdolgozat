@@ -22,6 +22,16 @@ namespace IngatlanCentrum.Service
             repository = new Repository.Repository();
         }
 
+        public void HozzaadHirdetes(Hirdetes hirdetes)
+        {
+            repository.HozzaadHirdetes(hirdetes);
+        }
+
+        public void ModositHirdetes(Hirdetes hirdetes)
+        {
+            repository.ModositHirdetes(hirdetes);
+        }
+
         public List<Hirdetes> GetHirdetesek()
         {
             return repository.GetHirdetesek();

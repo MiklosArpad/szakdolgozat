@@ -119,6 +119,7 @@
     <Compile Include="Service\UgynokJogosultsagService.cs" />
     <Compile Include="Service\UgynokService.cs" />
     <Compile Include="Validation\EladoValidator.cs" />
+    <Compile Include="Validation\HirdetesValidator.cs" />
     <Compile Include="Validation\IngatlanValidator.cs" />
     <Compile Include="Validation\UgynokValidator.cs" />
     <Compile Include="ViewController\AboutBox.cs">
