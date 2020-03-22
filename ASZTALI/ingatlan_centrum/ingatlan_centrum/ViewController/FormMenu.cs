@@ -81,6 +81,17 @@ namespace IngatlanCentrum.ViewController
             FeltoltHirdetendoIngatlanokComboBox();
             FeltoltMeglevoEladokComboBox();
 
+            buttonIngatlanModositas.Visible = false;
+            buttonEladoModositas.Visible = false;
+
+            buttonHirdetesHozzaadas.Visible = false;
+            buttonHirdetesModositas.Visible = false;
+            buttonHirdetesDeaktivalas.Visible = false;
+            buttonHirdetesAktivalas.Visible = false;
+
+            buttonUgynokModositas.Visible = false;
+            buttonModositUgynokJogosultsag.Visible = false;
+
             textBoxHirdetesAzonosito.Text = hirdetesService.GetNextHirdetesId().ToString();
             toolStripStatusLabelSession.Text += $" {Munkamenet.UgynokAzonosito}/{Munkamenet.UgynokNeve}/ ({Munkamenet.UgynokJogosultsag})";
         }
@@ -294,6 +305,10 @@ namespace IngatlanCentrum.ViewController
         {
             if (listViewUgynokok.SelectedItems.Count > 0)
             {
+                buttonUgynokModositas.Visible = true;
+                buttonModositUgynokJogosultsag.Visible = true;
+                buttonHozzaadUgynokot.Visible = false;
+
                 textBoxUgynokAzonosito.ReadOnly = true;
                 textBoxUgynokAzonosito.Text = listViewUgynokok.SelectedItems[0].Text;
 
@@ -307,6 +322,10 @@ namespace IngatlanCentrum.ViewController
             }
             else
             {
+                buttonHozzaadUgynokot.Visible = true;
+                buttonModositUgynokJogosultsag.Visible = false;
+                buttonUgynokModositas.Visible = false;
+
                 UgynokPanelenVezerlokAlaphelyzetbeAllitasa();
             }
         }
