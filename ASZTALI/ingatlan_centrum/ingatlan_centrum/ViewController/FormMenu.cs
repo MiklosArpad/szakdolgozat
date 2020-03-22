@@ -68,6 +68,97 @@ namespace IngatlanCentrum.ViewController
             labelUgynokJogosultsagLeiras.Text = "";
         }
 
+        private void FeltoltIngatlanokListView()
+        {
+            foreach (Ingatlan ingatlan in ingatlanService.GetIngatlanok())
+            {
+                ListViewItem listViewItemIngatlanok = new ListViewItem();
+                listViewItemIngatlanok.Text = ingatlan.HelyrajziSzam;
+                listViewItemIngatlanok.SubItems.Add(ingatlan.Telepules);
+                listViewItemIngatlanok.SubItems.Add(ingatlan.Elado.Vezeteknev);
+                listViewItemIngatlanok.SubItems.Add(ingatlan.Elado.Keresztnev);
+                listViewItemIngatlanok.SubItems.Add(ingatlan.Alapterulet.ToString());
+                listViewItemIngatlanok.SubItems.Add(ingatlan.Kategoria);
+                listViewItemIngatlanok.SubItems.Add(ingatlan.Allapot);
+                listViewIngatlanok.Items.Add(listViewItemIngatlanok);
+            }
+        }
+
+        private void FeltoltHirdetesekListView()
+        {
+            foreach (Hirdetes hirdetes in hirdetesService.GetHirdetesek())
+            {
+                ListViewItem listViewItemHirdetesek = new ListViewItem();
+
+                listViewItemHirdetesek.Text = hirdetes.Id.ToString();
+                listViewItemHirdetesek.SubItems.Add(hirdetes.Ingatlan.HelyrajziSzam);
+                listViewItemHirdetesek.SubItems.Add(hirdetes.Cim);
+                listViewItemHirdetesek.SubItems.Add(hirdetes.Leiras);
+                listViewItemHirdetesek.SubItems.Add(hirdetes.Ar.ToString("C0"));
+                listViewItemHirdetesek.SubItems.Add(hirdetes.Datum);
+
+                if (hirdetes.Aktiv)
+                {
+                    listViewItemHirdetesek.SubItems.Add("Igen");
+                }
+                else
+                {
+                    listViewItemHirdetesek.SubItems.Add("Nem");
+                }
+
+                listViewHirdetesek.Items.Add(listViewItemHirdetesek);
+            }
+        }
+
+        private void FeltoltUgynokokListView()
+        {
+            foreach (Ugynok ugynok in ugynokService.GetUgynokok())
+            {
+                ListViewItem listViewItemUgynokok = new ListViewItem();
+
+                listViewItemUgynokok.Text = ugynok.Id;
+                listViewItemUgynokok.SubItems.Add(ugynok.Vezeteknev);
+                listViewItemUgynokok.SubItems.Add(ugynok.Keresztnev);
+                listViewItemUgynokok.SubItems.Add(ugynok.Telefonszam);
+                listViewItemUgynokok.SubItems.Add(ugynok.Jogosultsag);
+
+                listViewUgynokok.Items.Add(listViewItemUgynokok);
+            }
+        }
+
+        private void FeltoltMeglevoEladokComboBox()
+        {
+            comboBoxMeglevoEladok.Items.Clear();
+
+            foreach (Elado elado in eladoService.GetEladok())
+            {
+                comboBoxMeglevoEladok.Items.Add($"{elado.Vezeteknev} {elado.Keresztnev}");
+            }
+        }
+
+        private void FeltoltUgynokJogosultsagokComboBox()
+        {
+            comboBoxUgynokJogosultsagok.Items.Clear();
+
+            foreach (UgynokJogosultsag ugynokKategoria in ugynokJogosultsagService.GetUgynokJogosultsagok())
+            {
+                comboBoxUgynokJogosultsagok.Items.Add(ugynokKategoria.Elnevezes);
+            }
+        }
+
+        private void FeltoltHirdetendoIngatlanokComboBox()
+        {
+            comboBoxHirdetesIngatlanok.Items.Clear();
+
+            foreach (Ingatlan ingatlan in ingatlanService.GetIngatlanok())
+            {
+                if (!hirdetesService.IngatlanSzerepelEHirdetesben(ingatlan.HelyrajziSzam))
+                {
+                    comboBoxHirdetesIngatlanok.Items.Add(ingatlan.HelyrajziSzam);
+                }
+            }
+        }
+
         private void FormMenu_Load(object sender, EventArgs e)
         {
             FeltoltIngatlanokListView();
@@ -107,29 +198,6 @@ namespace IngatlanCentrum.ViewController
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void FeltoltUgynokJogosultsagokComboBox()
-        {
-            comboBoxUgynokJogosultsagok.Items.Clear();
-
-            foreach (UgynokJogosultsag ugynokKategoria in ugynokJogosultsagService.GetUgynokJogosultsagok())
-            {
-                comboBoxUgynokJogosultsagok.Items.Add(ugynokKategoria.Elnevezes);
-            }
-        }
-
-        private void FeltoltHirdetendoIngatlanokComboBox()
-        {
-            comboBoxHirdetesIngatlanok.Items.Clear();
-
-            foreach (Ingatlan ingatlan in ingatlanService.GetIngatlanok())
-            {
-                if (!hirdetesService.IngatlanSzerepelEHirdetesben(ingatlan.HelyrajziSzam))
-                {
-                    comboBoxHirdetesIngatlanok.Items.Add(ingatlan.HelyrajziSzam);
-                }
             }
         }
 
@@ -180,16 +248,6 @@ namespace IngatlanCentrum.ViewController
             foreach (IngatlanKategoria ingatlanKategoria in ingatlanKategoriaService.GetIngatlanKategoriak())
             {
                 comboBoxIngatlanKategoriak.Items.Add(ingatlanKategoria.Elnevezes);
-            }
-        }
-
-        private void FeltoltMeglevoEladokComboBox()
-        {
-            comboBoxMeglevoEladok.Items.Clear();
-
-            foreach (Elado elado in eladoService.GetEladok())
-            {
-                comboBoxMeglevoEladok.Items.Add($"{elado.Vezeteknev} {elado.Keresztnev}");
             }
         }
 
@@ -327,64 +385,6 @@ namespace IngatlanCentrum.ViewController
                 buttonUgynokModositas.Visible = false;
 
                 UgynokPanelenVezerlokAlaphelyzetbeAllitasa();
-            }
-        }
-
-        private void FeltoltIngatlanokListView()
-        {
-            foreach (Ingatlan ingatlan in ingatlanService.GetIngatlanok())
-            {
-                ListViewItem listViewItemIngatlanok = new ListViewItem();
-                listViewItemIngatlanok.Text = ingatlan.HelyrajziSzam;
-                listViewItemIngatlanok.SubItems.Add(ingatlan.Telepules);
-                listViewItemIngatlanok.SubItems.Add(ingatlan.Elado.Vezeteknev);
-                listViewItemIngatlanok.SubItems.Add(ingatlan.Elado.Keresztnev);
-                listViewItemIngatlanok.SubItems.Add(ingatlan.Alapterulet.ToString());
-                listViewItemIngatlanok.SubItems.Add(ingatlan.Kategoria);
-                listViewItemIngatlanok.SubItems.Add(ingatlan.Allapot);
-                listViewIngatlanok.Items.Add(listViewItemIngatlanok);
-            }
-        }
-
-        private void FeltoltHirdetesekListView()
-        {
-            foreach (Hirdetes hirdetes in hirdetesService.GetHirdetesek())
-            {
-                ListViewItem listViewItemHirdetesek = new ListViewItem();
-
-                listViewItemHirdetesek.Text = hirdetes.Id.ToString();
-                listViewItemHirdetesek.SubItems.Add(hirdetes.Ingatlan.HelyrajziSzam);
-                listViewItemHirdetesek.SubItems.Add(hirdetes.Cim);
-                listViewItemHirdetesek.SubItems.Add(hirdetes.Leiras);
-                listViewItemHirdetesek.SubItems.Add(hirdetes.Ar.ToString("C0"));
-                listViewItemHirdetesek.SubItems.Add(hirdetes.Datum);
-
-                if (hirdetes.Aktiv)
-                {
-                    listViewItemHirdetesek.SubItems.Add("Igen");
-                }
-                else
-                {
-                    listViewItemHirdetesek.SubItems.Add("Nem");
-                }
-
-                listViewHirdetesek.Items.Add(listViewItemHirdetesek);
-            }
-        }
-
-        private void FeltoltUgynokokListView()
-        {
-            foreach (Ugynok ugynok in ugynokService.GetUgynokok())
-            {
-                ListViewItem listViewItemUgynokok = new ListViewItem();
-
-                listViewItemUgynokok.Text = ugynok.Id;
-                listViewItemUgynokok.SubItems.Add(ugynok.Vezeteknev);
-                listViewItemUgynokok.SubItems.Add(ugynok.Keresztnev);
-                listViewItemUgynokok.SubItems.Add(ugynok.Telefonszam);
-                listViewItemUgynokok.SubItems.Add(ugynok.Jogosultsag);
-
-                listViewUgynokok.Items.Add(listViewItemUgynokok);
             }
         }
 
@@ -535,6 +535,19 @@ namespace IngatlanCentrum.ViewController
                     ingatlanService.ModositIngatlan(ingatlan);
 
                     eladoService.ModositElado(elado);
+
+                    ListViewItem modositottEladoAdatok = new ListViewItem();
+                    modositottEladoAdatok.Text = ingatlan.HelyrajziSzam;
+                    modositottEladoAdatok.SubItems.Add(ingatlan.Telepules);
+                    modositottEladoAdatok.SubItems.Add(ingatlan.Elado.Vezeteknev);
+                    modositottEladoAdatok.SubItems.Add(ingatlan.Elado.Keresztnev);
+                    modositottEladoAdatok.SubItems.Add(ingatlan.Alapterulet.ToString());
+                    modositottEladoAdatok.SubItems.Add(ingatlan.Kategoria);
+                    modositottEladoAdatok.SubItems.Add(ingatlan.Allapot);
+
+                    int index = listViewIngatlanok.FocusedItem.Index;
+                    listViewIngatlanok.Items.RemoveAt(index);
+                    listViewIngatlanok.Items.Insert(index, modositottEladoAdatok);
                 }
                 else
                 {
@@ -614,7 +627,50 @@ namespace IngatlanCentrum.ViewController
 
         private void buttonHirdetesModositas_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Hirdetes hirdetes = hirdetesService.GetHirdetes(Convert.ToInt32(textBoxHirdetesAzonosito.Text));
+                hirdetes.Cim = textBoxHirdetesbenSzereploCim.Text;
+                hirdetes.Leiras = textBoxHirdetesLeiras.Text;
 
+                if (!string.IsNullOrEmpty(textBoxMeghirdetettAr.Text))
+                {
+                    hirdetes.Ar = Convert.ToInt32(textBoxMeghirdetettAr.Text);
+                }
+
+                HirdetesValidator.Validate(hirdetes);
+
+                hirdetesService.ModositHirdetes(hirdetes);
+
+                ListViewItem modositottHirdetesAdatok = new ListViewItem();
+                modositottHirdetesAdatok.Text = hirdetes.Id.ToString();
+                modositottHirdetesAdatok.SubItems.Add(hirdetes.Ingatlan.HelyrajziSzam);
+                modositottHirdetesAdatok.SubItems.Add(hirdetes.Cim);
+                modositottHirdetesAdatok.SubItems.Add(hirdetes.Leiras);
+                modositottHirdetesAdatok.SubItems.Add(hirdetes.Ar.ToString("C0"));
+                modositottHirdetesAdatok.SubItems.Add(hirdetes.Datum);
+
+                if (hirdetes.Aktiv)
+                {
+                    modositottHirdetesAdatok.SubItems.Add("Igen");
+                }
+                else
+                {
+                    modositottHirdetesAdatok.SubItems.Add("Nem");
+                }
+
+                int index = listViewHirdetesek.FocusedItem.Index;
+                listViewHirdetesek.Items.RemoveAt(index);
+                listViewHirdetesek.Items.Insert(index, modositottHirdetesAdatok);
+
+                HirdetesPanelVezerloketAlaphelyzetbeAllit();
+
+                textBoxHirdetesAzonosito.Text = hirdetesService.GetNextHirdetesId().ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonHozzaadUgynokot_Click(object sender, EventArgs e)

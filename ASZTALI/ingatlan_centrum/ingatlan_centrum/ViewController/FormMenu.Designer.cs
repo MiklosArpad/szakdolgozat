@@ -800,6 +800,7 @@
             this.buttonHirdetesModositas.Text = "Hirdetés módosítása";
             this.buttonHirdetesModositas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonHirdetesModositas.UseVisualStyleBackColor = true;
+            this.buttonHirdetesModositas.Click += new System.EventHandler(this.buttonHirdetesModositas_Click);
             // 
             // buttonHirdetesHozzaadas
             // 

@@ -61,6 +61,9 @@ namespace IngatlanCentrum.Repository
             {
                 if (h.Id == hirdetes.Id)
                 {
+                    h.Cim = hirdetes.Cim;
+                    h.Leiras = hirdetes.Leiras;
+                    h.Ar = hirdetes.Ar;
                     h.Ingatlan = hirdetes.Ingatlan;
                     h.Ugynok = hirdetes.Ugynok;
                     h.Datum = hirdetes.Datum;
