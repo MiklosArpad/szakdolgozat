@@ -62,6 +62,7 @@ namespace IngatlanCentrum.Validation
 
             return false;
         }
+
         private static bool ArKisebbENullanalVagyNulla(int ar)
         {
             if (ar <= 0)

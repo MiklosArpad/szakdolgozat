@@ -74,7 +74,7 @@ namespace IngatlanCentrum.Validation
 
             if (!EmailCimTartalmazEPontotEsKukacot(elado.Email))
             {
-                throw new EladoException("Eladó e-mail címe nem tartalmaz pontot vagy kukac karaktert!\nHelytelen formátum!");
+                throw new EladoException("Eladó e-mail címe nem tartalmaz pontot és kukac karaktert!\nHelytelen formátum!");
             }
         }
 
