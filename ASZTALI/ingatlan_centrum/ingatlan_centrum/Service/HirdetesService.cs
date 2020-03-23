@@ -136,12 +136,7 @@ namespace IngatlanCentrum.Service
 
         public int GetNextHirdetesId()
         {
-            return GetMaxHirdetesAzonosito() + 1;
-        }
-
-        private int GetMaxHirdetesAzonosito()
-        {
-            return 0;
+            return repository.GetMaxHirdetesID() + 1;
         }
     }
 }

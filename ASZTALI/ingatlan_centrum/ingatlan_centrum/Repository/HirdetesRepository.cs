@@ -33,7 +33,7 @@ namespace IngatlanCentrum.Repository
                         Ar = Convert.ToInt32(row[3]),
                         Ingatlan = GetIngatlanok().Find(x => x.HelyrajziSzam == row[4].ToString()),
                         Ugynok = GetUgynokok().Find(x => x.Id == row[5].ToString()),
-                        Datum = row[6].ToString(),
+                        Datum = Convert.ToDateTime(row[6]).ToString("yyyy-MM-dd hh:mm:ss"),
                         Aktiv = Convert.ToBoolean(row[7])
                     });
                 }
@@ -73,6 +73,22 @@ namespace IngatlanCentrum.Repository
             }
 
             throw new Exception("Nincs meg a keresett hirdetés!\nNem lehet módosítani!");
+        }
+
+        public int GetMaxHirdetesID()
+        {
+            int maxId = 1;
+
+            try
+            {
+                string maxIdFromDatabase = adatbazis.ScalarDQL("SELECT MAX(hirdetesek.azonosito) FROM hirdetesek;");
+                int.TryParse(maxIdFromDatabase, out maxId);
+                return maxId;
+            }
+            catch (Exception)
+            {
+                return maxId;
+            }
         }
     }
 }

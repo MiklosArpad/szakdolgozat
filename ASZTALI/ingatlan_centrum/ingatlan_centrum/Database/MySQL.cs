@@ -168,5 +168,36 @@ namespace IngatlanCentrum.Database
                 CloseConnection();
             }
         }
+
+        /// <summary>
+        /// Aggregált függvényeket végrehajtó metódus
+        /// </summary>
+        /// <param name="query">SQL utasítás</param>
+        /// <returns>SQL utasítás eredményét adja vissza karakterláncban</returns>
+        public string ScalarDQL(string query)
+        {
+            try
+            {
+                OpenConnection();
+
+                command = new MySqlCommand(query, connection);
+                command.Prepare();
+
+                string scalarQuery = command.ExecuteScalar().ToString();
+                return scalarQuery;
+            }
+            catch (MySqlException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
     }
 }

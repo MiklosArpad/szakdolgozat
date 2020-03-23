@@ -95,7 +95,7 @@ namespace IngatlanCentrum.ViewController
                 listViewItemHirdetesek.SubItems.Add(hirdetes.Cim);
                 listViewItemHirdetesek.SubItems.Add(hirdetes.Leiras);
                 listViewItemHirdetesek.SubItems.Add(hirdetes.Ar.ToString("C0"));
-                listViewItemHirdetesek.SubItems.Add(hirdetes.Datum);
+                listViewItemHirdetesek.SubItems.Add(Convert.ToDateTime(hirdetes.Datum).ToString("yyyy-MM-dd hh:mm:ss"));
 
                 if (hirdetes.Aktiv)
                 {
@@ -587,8 +587,8 @@ namespace IngatlanCentrum.ViewController
                 }
 
                 hirdetes.Ingatlan = ingatlanService.GetIngatlan(helyrajziSzam);
-                hirdetes.Ugynok = ugynokService.GetUgynok(Munkamenet.UgynokAzonosito = "ABC123");
-                hirdetes.Datum = DateTime.Now.ToLongTimeString();
+                hirdetes.Ugynok = ugynokService.GetUgynok(Munkamenet.UgynokAzonosito = "ABC123"); // TODO: SETTELÉST ITT MAJD TÖRÖLD KI
+                hirdetes.Datum = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
                 hirdetes.Aktiv = true;
 
                 HirdetesValidator.Validate(hirdetes);
