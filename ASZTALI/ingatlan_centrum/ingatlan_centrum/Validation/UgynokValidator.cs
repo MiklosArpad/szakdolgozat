@@ -32,6 +32,11 @@ namespace IngatlanCentrum.Validation
                 throw new UgynokException("Ügynök jogosultsága nem lehet üres!");
             }
 
+            if (!MeghatarozottSzamuKaraktertTartalmazE(ugynok.Id, 6))
+            {
+                throw new UgynokException("Ügynök azonosítójának 6 karaktert kell tartalmazzon!");
+            }
+
             if (TartalmazEKisbetut(ugynok.Id))
             {
                 throw new UgynokException("Ügynök azonosítója nem tartalmazhat kisbetűt!");
@@ -42,19 +47,14 @@ namespace IngatlanCentrum.Validation
                 throw new UgynokException("Ügynök azonosítójának tartalmaznia kell számot!");
             }
 
-            if (!MeghatarozottSzamuKaraktertTartalmazE(ugynok.Id, 6))
+            if (!MeghatarozottSzamuKaraktertTartalmazE(ugynok.Jelszo, 10))
             {
-                throw new UgynokException("Ügynök azonosítójának 6 karaktert kell tartalmazzon!");
+                throw new UgynokException("Ügynök jelszavának 10 karakter hosszúnak kell lennie!");
             }
 
             if (!TartalmazEBetut(ugynok.Jelszo))
             {
                 throw new UgynokException("Ügynök jelszavának tartalmaznia kell betűt!");
-            }
-
-            if (!MeghatarozottSzamuKaraktertTartalmazE(ugynok.Jelszo, 10))
-            {
-                throw new UgynokException("Ügynök jelszavának 10 karakter hosszúnak kell lennie!");
             }
 
             if (!TartalmazESzamot(ugynok.Jelszo))

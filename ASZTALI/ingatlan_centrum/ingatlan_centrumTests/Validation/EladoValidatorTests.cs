@@ -212,7 +212,6 @@ namespace IngatlanCentrum.Validation.Tests
             Assert.Fail("Nem dob kivételt kisbetűs keresztnévre!");
         }
 
-
         [TestMethod()]
         public void ValidateTest_EladoVezetekneveSzamotTartalmaz()
         {
@@ -348,6 +347,5 @@ namespace IngatlanCentrum.Validation.Tests
 
             Assert.Fail("Nem dob kivételt rossz e-mail cím formátumra!");
         }
-
     }
 }

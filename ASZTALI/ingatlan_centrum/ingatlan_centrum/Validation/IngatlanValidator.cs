@@ -1,6 +1,5 @@
 ﻿using IngatlanCentrum.Exceptions;
 using IngatlanCentrum.Model;
-using System;
 
 namespace IngatlanCentrum.Validation
 {
