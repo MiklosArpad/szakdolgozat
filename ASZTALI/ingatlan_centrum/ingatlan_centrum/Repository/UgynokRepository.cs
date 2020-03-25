@@ -54,18 +54,30 @@ namespace IngatlanCentrum.Repository
         }
 
         /// <summary>
-        /// 
+        /// Ügynök hozzáadása listához és adatbázishoz.
         /// </summary>
-        /// <param name="ugynok"></param>
+        /// <param name="ugynok">Ügynök objektum</param>
+        /// <exception cref="UgynokException"></exception>
         public void HozzaadUgynok(Ugynok ugynok)
         {
-            ugynokok.Add(ugynok);
+            try
+            {
+                adatbazis.DML($"INSERT INTO ugynokok (azonosito, jelszo, vezeteknev, keresztnev, telefonszam, jogosultsag) " +
+                    $"VALUES (\"{ugynok.Id}\", \"{ugynok.Jelszo}\", \"{ugynok.Vezeteknev}\", \"{ugynok.Keresztnev}\", " +
+                    $"\"{ugynok.Telefonszam}\", \"{ugynok.Jogosultsag}\");");
+                ugynokok.Add(ugynok);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                throw new EladoException("Nem sikerült az eladó hozzáadása!");
+            }
         }
 
         /// <summary>
-        /// 
+        /// Ügynök módosítása listában és adatbázisban.
         /// </summary>
-        /// <param name="ugynok"></param>
+        /// <param name="ugynok">Ügynök objektum</param>
         /// <exception cref="UgynokException"></exception>
         public void ModositUgynok(Ugynok ugynok)
         {
@@ -73,6 +85,13 @@ namespace IngatlanCentrum.Repository
             {
                 if (u.Id == ugynok.Id)
                 {
+                    adatbazis.DML($"UPDATE ugynokok SET jelszo = \"{ugynok.Jelszo}\", " +
+                        $"vezeteknev = \"{ugynok.Vezeteknev}\", " +
+                        $"keresztnev = \"{ugynok.Keresztnev}\", " +
+                        $"telefonszam = \"{ugynok.Telefonszam}\", " +
+                        $"jogosultsag = \"{ugynok.Jogosultsag}\" " +
+                        $"WHERE azonosito = \"{ugynok.Id}\";");
+
                     u.Jelszo = ugynok.Jelszo;
                     u.Vezeteknev = ugynok.Vezeteknev;
                     u.Keresztnev = ugynok.Keresztnev;
