@@ -21,6 +21,7 @@ namespace IngatlanCentrum.Repository
         /// Metódus, amely letölti az ingatlanok adatait az adatbázisból és objektumokat képez belőle.
         /// Az objektumokat elmenti az ingatlanokat tartalmazó listába.
         /// </summary>
+        /// <exception cref="IngatlanException"></exception>
         private void LetoltIngatlanokatAdatbazisbol()
         {
             try
@@ -42,21 +43,33 @@ namespace IngatlanCentrum.Repository
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"{ex.Message}");
+                Debug.WriteLine(ex.Message);
                 throw new IngatlanException("Nem sikerült az ingatlan adatok letöltése adatbázisból!");
             }
         }
 
+        /// <summary>
+        /// Ingatlan lista getter.
+        /// </summary>
         public List<Ingatlan> GetIngatlanok()
         {
             return ingatlanok;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ingatlan"></param>
+        /// <exception cref="IngatlanException"></exception>
         public void HozzaadIngatlan(Ingatlan ingatlan)
         {
             ingatlanok.Add(ingatlan);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ingatlan"></param>
         public void ModositIngatlan(Ingatlan ingatlan)
         {
             foreach (Ingatlan i in ingatlanok)
@@ -72,7 +85,7 @@ namespace IngatlanCentrum.Repository
                 }
             }
 
-            throw new Exception("Nincs meg a keresett ingatlan!\nNem lehet módosítani!");
+            throw new IngatlanException("Nincs meg a keresett ingatlan!\nNem lehet módosítani!");
         }
     }
 }

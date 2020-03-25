@@ -3,6 +3,7 @@ using IngatlanCentrum.Model;
 using System;
 using System.Diagnostics;
 using System.Data;
+using IngatlanCentrum.Exceptions;
 
 namespace IngatlanCentrum.Repository
 {
@@ -20,6 +21,7 @@ namespace IngatlanCentrum.Repository
         /// Metódus, amely letölti az ingatlan kategóriák adatait az adatbázisból és objektumokat képez belőle.
         /// Az objektumokat elmenti az ingatlan kategóriákat tartalmazó listába.
         /// </summary>
+        /// <exception cref="IngatlanKategoriaException"></exception>
         private void LetoltIngatlanKategoriakatAdatbazisbol()
         {
             try
@@ -36,11 +38,14 @@ namespace IngatlanCentrum.Repository
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"{ex.Message}");
-                throw new Exception("Nem sikerült az ingatlan kategória adatok letöltése adatbázisból!");
+                Debug.WriteLine(ex.Message);
+                throw new IngatlanKategoriaException("Nem sikerült az ingatlan kategória adatok letöltése adatbázisból!");
             }
         }
 
+        /// <summary>
+        /// Ingatlan kategória lista getter.
+        /// </summary>
         public List<IngatlanKategoria> GetIngatlanKategoriak()
         {
             return ingatlanKategoriak;

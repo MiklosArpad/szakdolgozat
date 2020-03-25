@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using System.Diagnostics;
 using System.Data;
+using IngatlanCentrum.Exceptions;
 
 namespace IngatlanCentrum.Repository
 {
@@ -17,6 +18,7 @@ namespace IngatlanCentrum.Repository
         /// Metódus, amely letölti az ügynökök adatait az adatbázisból és objektumokat képez belőle.
         /// Az objektumokat elmenti az ügynököket tartalmazó listába.
         /// </summary>
+        /// <exception cref="UgynokException"></exception>
         private void LetoltUgynokoketAdatbazisbol()
         {
             try
@@ -38,21 +40,33 @@ namespace IngatlanCentrum.Repository
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"{ex.Message}");
-                throw new Exception("Nem sikerült az ügynök adatok letöltése adatbázisból!");
+                Debug.WriteLine(ex.Message);
+                throw new UgynokException("Nem sikerült az ügynök adatok letöltése adatbázisból!");
             }
         }
 
+        /// <summary>
+        /// Ügynökök lista getter.
+        /// </summary>
         public List<Ugynok> GetUgynokok()
         {
             return ugynokok;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ugynok"></param>
         public void HozzaadUgynok(Ugynok ugynok)
         {
             ugynokok.Add(ugynok);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ugynok"></param>
+        /// <exception cref="UgynokException"></exception>
         public void ModositUgynok(Ugynok ugynok)
         {
             foreach (Ugynok u in ugynokok)
@@ -68,7 +82,7 @@ namespace IngatlanCentrum.Repository
                 }
             }
 
-            throw new Exception("Nincs meg a keresett ügynök!\nNem lehet módosítani!");
+            throw new UgynokException("Nincs meg a keresett ügynök!\nNem lehet módosítani!");
         }
     }
 }

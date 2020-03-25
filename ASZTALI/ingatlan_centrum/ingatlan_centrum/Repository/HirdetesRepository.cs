@@ -1,4 +1,5 @@
-﻿using IngatlanCentrum.Model;
+﻿using IngatlanCentrum.Exceptions;
+using IngatlanCentrum.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -40,21 +41,32 @@ namespace IngatlanCentrum.Repository
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"{ex.Message}");
-                throw new Exception("Nem sikerült a hirdetés adatok letöltése adatbázisból!");
+                Debug.WriteLine(ex.Message);
+                throw new HirdetesException("Nem sikerült a hirdetés adatok letöltése adatbázisból!");
             }
         }
 
+        /// <summary>
+        /// Hirdetések lista getter.
+        /// </summary>
         public List<Hirdetes> GetHirdetesek()
         {
             return hirdetesek;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="hirdetes"></param>
         public void HozzaadHirdetes(Hirdetes hirdetes)
         {
             hirdetesek.Add(hirdetes);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="hirdetes"></param>
         public void ModositHirdetes(Hirdetes hirdetes)
         {
             foreach (Hirdetes h in hirdetesek)
@@ -72,9 +84,12 @@ namespace IngatlanCentrum.Repository
                 }
             }
 
-            throw new Exception("Nincs meg a keresett hirdetés!\nNem lehet módosítani!");
+            throw new HirdetesException("Nincs meg a keresett hirdetés!\nNem lehet módosítani!");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int GetMaxHirdetesID()
         {
             int maxId = 1;

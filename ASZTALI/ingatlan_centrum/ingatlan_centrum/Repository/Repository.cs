@@ -1,4 +1,5 @@
 ﻿using IngatlanCentrum.Database;
+using System;
 
 namespace IngatlanCentrum.Repository
 {
@@ -14,15 +15,23 @@ namespace IngatlanCentrum.Repository
         /// </summary>
         public Repository()
         {
-            adatbazis = MySQL.Connect("SERVER=127.0.0.1; DATABASE=ingatlan_centrum; UID=root; PASSWORD=; PORT=3306; SslMode=None;");
-            LetoltTelepuleseketAdatbazisbol();
-            LetoltUgynokJogosultsagokatAdatbazisbol();
-            LetoltUgynokoketAdatbazisbol();
-            LetoltEladokatAdatbazisbol();
-            LetoltIngatlanAllapotokatAdatbazisbol();
-            LetoltIngatlanKategoriakatAdatbazisbol();
-            LetoltIngatlanokatAdatbazisbol();
-            LetoltHirdeteseketAdatbazisbol();
+            try
+            {
+                // TODO: fájl constirng konfig...
+                adatbazis = MySQL.Connect("SERVER=127.0.0.1; DATABASE=ingatlan_centrum; UID=root; PASSWORD=; PORT=3306; SslMode=None;");
+                LetoltTelepuleseketAdatbazisbol();
+                LetoltUgynokJogosultsagokatAdatbazisbol();
+                LetoltUgynokoketAdatbazisbol();
+                LetoltEladokatAdatbazisbol();
+                LetoltIngatlanAllapotokatAdatbazisbol();
+                LetoltIngatlanKategoriakatAdatbazisbol();
+                LetoltIngatlanokatAdatbazisbol();
+                LetoltHirdeteseketAdatbazisbol();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

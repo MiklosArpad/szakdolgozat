@@ -75,8 +75,6 @@ namespace IngatlanCentrum.ViewController
                 ListViewItem listViewItemIngatlanok = new ListViewItem();
                 listViewItemIngatlanok.Text = ingatlan.HelyrajziSzam;
                 listViewItemIngatlanok.SubItems.Add(ingatlan.Telepules);
-                listViewItemIngatlanok.SubItems.Add(ingatlan.Elado.Vezeteknev);
-                listViewItemIngatlanok.SubItems.Add(ingatlan.Elado.Keresztnev);
                 listViewItemIngatlanok.SubItems.Add(ingatlan.Alapterulet.ToString());
                 listViewItemIngatlanok.SubItems.Add(ingatlan.Kategoria);
                 listViewItemIngatlanok.SubItems.Add(ingatlan.Allapot);
@@ -300,17 +298,17 @@ namespace IngatlanCentrum.ViewController
                 buttonUjIngatlan.Visible = false;
                 buttonIngatlanModositas.Visible = true;
                 buttonEladoModositas.Visible = true;
+                textBoxEladoAdoszam.ReadOnly = true;
 
                 textBoxHelyrajziSzam.Text = listViewIngatlanok.SelectedItems[0].Text;
                 comboBoxIngatlanTelepulesek.SelectedItem = listViewIngatlanok.SelectedItems[0].SubItems[1].Text;
-                textBoxEladoVezeteknev.Text = listViewIngatlanok.SelectedItems[0].SubItems[2].Text;
-                textBoxEladoKeresztnev.Text = listViewIngatlanok.SelectedItems[0].SubItems[3].Text;
-                textBoxAlapterulet.Text = listViewIngatlanok.SelectedItems[0].SubItems[4].Text;
-                comboBoxIngatlanKategoriak.SelectedItem = listViewIngatlanok.SelectedItems[0].SubItems[5].Text;
-                comboBoxIngatlanAllapotok.SelectedItem = listViewIngatlanok.SelectedItems[0].SubItems[6].Text;
+                textBoxAlapterulet.Text = listViewIngatlanok.SelectedItems[0].SubItems[2].Text;
+                comboBoxIngatlanKategoriak.SelectedItem = listViewIngatlanok.SelectedItems[0].SubItems[3].Text;
+                comboBoxIngatlanAllapotok.SelectedItem = listViewIngatlanok.SelectedItems[0].SubItems[4].Text;
 
                 Elado elado = ingatlanService.GetIngatlan(textBoxHelyrajziSzam.Text).Elado;
-
+                textBoxEladoVezeteknev.Text = elado.Vezeteknev;
+                textBoxEladoKeresztnev.Text = elado.Keresztnev;
                 textBoxEladoAdoszam.Text = elado.Adoazonosito.ToString();
                 comboBoxEladoTelepules.SelectedItem = elado.Telepules;
                 textBoxEladoLakcim.Text = elado.Lakcim;
@@ -324,6 +322,7 @@ namespace IngatlanCentrum.ViewController
                 comboBoxMeglevoEladok.Visible = true;
                 buttonIngatlanModositas.Visible = false;
                 buttonEladoModositas.Visible = false;
+                textBoxEladoAdoszam.ReadOnly = false;
                 IngatlanEsEladoPanelenVezerlokAlaphelyzetbeAllitasa();
             }
         }
@@ -444,14 +443,16 @@ namespace IngatlanCentrum.ViewController
                 EladoValidator.Validate(elado);
                 IngatlanValidator.Validate(ingatlan);
 
-                eladoService.HozzaadElado(elado);
+                if (comboBoxMeglevoEladok.SelectedIndex < 0)
+                {
+                    eladoService.HozzaadElado(elado);
+                }
+
                 ingatlanService.HozzaadIngatlan(ingatlan);
 
                 ListViewItem listViewItemUjIngatlan = new ListViewItem();
                 listViewItemUjIngatlan.Text = ingatlan.HelyrajziSzam;
                 listViewItemUjIngatlan.SubItems.Add(ingatlan.Telepules);
-                listViewItemUjIngatlan.SubItems.Add(ingatlan.Elado.Vezeteknev);
-                listViewItemUjIngatlan.SubItems.Add(ingatlan.Elado.Keresztnev);
                 listViewItemUjIngatlan.SubItems.Add(ingatlan.Alapterulet.ToString());
                 listViewItemUjIngatlan.SubItems.Add(ingatlan.Kategoria);
                 listViewItemUjIngatlan.SubItems.Add(ingatlan.Allapot);
@@ -535,19 +536,7 @@ namespace IngatlanCentrum.ViewController
                     ingatlanService.ModositIngatlan(ingatlan);
 
                     eladoService.ModositElado(elado);
-
-                    ListViewItem modositottEladoAdatok = new ListViewItem();
-                    modositottEladoAdatok.Text = ingatlan.HelyrajziSzam;
-                    modositottEladoAdatok.SubItems.Add(ingatlan.Telepules);
-                    modositottEladoAdatok.SubItems.Add(ingatlan.Elado.Vezeteknev);
-                    modositottEladoAdatok.SubItems.Add(ingatlan.Elado.Keresztnev);
-                    modositottEladoAdatok.SubItems.Add(ingatlan.Alapterulet.ToString());
-                    modositottEladoAdatok.SubItems.Add(ingatlan.Kategoria);
-                    modositottEladoAdatok.SubItems.Add(ingatlan.Allapot);
-
-                    int index = listViewIngatlanok.FocusedItem.Index;
-                    listViewIngatlanok.Items.RemoveAt(index);
-                    listViewIngatlanok.Items.Insert(index, modositottEladoAdatok);
+                    ingatlanService.ModositEladotIngatlanban(elado.Adoazonosito, elado);
                 }
                 else
                 {

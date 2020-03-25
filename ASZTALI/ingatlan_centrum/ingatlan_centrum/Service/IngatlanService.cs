@@ -114,5 +114,16 @@ namespace IngatlanCentrum.Service
         {
             repository.ModositIngatlan(ingatlan);
         }
+
+        public void ModositEladotIngatlanban(string adoazonostio, Elado elado)
+        {
+            foreach (Ingatlan ingatlan in GetIngatlanok())
+            {
+                if (ingatlan.Elado.Adoazonosito == adoazonostio)
+                {
+                    ingatlan.Elado = elado;
+                }
+            }
+        }
     }
 }

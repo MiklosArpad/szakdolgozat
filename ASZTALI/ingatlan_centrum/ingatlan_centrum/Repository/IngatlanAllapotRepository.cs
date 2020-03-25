@@ -3,6 +3,7 @@ using IngatlanCentrum.Model;
 using System;
 using System.Diagnostics;
 using System.Data;
+using IngatlanCentrum.Exceptions;
 
 namespace IngatlanCentrum.Repository
 {
@@ -20,6 +21,7 @@ namespace IngatlanCentrum.Repository
         /// Metódus, amely letölti az ingatlan állapotok adatait az adatbázisból és objektumokat képez belőle.
         /// Az objektumokat elmenti az ingatlan állapotokat tartalmazó listába.
         /// </summary>
+        /// <exception cref="IngatlanAllapotException"></exception>
         private void LetoltIngatlanAllapotokatAdatbazisbol()
         {
             try
@@ -36,11 +38,14 @@ namespace IngatlanCentrum.Repository
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"{ex.Message}");
-                throw new Exception("Nem sikerült az ingatlan állapot adatok letöltése adatbázisból!");
+                Debug.WriteLine(ex.Message);
+                throw new IngatlanAllapotException("Nem sikerült az ingatlan állapot adatok letöltése adatbázisból!");
             }
         }
 
+        /// <summary>
+        /// Ingatlan állapot lista getter.
+        /// </summary>
         public List<IngatlanAllapot> GetIngatlanAllapotok()
         {
             return ingatlanAllapotok;

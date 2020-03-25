@@ -59,6 +59,8 @@
             this.labelEladoAdoszam = new System.Windows.Forms.Label();
             this.labelEladoVezeteknev = new System.Windows.Forms.Label();
             this.groupBoxIngatlanAdatai = new System.Windows.Forms.GroupBox();
+            this.labelMeglevoEladok = new System.Windows.Forms.Label();
+            this.comboBoxMeglevoEladok = new System.Windows.Forms.ComboBox();
             this.labelNegyzetmeter = new System.Windows.Forms.Label();
             this.labelHelyrajziSzam = new System.Windows.Forms.Label();
             this.textBoxHelyrajziSzam = new System.Windows.Forms.TextBox();
@@ -75,8 +77,6 @@
             this.listViewIngatlanok = new System.Windows.Forms.ListView();
             this.columnHeaderHelyrajziSzam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderTelepules = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderTulajdonosVezeteknev = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderTulajdonosKeresztnev = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderAlapterulet = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderKategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderAllapot = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -133,8 +133,6 @@
             this.labelUgynokAzonosito = new System.Windows.Forms.Label();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelSession = new System.Windows.Forms.ToolStripStatusLabel();
-            this.labelMeglevoEladok = new System.Windows.Forms.Label();
-            this.comboBoxMeglevoEladok = new System.Windows.Forms.ComboBox();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -470,6 +468,26 @@
             this.groupBoxIngatlanAdatai.TabStop = false;
             this.groupBoxIngatlanAdatai.Text = "Ingatlan adatai";
             // 
+            // labelMeglevoEladok
+            // 
+            this.labelMeglevoEladok.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelMeglevoEladok.AutoSize = true;
+            this.labelMeglevoEladok.Location = new System.Drawing.Point(6, 167);
+            this.labelMeglevoEladok.Name = "labelMeglevoEladok";
+            this.labelMeglevoEladok.Size = new System.Drawing.Size(195, 26);
+            this.labelMeglevoEladok.TabIndex = 33;
+            this.labelMeglevoEladok.Text = "Amennyiben az ingatlant már meglévő\r\neladó szeretné eladni, válasszon eladót!\r\n";
+            // 
+            // comboBoxMeglevoEladok
+            // 
+            this.comboBoxMeglevoEladok.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxMeglevoEladok.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMeglevoEladok.FormattingEnabled = true;
+            this.comboBoxMeglevoEladok.Location = new System.Drawing.Point(224, 172);
+            this.comboBoxMeglevoEladok.Name = "comboBoxMeglevoEladok";
+            this.comboBoxMeglevoEladok.Size = new System.Drawing.Size(224, 21);
+            this.comboBoxMeglevoEladok.TabIndex = 34;
+            // 
             // labelNegyzetmeter
             // 
             this.labelNegyzetmeter.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -611,8 +629,6 @@
             this.listViewIngatlanok.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderHelyrajziSzam,
             this.columnHeaderTelepules,
-            this.columnHeaderTulajdonosVezeteknev,
-            this.columnHeaderTulajdonosKeresztnev,
             this.columnHeaderAlapterulet,
             this.columnHeaderKategoria,
             this.columnHeaderAllapot});
@@ -638,16 +654,6 @@
             // 
             this.columnHeaderTelepules.Text = "Település";
             this.columnHeaderTelepules.Width = 150;
-            // 
-            // columnHeaderTulajdonosVezeteknev
-            // 
-            this.columnHeaderTulajdonosVezeteknev.Text = "Tulajdonos vezetékneve";
-            this.columnHeaderTulajdonosVezeteknev.Width = 150;
-            // 
-            // columnHeaderTulajdonosKeresztnev
-            // 
-            this.columnHeaderTulajdonosKeresztnev.Text = "Tulajdonos keresztneve";
-            this.columnHeaderTulajdonosKeresztnev.Width = 150;
             // 
             // columnHeaderAlapterulet
             // 
@@ -866,13 +872,13 @@
             this.comboBoxHirdetesIngatlanok.TabIndex = 32;
             this.comboBoxHirdetesIngatlanok.SelectedIndexChanged += new System.EventHandler(this.comboBoxHirdetesIngatlanok_SelectedIndexChanged);
             // 
-            // buttonHirdetesDekativalas
+            // buttonHirdetesDeaktivalas
             // 
             this.buttonHirdetesDeaktivalas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonHirdetesDeaktivalas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonHirdetesDeaktivalas.Image = ((System.Drawing.Image)(resources.GetObject("buttonHirdetesDekativalas.Image")));
+            this.buttonHirdetesDeaktivalas.Image = ((System.Drawing.Image)(resources.GetObject("buttonHirdetesDeaktivalas.Image")));
             this.buttonHirdetesDeaktivalas.Location = new System.Drawing.Point(581, 241);
-            this.buttonHirdetesDeaktivalas.Name = "buttonHirdetesDekativalas";
+            this.buttonHirdetesDeaktivalas.Name = "buttonHirdetesDeaktivalas";
             this.buttonHirdetesDeaktivalas.Size = new System.Drawing.Size(143, 68);
             this.buttonHirdetesDeaktivalas.TabIndex = 15;
             this.buttonHirdetesDeaktivalas.Text = "Hirdetés deaktiválása";
@@ -1197,26 +1203,6 @@
             this.toolStripStatusLabelSession.Size = new System.Drawing.Size(158, 20);
             this.toolStripStatusLabelSession.Text = "Bejelentkezett ügynök:";
             // 
-            // labelMeglevoEladok
-            // 
-            this.labelMeglevoEladok.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelMeglevoEladok.AutoSize = true;
-            this.labelMeglevoEladok.Location = new System.Drawing.Point(6, 167);
-            this.labelMeglevoEladok.Name = "labelMeglevoEladok";
-            this.labelMeglevoEladok.Size = new System.Drawing.Size(195, 26);
-            this.labelMeglevoEladok.TabIndex = 33;
-            this.labelMeglevoEladok.Text = "Amennyiben az ingatlant már meglévő\r\neladó szeretné eladni, válasszon eladót!\r\n";
-            // 
-            // comboBoxMeglevoEladok
-            // 
-            this.comboBoxMeglevoEladok.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBoxMeglevoEladok.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxMeglevoEladok.FormattingEnabled = true;
-            this.comboBoxMeglevoEladok.Location = new System.Drawing.Point(224, 172);
-            this.comboBoxMeglevoEladok.Name = "comboBoxMeglevoEladok";
-            this.comboBoxMeglevoEladok.Size = new System.Drawing.Size(224, 21);
-            this.comboBoxMeglevoEladok.TabIndex = 34;
-            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1289,7 +1275,6 @@
         private System.Windows.Forms.ListView listViewIngatlanok;
         private System.Windows.Forms.ColumnHeader columnHeaderHelyrajziSzam;
         private System.Windows.Forms.ColumnHeader columnHeaderTelepules;
-        private System.Windows.Forms.ColumnHeader columnHeaderTulajdonosVezeteknev;
         private System.Windows.Forms.ColumnHeader columnHeaderAlapterulet;
         private System.Windows.Forms.ColumnHeader columnHeaderKategoria;
         private System.Windows.Forms.ColumnHeader columnHeaderAllapot;
@@ -1337,7 +1322,6 @@
         private System.Windows.Forms.Button buttonEladoModositas;
         private System.Windows.Forms.Label labelEladoKeresztnev;
         private System.Windows.Forms.TextBox textBoxEladoKeresztnev;
-        private System.Windows.Forms.ColumnHeader columnHeaderTulajdonosKeresztnev;
         private System.Windows.Forms.ListView listViewHirdetesek;
         private System.Windows.Forms.ColumnHeader columnHeaderHirdetesAzonosito;
         private System.Windows.Forms.ColumnHeader columnHeaderIngatlanHelyrajziSzam;
