@@ -8,6 +8,9 @@ namespace IngatlanCentrum.Validation.Tests
     [TestClass()]
     public class UgynokValidatorTests
     {
+        /// <summary>
+        /// Ügynök teszt modell.
+        /// </summary>
         private Ugynok ugynok;
 
         public UgynokValidatorTests()
