@@ -55,32 +55,70 @@ namespace IngatlanCentrum.Repository
         }
 
         /// <summary>
-        /// 
+        /// Hirdetés hozzáadása listához és adatbázishoz.
         /// </summary>
-        /// <param name="hirdetes"></param>
+        /// <param name="hirdetes">Hirdetés objektum</param>
+        /// <exception cref="HirdetesException"></exception>
         public void HozzaadHirdetes(Hirdetes hirdetes)
         {
-            hirdetesek.Add(hirdetes);
+            try
+            {
+                string aktiv = "0";
+
+                if (hirdetes.Aktiv)
+                {
+                    aktiv = "1";
+                }
+
+                adatbazis.DML($"INSERT INTO hirdetesek (azonosito, cim, leiras, ar, ingatlan, ugynok, hirdetes_datuma, aktiv) " +
+                    $"VALUES (\"{hirdetes.Id}\", \"{hirdetes.Cim}\", \"{hirdetes.Leiras}\", \"{hirdetes.Ar}\", " +
+                    $"\"{hirdetes.Ingatlan.HelyrajziSzam}\", \"{hirdetes.Ugynok.Id}\", \"{hirdetes.Datum}\", \"{aktiv}\");");
+                hirdetesek.Add(hirdetes);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw new EladoException("Nem sikerült a hirdetés hozzáadása!");
+            }
         }
 
         /// <summary>
-        /// 
+        /// Hirdetés módosítása listában és adatbázisban.
         /// </summary>
-        /// <param name="hirdetes"></param>
+        /// <param name="hirdetes">Hirdetés objektum</param>
+        /// <exception cref="HirdetesException"></exception>
         public void ModositHirdetes(Hirdetes hirdetes)
         {
             foreach (Hirdetes h in hirdetesek)
             {
                 if (h.Id == hirdetes.Id)
                 {
-                    h.Cim = hirdetes.Cim;
-                    h.Leiras = hirdetes.Leiras;
-                    h.Ar = hirdetes.Ar;
-                    h.Ingatlan = hirdetes.Ingatlan;
-                    h.Ugynok = hirdetes.Ugynok;
-                    h.Datum = hirdetes.Datum;
-                    h.Aktiv = hirdetes.Aktiv;
-                    return;
+                    try
+                    {
+                        string aktiv = "0";
+
+                        if (hirdetes.Aktiv)
+                        {
+                            aktiv = "1";
+                        }
+
+                        adatbazis.DML($"UPDATE hirdetesek SET cim = \"{hirdetes.Cim}\", " +
+                            $"leiras = \"{hirdetes.Leiras}\", " +
+                            $"ar = \"{hirdetes.Ar}\", " +
+                            $"ingatlan = \"{hirdetes.Ingatlan.HelyrajziSzam}\", " +
+                            $"aktiv = \"{aktiv}\"" +
+                            $"WHERE azonosito = \"{hirdetes.Id}\";");
+
+                        h.Cim = hirdetes.Cim;
+                        h.Leiras = hirdetes.Leiras;
+                        h.Ar = hirdetes.Ar;
+                        return;
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.Message);
+                        throw new HirdetesException("Nem sikerült a hirdetés módosítása!");
+                    }
                 }
             }
 
@@ -88,7 +126,7 @@ namespace IngatlanCentrum.Repository
         }
 
         /// <summary>
-        /// 
+        /// Legnagyobb hirdetés azonosító meghatározása adatbázis alapján.
         /// </summary>
         public int GetMaxHirdetesID()
         {

@@ -217,6 +217,8 @@ namespace IngatlanCentrum.ViewController
                 $"kategória: {ingatlan.Kategoria}\nállapot: {ingatlan.Allapot}\n\n" +
                 $"Eladó neve: {ingatlan.Elado.Vezeteknev} {ingatlan.Elado.Keresztnev}\n" +
                 $"telefonszám: {ingatlan.Elado.Telefonszam}\ne-mail cím: {ingatlan.Elado.Email}";
+
+            textBoxHirdetesAzonosito.Text = hirdetesService.GetNextHirdetesId().ToString();
         }
 
         private void FeltoltTelepulesekComboBox(ComboBox comboBoxTelepulesek)

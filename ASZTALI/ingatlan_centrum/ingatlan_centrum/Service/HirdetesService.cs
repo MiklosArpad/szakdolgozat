@@ -112,8 +112,16 @@ namespace IngatlanCentrum.Service
             {
                 if (h.Id == hirdetes.Id && h.Aktiv == true)
                 {
-                    h.Aktiv = false;
-                    return;
+                    try
+                    {
+                        h.Aktiv = false;
+                        repository.ModositHirdetes(h);
+                        return;
+                    }
+                    catch (HirdetesException e)
+                    {
+                        throw new HirdetesException(e.Message);
+                    }
                 }
             }
 
@@ -127,6 +135,7 @@ namespace IngatlanCentrum.Service
                 if (h.Id == hirdetes.Id && h.Aktiv == false)
                 {
                     h.Aktiv = true;
+                    repository.ModositHirdetes(h);
                     return;
                 }
             }
