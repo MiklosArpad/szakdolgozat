@@ -159,6 +159,9 @@ namespace IngatlanCentrum.ViewController
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
+            FormLogin formLogin = new FormLogin();
+            formLogin.ShowDialog();
+
             FeltoltIngatlanokListView();
             FeltoltUgynokokListView();
             FeltoltHirdetesekListView();
@@ -578,7 +581,7 @@ namespace IngatlanCentrum.ViewController
                 }
 
                 hirdetes.Ingatlan = ingatlanService.GetIngatlan(helyrajziSzam);
-                hirdetes.Ugynok = ugynokService.GetUgynok(Munkamenet.UgynokAzonosito = "ABC123"); // TODO: SETTELÉST ITT MAJD TÖRÖLD KI
+                hirdetes.Ugynok = ugynokService.GetUgynok(Munkamenet.UgynokAzonosito);
                 hirdetes.Datum = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
                 hirdetes.Aktiv = true;
 
@@ -801,7 +804,7 @@ namespace IngatlanCentrum.ViewController
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl.SelectedTab == tabControl.TabPages[1] && Munkamenet.UgynokJogosultsag == "default")
+            if (tabControl.SelectedTab == tabControl.TabPages[2] && Munkamenet.UgynokJogosultsag == "default")
             {
                 MessageBox.Show("Default jogosultsággal a felhasználó kezelés nem elérhető!", "Hibaüzenet", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 tabControl.SelectedTab = tabControl.TabPages[0];

@@ -23,8 +23,10 @@ namespace IngatlanCentrum.ViewController
         {
             try
             {
-                ugynokService.AzonositUgynok(textBoxUgynokAzonosito.Text, textBoxUgynokJelszo.Text);
-                Close();
+                if (ugynokService.AzonositUgynok(textBoxUgynokAzonosito.Text, textBoxUgynokJelszo.Text))
+                {
+                    Close();
+                }
             }
             catch (Exception ex)
             {
