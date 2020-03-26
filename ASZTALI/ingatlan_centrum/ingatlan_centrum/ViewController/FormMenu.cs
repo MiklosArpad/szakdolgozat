@@ -299,6 +299,7 @@ namespace IngatlanCentrum.ViewController
                 buttonIngatlanModositas.Visible = true;
                 buttonEladoModositas.Visible = true;
                 textBoxEladoAdoszam.ReadOnly = true;
+                textBoxHelyrajziSzam.ReadOnly = true;
 
                 textBoxHelyrajziSzam.Text = listViewIngatlanok.SelectedItems[0].Text;
                 comboBoxIngatlanTelepulesek.SelectedItem = listViewIngatlanok.SelectedItems[0].SubItems[1].Text;
@@ -323,6 +324,7 @@ namespace IngatlanCentrum.ViewController
                 buttonIngatlanModositas.Visible = false;
                 buttonEladoModositas.Visible = false;
                 textBoxEladoAdoszam.ReadOnly = false;
+                textBoxHelyrajziSzam.ReadOnly = false;
                 IngatlanEsEladoPanelenVezerlokAlaphelyzetbeAllitasa();
             }
         }
@@ -490,8 +492,6 @@ namespace IngatlanCentrum.ViewController
                     ListViewItem listViewItemModositottIngatlan = new ListViewItem();
                     listViewItemModositottIngatlan.Text = ingatlan.HelyrajziSzam;
                     listViewItemModositottIngatlan.SubItems.Add(ingatlan.Telepules);
-                    listViewItemModositottIngatlan.SubItems.Add(ingatlan.Elado.Vezeteknev);
-                    listViewItemModositottIngatlan.SubItems.Add(ingatlan.Elado.Keresztnev);
                     listViewItemModositottIngatlan.SubItems.Add(ingatlan.Alapterulet.ToString());
                     listViewItemModositottIngatlan.SubItems.Add(ingatlan.Kategoria);
                     listViewItemModositottIngatlan.SubItems.Add(ingatlan.Allapot);

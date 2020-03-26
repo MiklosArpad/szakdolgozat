@@ -71,9 +71,9 @@ namespace IngatlanCentrum.Repository
                     $"\"{elado.Lakcim}\", \"{elado.Telefonszam}\", \"{elado.Email}\");");
                 eladok.Add(elado);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Debug.WriteLine(e.Message);
+                Debug.WriteLine(ex.Message);
                 throw new EladoException("Nem sikerült az eladó hozzáadása!");
             }
         }
@@ -96,7 +96,7 @@ namespace IngatlanCentrum.Repository
                             $"telepules = \"{elado.Telepules}\", " +
                             $"lakcim = \"{elado.Lakcim}\"," +
                             $"telefonszam = \"{elado.Telefonszam}\", " +
-                            $"email = \"{elado.Email}\"" +
+                            $"email = \"{elado.Email}\" " +
                             $"WHERE adoazonosito = \"{elado.Adoazonosito}\";");
 
                         e.Vezeteknev = elado.Vezeteknev;
@@ -107,8 +107,9 @@ namespace IngatlanCentrum.Repository
                         e.Email = elado.Email;
                         return;
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
+                        Debug.WriteLine(ex.Message);
                         throw new EladoException("Nem sikerült az eladó módosítása!");
                     }
                 }

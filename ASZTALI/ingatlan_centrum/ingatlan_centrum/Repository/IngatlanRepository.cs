@@ -57,31 +57,58 @@ namespace IngatlanCentrum.Repository
         }
 
         /// <summary>
-        /// 
+        /// Ingatlan hozzáadása listához és adatbázishoz.
         /// </summary>
-        /// <param name="ingatlan"></param>
+        /// <param name="ingatlan">ingatlan objektum</param>
         /// <exception cref="IngatlanException"></exception>
         public void HozzaadIngatlan(Ingatlan ingatlan)
         {
-            ingatlanok.Add(ingatlan);
+            try
+            {
+                adatbazis.DML($"INSERT INTO ingatlanok (helyrajzi_szam, telepules, alapterulet, kategoria, allapot, elado) " +
+                    $"VALUES (\"{ingatlan.HelyrajziSzam}\", \"{ingatlan.Telepules}\", \"{ingatlan.Alapterulet}\", \"{ingatlan.Kategoria}\", " +
+                    $"\"{ingatlan.Allapot}\", \"{ingatlan.Elado.Adoazonosito}\");");
+                ingatlanok.Add(ingatlan);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw new IngatlanException("Nem sikerült az ingatlan hozzáadása!");
+            }
         }
 
         /// <summary>
-        /// 
+        /// Ingatlan módosítása listában és adatbázisban.
         /// </summary>
-        /// <param name="ingatlan"></param>
+        /// <param name="ingatlan">Ingatlan objektum</param>
+        /// <exception cref="IngatlanException"></exception>
         public void ModositIngatlan(Ingatlan ingatlan)
         {
             foreach (Ingatlan i in ingatlanok)
             {
                 if (i.HelyrajziSzam == ingatlan.HelyrajziSzam)
                 {
-                    i.Telepules = ingatlan.Telepules;
-                    i.Alapterulet = ingatlan.Alapterulet;
-                    i.Kategoria = ingatlan.Kategoria;
-                    i.Allapot = ingatlan.Allapot;
-                    i.Elado = ingatlan.Elado;
-                    return;
+                    try
+                    {
+                        adatbazis.DML($"UPDATE ingatlanok SET telepules = \"{ingatlan.Telepules}\", " +
+                            $"alapterulet = \"{ingatlan.Alapterulet}\", " +
+                            $"kategoria = \"{ingatlan.Kategoria}\", " +
+                            $"allapot = \"{ingatlan.Allapot}\"," +
+                            $"elado = \"{ingatlan.Elado.Adoazonosito}\" " +
+                            $"WHERE helyrajzi_szam = \"{ingatlan.HelyrajziSzam}\";");
+
+                        i.Telepules = ingatlan.Telepules;
+                        i.Alapterulet = ingatlan.Alapterulet;
+                        i.Kategoria = ingatlan.Kategoria;
+                        i.Allapot = ingatlan.Allapot;
+                        i.Elado = ingatlan.Elado;
+                        return;
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.Message);
+                        throw new IngatlanException("");
+                    }
                 }
             }
 

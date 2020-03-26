@@ -67,10 +67,10 @@ namespace IngatlanCentrum.Repository
                     $"\"{ugynok.Telefonszam}\", \"{ugynok.Jogosultsag}\");");
                 ugynokok.Add(ugynok);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Debug.WriteLine(e.Message);
-                throw new EladoException("Nem sikerült az eladó hozzáadása!");
+                Debug.WriteLine(ex.Message);
+                throw new EladoException("Nem sikerült az ügynök hozzáadása!");
             }
         }
 
@@ -85,19 +85,27 @@ namespace IngatlanCentrum.Repository
             {
                 if (u.Id == ugynok.Id)
                 {
-                    adatbazis.DML($"UPDATE ugynokok SET jelszo = \"{ugynok.Jelszo}\", " +
-                        $"vezeteknev = \"{ugynok.Vezeteknev}\", " +
-                        $"keresztnev = \"{ugynok.Keresztnev}\", " +
-                        $"telefonszam = \"{ugynok.Telefonszam}\", " +
-                        $"jogosultsag = \"{ugynok.Jogosultsag}\" " +
-                        $"WHERE azonosito = \"{ugynok.Id}\";");
+                    try
+                    {
+                        adatbazis.DML($"UPDATE ugynokok SET jelszo = \"{ugynok.Jelszo}\", " +
+                            $"vezeteknev = \"{ugynok.Vezeteknev}\", " +
+                            $"keresztnev = \"{ugynok.Keresztnev}\", " +
+                            $"telefonszam = \"{ugynok.Telefonszam}\", " +
+                            $"jogosultsag = \"{ugynok.Jogosultsag}\" " +
+                            $"WHERE azonosito = \"{ugynok.Id}\";");
 
-                    u.Jelszo = ugynok.Jelszo;
-                    u.Vezeteknev = ugynok.Vezeteknev;
-                    u.Keresztnev = ugynok.Keresztnev;
-                    u.Telefonszam = ugynok.Telefonszam;
-                    u.Jogosultsag = ugynok.Jogosultsag;
-                    return;
+                        u.Jelszo = ugynok.Jelszo;
+                        u.Vezeteknev = ugynok.Vezeteknev;
+                        u.Keresztnev = ugynok.Keresztnev;
+                        u.Telefonszam = ugynok.Telefonszam;
+                        u.Jogosultsag = ugynok.Jogosultsag;
+                        return;
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.Message);
+                        throw new UgynokException("Nem sikerült az ügynök módosítása!");
+                    }
                 }
             }
 
