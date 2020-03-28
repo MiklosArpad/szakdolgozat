@@ -1,4 +1,5 @@
-﻿using IngatlanCentrum.Exceptions;
+﻿using IngatlanCentrum.Config;
+using IngatlanCentrum.Exceptions;
 using IngatlanCentrum.Model;
 using System.Collections.Generic;
 
@@ -34,12 +35,37 @@ namespace IngatlanCentrum.Service
 
         public List<Hirdetes> GetHirdetesek()
         {
-            return repository.GetHirdetesek();
-        }
+            string ugynokJogoulstsag = Munkamenet.UgynokJogosultsag;
 
+            List<Hirdetes> adminHirdetesek = new List<Hirdetes>();
+            List<Hirdetes> defaultHirdetesek = new List<Hirdetes>();
+
+            foreach (Hirdetes hirdetes in repository.GetHirdetesek())
+            {
+                if (hirdetes.Ugynok.Jogosultsag == "default")
+                {
+                    defaultHirdetesek.Add(hirdetes);
+                    adminHirdetesek.Add(hirdetes);
+                }
+                else
+                {
+                    adminHirdetesek.Add(hirdetes);
+                }
+            }
+
+            if (ugynokJogoulstsag == "admin")
+            {
+                return adminHirdetesek;
+            }
+            else
+            {
+                return defaultHirdetesek;
+            }
+        }
+        
         public bool IngatlanSzerepelEHirdetesben(string helyrajziSzam)
         {
-            foreach (Hirdetes hirdetes in GetHirdetesek())
+            foreach (Hirdetes hirdetes in repository.GetHirdetesek())
             {
                 if (hirdetes.Ingatlan.HelyrajziSzam == helyrajziSzam)
                 {
