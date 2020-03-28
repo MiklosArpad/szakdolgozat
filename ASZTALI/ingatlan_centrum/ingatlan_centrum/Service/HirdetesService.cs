@@ -37,36 +37,6 @@ namespace IngatlanCentrum.Service
             return repository.GetHirdetesek();
         }
 
-        public Ingatlan GetHirdetettIngatlanHelyrajziSzamAlapjan(string helyrajziSzam)
-        {
-            foreach (Hirdetes hirdetes in repository.GetHirdetesek())
-            {
-                if (hirdetes.Ingatlan.HelyrajziSzam == helyrajziSzam)
-                {
-                    return hirdetes.Ingatlan;
-                }
-            }
-
-            throw new HirdetesException("A keresett helyrajzi számmal nincs ingatlan meghirdetve!");
-        }
-
-        public List<Hirdetes> GetHirdetettIngatlanokUgynokSzerint(string ugynokAzonosito)
-        {
-            List<Hirdetes> hirdetettIngatlanokUgynokSzerint = new List<Hirdetes>();
-
-            foreach (Hirdetes hirdetes in GetHirdetesek())
-            {
-                if (hirdetes.Ugynok.Id == ugynokAzonosito)
-                {
-                    hirdetettIngatlanokUgynokSzerint.Add(hirdetes);
-                }
-            }
-
-            hirdetettIngatlanokUgynokSzerint.Sort();
-
-            return hirdetettIngatlanokUgynokSzerint;
-        }
-
         public bool IngatlanSzerepelEHirdetesben(string helyrajziSzam)
         {
             foreach (Hirdetes hirdetes in GetHirdetesek())
@@ -78,19 +48,6 @@ namespace IngatlanCentrum.Service
             }
 
             return false;
-        }
-
-        public Hirdetes GetHirdetes(string helyrajziSzam)
-        {
-            foreach (Hirdetes hirdetes in GetHirdetesek())
-            {
-                if (hirdetes.Ingatlan.HelyrajziSzam == helyrajziSzam)
-                {
-                    return hirdetes;
-                }
-            }
-
-            throw new IngatlanException($"Nincs hirdetés az alábbi helyrajzi számmal:\n{helyrajziSzam}");
         }
 
         public Hirdetes GetHirdetes(int azonosito)
