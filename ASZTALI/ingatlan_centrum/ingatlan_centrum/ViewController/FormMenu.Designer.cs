@@ -59,6 +59,7 @@
             this.labelEladoAdoszam = new System.Windows.Forms.Label();
             this.labelEladoVezeteknev = new System.Windows.Forms.Label();
             this.groupBoxIngatlanAdatai = new System.Windows.Forms.GroupBox();
+            this.numericUpDownIngatlanSzobakSzama = new System.Windows.Forms.NumericUpDown();
             this.labelMeglevoEladok = new System.Windows.Forms.Label();
             this.comboBoxMeglevoEladok = new System.Windows.Forms.ComboBox();
             this.labelNegyzetmeter = new System.Windows.Forms.Label();
@@ -68,7 +69,7 @@
             this.labelIngatlanTelepulesek = new System.Windows.Forms.Label();
             this.labelIngatlanAllapotok = new System.Windows.Forms.Label();
             this.comboBoxIngatlanAllapotok = new System.Windows.Forms.ComboBox();
-            this.labelIngatlanAlapterulet = new System.Windows.Forms.Label();
+            this.labelIngatlanAlapteruletEsSzobakSzama = new System.Windows.Forms.Label();
             this.comboBoxIngatlanKategoriak = new System.Windows.Forms.ComboBox();
             this.labelIngatlanKategoriak = new System.Windows.Forms.Label();
             this.textBoxAlapterulet = new System.Windows.Forms.TextBox();
@@ -78,6 +79,7 @@
             this.columnHeaderHelyrajziSzam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderTelepules = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderAlapterulet = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderSzobakSzama = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderKategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderAllapot = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageHirdetesekKezelese = new System.Windows.Forms.TabPage();
@@ -140,6 +142,7 @@
             this.groupBoxIngatlanokKezelese.SuspendLayout();
             this.groupBoxEladoAdatai.SuspendLayout();
             this.groupBoxIngatlanAdatai.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIngatlanSzobakSzama)).BeginInit();
             this.tabPageHirdetesekKezelese.SuspendLayout();
             this.groupBoxHirdetesekKezelese.SuspendLayout();
             this.groupBoxHirdetesbenSzereploIngatlanEsEladoAdatai.SuspendLayout();
@@ -448,6 +451,7 @@
             // 
             this.groupBoxIngatlanAdatai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxIngatlanAdatai.Controls.Add(this.numericUpDownIngatlanSzobakSzama);
             this.groupBoxIngatlanAdatai.Controls.Add(this.labelMeglevoEladok);
             this.groupBoxIngatlanAdatai.Controls.Add(this.comboBoxMeglevoEladok);
             this.groupBoxIngatlanAdatai.Controls.Add(this.labelNegyzetmeter);
@@ -457,7 +461,7 @@
             this.groupBoxIngatlanAdatai.Controls.Add(this.labelIngatlanTelepulesek);
             this.groupBoxIngatlanAdatai.Controls.Add(this.labelIngatlanAllapotok);
             this.groupBoxIngatlanAdatai.Controls.Add(this.comboBoxIngatlanAllapotok);
-            this.groupBoxIngatlanAdatai.Controls.Add(this.labelIngatlanAlapterulet);
+            this.groupBoxIngatlanAdatai.Controls.Add(this.labelIngatlanAlapteruletEsSzobakSzama);
             this.groupBoxIngatlanAdatai.Controls.Add(this.comboBoxIngatlanKategoriak);
             this.groupBoxIngatlanAdatai.Controls.Add(this.labelIngatlanKategoriak);
             this.groupBoxIngatlanAdatai.Controls.Add(this.textBoxAlapterulet);
@@ -467,6 +471,14 @@
             this.groupBoxIngatlanAdatai.TabIndex = 15;
             this.groupBoxIngatlanAdatai.TabStop = false;
             this.groupBoxIngatlanAdatai.Text = "Ingatlan adatai";
+            // 
+            // numericUpDownIngatlanSzobakSzama
+            // 
+            this.numericUpDownIngatlanSzobakSzama.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.numericUpDownIngatlanSzobakSzama.Location = new System.Drawing.Point(353, 93);
+            this.numericUpDownIngatlanSzobakSzama.Name = "numericUpDownIngatlanSzobakSzama";
+            this.numericUpDownIngatlanSzobakSzama.Size = new System.Drawing.Size(95, 20);
+            this.numericUpDownIngatlanSzobakSzama.TabIndex = 35;
             // 
             // labelMeglevoEladok
             // 
@@ -487,12 +499,13 @@
             this.comboBoxMeglevoEladok.Name = "comboBoxMeglevoEladok";
             this.comboBoxMeglevoEladok.Size = new System.Drawing.Size(224, 21);
             this.comboBoxMeglevoEladok.TabIndex = 34;
+            this.comboBoxMeglevoEladok.SelectedIndexChanged += new System.EventHandler(this.comboBoxMeglevoEladok_SelectedIndexChanged);
             // 
             // labelNegyzetmeter
             // 
             this.labelNegyzetmeter.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelNegyzetmeter.AutoSize = true;
-            this.labelNegyzetmeter.Location = new System.Drawing.Point(454, 95);
+            this.labelNegyzetmeter.Location = new System.Drawing.Point(326, 95);
             this.labelNegyzetmeter.Name = "labelNegyzetmeter";
             this.labelNegyzetmeter.Size = new System.Drawing.Size(21, 13);
             this.labelNegyzetmeter.TabIndex = 32;
@@ -556,15 +569,15 @@
             this.comboBoxIngatlanAllapotok.Size = new System.Drawing.Size(224, 21);
             this.comboBoxIngatlanAllapotok.TabIndex = 28;
             // 
-            // labelIngatlanAlapterulet
+            // labelIngatlanAlapteruletEsSzobakSzama
             // 
-            this.labelIngatlanAlapterulet.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelIngatlanAlapterulet.AutoSize = true;
-            this.labelIngatlanAlapterulet.Location = new System.Drawing.Point(161, 95);
-            this.labelIngatlanAlapterulet.Name = "labelIngatlanAlapterulet";
-            this.labelIngatlanAlapterulet.Size = new System.Drawing.Size(57, 13);
-            this.labelIngatlanAlapterulet.TabIndex = 23;
-            this.labelIngatlanAlapterulet.Text = "Alapterület";
+            this.labelIngatlanAlapteruletEsSzobakSzama.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelIngatlanAlapteruletEsSzobakSzama.AutoSize = true;
+            this.labelIngatlanAlapteruletEsSzobakSzama.Location = new System.Drawing.Point(77, 95);
+            this.labelIngatlanAlapteruletEsSzobakSzama.Name = "labelIngatlanAlapteruletEsSzobakSzama";
+            this.labelIngatlanAlapteruletEsSzobakSzama.Size = new System.Drawing.Size(141, 13);
+            this.labelIngatlanAlapteruletEsSzobakSzama.TabIndex = 23;
+            this.labelIngatlanAlapteruletEsSzobakSzama.Text = "Alapterület és szobák száma";
             // 
             // comboBoxIngatlanKategoriak
             // 
@@ -591,7 +604,7 @@
             this.textBoxAlapterulet.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxAlapterulet.Location = new System.Drawing.Point(224, 92);
             this.textBoxAlapterulet.Name = "textBoxAlapterulet";
-            this.textBoxAlapterulet.Size = new System.Drawing.Size(224, 20);
+            this.textBoxAlapterulet.Size = new System.Drawing.Size(96, 20);
             this.textBoxAlapterulet.TabIndex = 26;
             // 
             // buttonIngatlanModositas
@@ -630,6 +643,7 @@
             this.columnHeaderHelyrajziSzam,
             this.columnHeaderTelepules,
             this.columnHeaderAlapterulet,
+            this.columnHeaderSzobakSzama,
             this.columnHeaderKategoria,
             this.columnHeaderAllapot});
             this.listViewIngatlanok.FullRowSelect = true;
@@ -659,6 +673,11 @@
             // 
             this.columnHeaderAlapterulet.Text = "Alapterület (m2)";
             this.columnHeaderAlapterulet.Width = 150;
+            // 
+            // columnHeaderSzobakSzama
+            // 
+            this.columnHeaderSzobakSzama.Text = "Szobák száma";
+            this.columnHeaderSzobakSzama.Width = 150;
             // 
             // columnHeaderKategoria
             // 
@@ -1230,6 +1249,7 @@
             this.groupBoxEladoAdatai.PerformLayout();
             this.groupBoxIngatlanAdatai.ResumeLayout(false);
             this.groupBoxIngatlanAdatai.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIngatlanSzobakSzama)).EndInit();
             this.tabPageHirdetesekKezelese.ResumeLayout(false);
             this.groupBoxHirdetesekKezelese.ResumeLayout(false);
             this.groupBoxHirdetesekKezelese.PerformLayout();
@@ -1315,7 +1335,7 @@
         private System.Windows.Forms.Label labelIngatlanTelepulesek;
         private System.Windows.Forms.Label labelIngatlanAllapotok;
         private System.Windows.Forms.ComboBox comboBoxIngatlanAllapotok;
-        private System.Windows.Forms.Label labelIngatlanAlapterulet;
+        private System.Windows.Forms.Label labelIngatlanAlapteruletEsSzobakSzama;
         private System.Windows.Forms.ComboBox comboBoxIngatlanKategoriak;
         private System.Windows.Forms.Label labelIngatlanKategoriak;
         private System.Windows.Forms.TextBox textBoxAlapterulet;
@@ -1350,5 +1370,7 @@
         private System.Windows.Forms.TextBox textBoxHirdetesAzonosito;
         private System.Windows.Forms.Label labelMeglevoEladok;
         private System.Windows.Forms.ComboBox comboBoxMeglevoEladok;
+        private System.Windows.Forms.NumericUpDown numericUpDownIngatlanSzobakSzama;
+        private System.Windows.Forms.ColumnHeader columnHeaderSzobakSzama;
     }
 }

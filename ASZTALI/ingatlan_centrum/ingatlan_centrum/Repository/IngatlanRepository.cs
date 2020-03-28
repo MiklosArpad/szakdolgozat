@@ -35,9 +35,10 @@ namespace IngatlanCentrum.Repository
                         HelyrajziSzam = row[0].ToString(),
                         Telepules = row[1].ToString(),
                         Alapterulet = Convert.ToInt32(row[2]),
-                        Kategoria = row[3].ToString(),
-                        Allapot = row[4].ToString(),
-                        Elado = GetEladok().Find(x => x.Adoazonosito == row[5].ToString())
+                        SzobakSzama = Convert.ToInt32(row[3]),
+                        Kategoria = row[4].ToString(),
+                        Allapot = row[5].ToString(),
+                        Elado = GetEladok().Find(x => x.Adoazonosito == row[6].ToString())
                     });
                 }
             }
@@ -65,9 +66,10 @@ namespace IngatlanCentrum.Repository
         {
             try
             {
-                adatbazis.DML($"INSERT INTO ingatlanok (helyrajzi_szam, telepules, alapterulet, kategoria, allapot, elado) " +
-                    $"VALUES (\"{ingatlan.HelyrajziSzam}\", \"{ingatlan.Telepules}\", \"{ingatlan.Alapterulet}\", \"{ingatlan.Kategoria}\", " +
-                    $"\"{ingatlan.Allapot}\", \"{ingatlan.Elado.Adoazonosito}\");");
+                adatbazis.DML($"INSERT INTO ingatlanok (helyrajzi_szam, telepules, alapterulet, szobak_szama, kategoria, allapot, elado) " +
+                    $"VALUES (\"{ingatlan.HelyrajziSzam}\", \"{ingatlan.Telepules}\", \"{ingatlan.Alapterulet}\", " +
+                    $"\"{ingatlan.SzobakSzama}\", \"{ingatlan.Kategoria}\", \"{ingatlan.Allapot}\", " +
+                    $"\"{ingatlan.Elado.Adoazonosito}\");");
                 ingatlanok.Add(ingatlan);
             }
             catch (Exception ex)
@@ -92,6 +94,7 @@ namespace IngatlanCentrum.Repository
                     {
                         adatbazis.DML($"UPDATE ingatlanok SET telepules = \"{ingatlan.Telepules}\", " +
                             $"alapterulet = \"{ingatlan.Alapterulet}\", " +
+                            $"szobak_szama = \"{ingatlan.SzobakSzama}\", " +
                             $"kategoria = \"{ingatlan.Kategoria}\", " +
                             $"allapot = \"{ingatlan.Allapot}\"," +
                             $"elado = \"{ingatlan.Elado.Adoazonosito}\" " +
@@ -99,6 +102,7 @@ namespace IngatlanCentrum.Repository
 
                         i.Telepules = ingatlan.Telepules;
                         i.Alapterulet = ingatlan.Alapterulet;
+                        i.SzobakSzama = ingatlan.SzobakSzama;
                         i.Kategoria = ingatlan.Kategoria;
                         i.Allapot = ingatlan.Allapot;
                         i.Elado = ingatlan.Elado;
@@ -107,7 +111,7 @@ namespace IngatlanCentrum.Repository
                     catch (Exception ex)
                     {
                         Debug.WriteLine(ex.Message);
-                        throw new IngatlanException("");
+                        throw new IngatlanException("Nem sikerült az ingatlan módosítása!");
                     }
                 }
             }

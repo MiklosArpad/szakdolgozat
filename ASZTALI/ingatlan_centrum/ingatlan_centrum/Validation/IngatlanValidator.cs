@@ -47,6 +47,11 @@ namespace IngatlanCentrum.Validation
                 throw new IngatlanException("Ingatlan alapterülete nem lehet nulla vagy negatív szám!");
             }
 
+            if (SzobakSzamaNulla(ingatlan.SzobakSzama))
+            {
+                throw new IngatlanException("Az ingatlan szobáinak száma nem lehet nulla!");
+            }
+
             if (AlapteruletTartalmazEBetut(ingatlan.Alapterulet.ToString()))
             {
                 throw new IngatlanException("Ingatlan alapterülete nem tartalmazhat betűt!");
@@ -107,6 +112,16 @@ namespace IngatlanCentrum.Validation
                 {
                     return true;
                 }
+            }
+
+            return false;
+        }
+
+        private static bool SzobakSzamaNulla(int szobakSzama)
+        {
+            if (szobakSzama == 0)
+            {
+                return true;
             }
 
             return false;
