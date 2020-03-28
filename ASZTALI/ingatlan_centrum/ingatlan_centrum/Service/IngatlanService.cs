@@ -36,73 +36,9 @@ namespace IngatlanCentrum.Service
             throw new IngatlanException("Nincs létezik ingatlan adott helyrajzi számmal!");
         }
 
-        public List<Ingatlan> GetIngatlan(int alapterulet)
-        {
-            List<Ingatlan> ingatlanokAlapteruletSzerint = new List<Ingatlan>();
-
-            foreach (Ingatlan ingatlan in repository.GetIngatlanok())
-            {
-                if (ingatlan.Alapterulet == alapterulet)
-                {
-                    ingatlanokAlapteruletSzerint.Add(ingatlan);
-                }
-            }
-
-            ingatlanokAlapteruletSzerint.Sort();
-
-            return ingatlanokAlapteruletSzerint;
-        }
-
         public List<Ingatlan> GetIngatlanok()
         {
             return repository.GetIngatlanok();
-        }
-
-        public List<Ingatlan> GetIngatlanokAlapteruletekKozott(int minAlapterulet, int maxAlapterulet)
-        {
-            List<Ingatlan> ingatlanokAlapteruletSzerint = new List<Ingatlan>();
-
-            foreach (Ingatlan ingatlan in GetIngatlanok())
-            {
-                if (ingatlan.Alapterulet >= minAlapterulet && ingatlan.Alapterulet <= maxAlapterulet)
-                {
-                    ingatlanokAlapteruletSzerint.Add(ingatlan);
-                }
-            }
-
-            ingatlanokAlapteruletSzerint.Sort();
-
-            return ingatlanokAlapteruletSzerint;
-        }
-
-        public List<Ingatlan> GetIngatlanokEladoSzerint(string vezeteknev, string keresztnev)
-        {
-            List<Ingatlan> ingatlanokEladoSzerint = new List<Ingatlan>();
-
-            foreach (Ingatlan ingatlan in GetIngatlanok())
-            {
-                if (ingatlan.Elado.Vezeteknev == vezeteknev && ingatlan.Elado.Keresztnev == keresztnev)
-                {
-                    ingatlanokEladoSzerint.Add(ingatlan);
-                }
-            }
-
-            return ingatlanokEladoSzerint;
-        }
-
-        public List<Ingatlan> GetIngatlanokTelepulesSzerint(string telepulesNev)
-        {
-            List<Ingatlan> ingatlanokTelepulesSzerint = new List<Ingatlan>();
-
-            foreach (Ingatlan ingatlan in GetIngatlanok())
-            {
-                if (ingatlan.Telepules == telepulesNev)
-                {
-                    ingatlanokTelepulesSzerint.Add(ingatlan);
-                }
-            }
-
-            return ingatlanokTelepulesSzerint;
         }
 
         public void HozzaadIngatlan(Ingatlan ingatlan)
