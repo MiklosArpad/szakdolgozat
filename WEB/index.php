@@ -19,7 +19,7 @@
                 <div class="col-12">
                     <?php
                     require_once 'html/parallax.html';
-                    require_once 'html/footer.html';
+                    require_once 'html/footer.php';
                     ?>
                 </div>
             </div>

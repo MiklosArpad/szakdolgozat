@@ -18,7 +18,6 @@
             <div class="row">
                 <div class="col-6">
                     <?php require_once 'html/kapcsolat.html'; ?>
-                    <img src="img/vasvari.png"/>
                 </div>
             </div>
         </div>
@@ -26,7 +25,7 @@
             <div class="row">
                 <div class="col-12">
                     <?php
-                    require_once 'html/footer.html';
+                    require_once 'html/footer.php';
                     ?>
                 </div>
             </div>

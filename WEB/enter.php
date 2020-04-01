@@ -8,7 +8,7 @@
         <?php
         require_once './html/navbar.html';
         require_once './html/login_form.html';
-        require_once './html/footer.html';
+        require_once './html/footer.php';
         ?>
     </body>
 </html>
