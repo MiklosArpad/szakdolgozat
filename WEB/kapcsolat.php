@@ -16,9 +16,7 @@
         </div>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-6">
-                    <?php require_once 'html/kapcsolat.html'; ?>
-                </div>
+                <?php require_once 'html/kapcsolat.html'; ?>
             </div>
         </div>
         <div class="container-fluid">
