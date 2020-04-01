@@ -8,12 +8,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <?php
-                    require_once 'html/navbar.html';
-                    require_once 'html/parallax.html';
-                    require_once 'html/impresszum.html';
-                    require_once 'html/footer.php';
-                    ?>
+                    <?php require_once 'html/navbar.html'; ?>
+                    <?php require_once 'html/footer.php'; ?>
                 </div>
             </div>
         </div>
