@@ -13,7 +13,6 @@
                 <input class="btn btn-primary" id="login" type="submit" value="Belépés">
             </form>
             <?php require_once 'html/footer.php'; ?>
-            ?>
         </div>
     </body>
 </html>
