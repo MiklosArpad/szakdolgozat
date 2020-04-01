@@ -6,10 +6,13 @@
     </head>
     <body>
         <div class="container-fluid">
-            <?php
-            require_once './html/navbar.html';
-            require_once './html/login_form.html';
-            require_once './html/footer.php';
+            <?php require_once 'html/navbar.html'; ?>
+            <form id="login_form" class="row">
+                <input class="form-control" id="username" type="text" placeholder="Felhasználónév">
+                <input class="form-control" id="password" type="password" placeholder="Jelszó">
+                <input class="btn btn-primary" id="login" type="submit" value="Belépés">
+            </form>
+            <?php require_once 'html/footer.php'; ?>
             ?>
         </div>
     </body>
