@@ -10,26 +10,26 @@ $(document).ready(function () {
             alert(xhr.status);
         }
     });
+    
     $("#belepes").click(function (e) {
-        e.preventDefault(); // ne töltődjön újra az oldal -> alapértelmett működés letiltás
+        
+        e.preventDefault();
 
-        let ugynokID = $("#ugynok_id").val();
-        let jelszo = $("#ugynok_jelszo").val();
+        let felhasznalonev = $("#felhasznalonev").val();
+        let $password = $("#$password").val();
+        
         $.ajax({
             method: "post",
             url: "php_ajax/login.php",
             data: {
-                "ugynok_id": ugynokID,
-                "jelszo": jelszo
+                "felhasznalonev": felhasznalonev,
+                "$password": $password
             },
             success: function (data) {
-
-                if (data == "Sikeres") {
-                    location.href = "index.php"; // kliens oldali oldal átirányítás
+                if (data === "Sikeres") {
+                    location.href = "index.php";
                 } else {
-
                     alert("Nem jó a felhasználónév vagy jelszó!")
-
                 }
             }
         })

@@ -2,32 +2,30 @@
 
 require_once '../config/connect.php';
 
-if (isset($_POST['ugynok_id']) && isset($_POST['jelszo'])) {
+if (isset($_POST['username']) && isset($_POST['password'])) {
 
-    $ugynok_id = $_POST['ugynok_id'];
-    $jelszo = $_POST['jelszo'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-    $sql = "SELECT ugynokID, jelszo FROM ugynokok WHERE ugynokID = ? AND jelszo = ?;"; // SQL-injeckió kivédése paraméterezett lekérdezéssel
-
+    $sql = "SELECT ugynokID, jelszo FROM ???????? WHERE ugynokID = ? AND jelszo = ?;";
+    
     $statement = $connection->prepare($sql);
-    $statement->bind_param('ss', $ugynok_id, $jelszo); // paraméter kötés: ? -hez változó (ha string akkor 's', ha integer akkor 'i'
-    $statement->execute(); // megtörént a kötés és a lekérdezés
-    $statement->store_result(); // eredmény letárolás
-
-
-
+    $statement->bind_param('ss', $username, $password);
+    $statement->execute();
+    $statement->store_result();
+    
     if ($statement->num_rows == 1) {
 
         $statement->bind_result($ugynok_id, $jelszo);
         $statement->fetch();
 
-        $_SESSION['bejelentkezes'] = $ugynok_id; // felhasználói munakmenet követése (ügynök ID szolgál erre)
-
+        $_SESSION['bejelentkezes'] = $username;
+        
         $statement->close();
 
-        echo "Sikeres";
+        echo "Sikeres bejelentkezés!";
     } else {
-        echo "Sikertelen";
+        echo "Sikertelen bejelentkezés!";
         $statement->close();
     }
 }

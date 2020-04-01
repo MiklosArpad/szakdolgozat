@@ -2,7 +2,7 @@
 <html lang="hu">
     <head>        
         <?php require_once 'html/head.html'; ?>
-        <title>Regisztráció | IngatlanCentrum</title>
+        <title>Bejelentkezés | IngatlanCentrum</title>
     </head>
     <body>
         <div class="container-fluid">
