@@ -23,9 +23,9 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         
         $statement->close();
 
-        echo "Sikeres bejelentkezés!";
+        echo "Sikeres";
     } else {
-        echo "Sikertelen bejelentkezés!";
+        echo "Sikertelen";
         $statement->close();
     }
 }

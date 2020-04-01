@@ -11,7 +11,7 @@ $(document).ready(function () {
         }
     });
     
-    $("#belepes").click(function (e) {
+    $("#login").click(function (e) {
         
         e.preventDefault();
 
