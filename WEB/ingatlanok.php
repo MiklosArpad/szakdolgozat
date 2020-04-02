@@ -16,52 +16,34 @@
                     }
                     ?>
                     <h6>Üdvözöljük <?php echo $_SESSION['username']; ?>!</h6>
-                    <div id="keresofelulet">
+                    <fieldset id="keresofelulet">
+                        <legend>Keresés</legend>
                         <table class="table table-striped">
                             <tr>
                                 <td>Település</td>
-                                <td>
-                                    <select id="varosok" class=" form-control">
-
-                                    </select>
-                                </td>
-                                <td colspan="2">Típus</td>
-                            </tr>
-                            <tr>
-                                <td>Ár min. M. Ft</td>
-                                <td>
-                                    <input type="text" class=" form-control">
-                                </td>
-                                <td><input type="checkbox" /> Panel</td>
-                                <td><input type="checkbox" /> Tégla</td>
-                            </tr>
-                            <tr>
-                                <td>Ár max. M. Ft</td>
-                                <td>
-                                    <input type="text" class=" form-control">
-                                </td>
-
-                                <td><input type="checkbox" /> Bérleti jog</td>
-                                <td><input type="checkbox" /> Családi ház</td>
+                                <td><select id="telepulesek" class="form-control"><option></option></select></td>
+                                <td>Kategória</td>
+                                <td><select id="kategoriak" class="form-control"></select></td>
                             </tr>
                             <tr>
                                 <td>Alapterület</td>
                                 <td>
-                                    <select class=" form-control">
-                                        <option>0 - 25 m2</option>
-                                        <option>25 - 50 m2</option>
-                                        <option>50 - 75 m2</option>
-                                        <option>75 - 100 m2</option>
-                                        <option>100 - m2</option>
+                                    <select class="form-control">
+                                        <option></option>
+                                        <option>0 - 1000 m2</option>
+                                        <option>1000 - 2000 m2</option>
+                                        <option>2000 - 5000 m2</option>
+                                        <option>5000 - 10000 m2</option>
                                     </select>
                                 </td>
-                                <td><input type="checkbox" /> Tanya</td>
-                                <td><input type="checkbox" /> Garázs</td>
+                                <td>Állapot</td>
+                                <td><select id="allapotok" class="form-control"></select></td>
                             </tr>
                             <tr>
-                                <td>Szobák száma</td>
+                                <td>Szobaszám</td>
                                 <td>
-                                    <select class=" form-control">
+                                    <select class="form-control">
+                                        <option></option>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -74,13 +56,33 @@
                                         <option>10</option>
                                     </select>
                                 </td>
-                                <td><input type="checkbox" /> Kert</td>
+                                <td>Ár</td>
+                                <td>
+                                    <select class="form-control">
+                                        <option></option>                                    
+                                        <option></option>                                    
+                                        <option></option>                                    
+                                        <option></option>                                    
+                                        <option></option>
+                                    </select>
+                            </tr>
+                            <tr>
+                                <td>Alapterület (m2)</td>
+                                <td>
+                                    <select class="form-control">
+                                        <option></option>
+                                        <option>0 - 1000</option>
+                                        <option>1000 - 2000</option>
+                                        <option>2000 - 5000</option>
+                                        <option>5000 - 10000</option>
+                                    </select>
+                                </td>
+
                                 <td><button class="btn btn-primary" id="keresIngatlan">Mehet</button></td>
                             </tr>
                         </table> 
-                    </div>
+                    </fieldset>
                     <div id="ingatlanok"></div>
-                    <?php require_once 'html/footer.php'; ?>
                 </div>
             </div>
         </div>

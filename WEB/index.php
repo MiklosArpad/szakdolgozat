@@ -15,45 +15,26 @@
                         </div>
                     </div>
                     <section class="sotet">
-                        <table id="hirek" class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>CSOK 10 +10</td>
-                                    <td><i class="fa">&#xf153;</i></td>
-                                </tr>
-                                <tr>
-                                    <td>Hitel</td>
-                                    <td>%</td>
-                                </tr>
-                                <tr>
-                                    <td>Jogi tanácsadás</td>
-                                    <td><i class='fa'>&#xf24e;</i></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div id="impresszum">
+                            <h4>Irodavezető: Szervét Tibor</h4>
+                            <h4>
+                                &#9743; Telefon: 06-30-598-1778 <br>
+                                &#9993; E-mail: info@ingatlancentrum.hu<br>
+                                <i class="material-icons">&#xe55f;</i>Cím: Szeged, Gutenberg u. 11, 6722<br>
+                            </h4>
+                            <h4>Nyitvatartás: H-P: 09.00 - 18.00<br>(ebédszünet: 12.00 - 13.00)</h4>
+                        </div>    
                     </section>
                     <div class="kep2">
                         <div class="kepszoveg">
                             <span>Keresse meg álmai ingatlanát!</span>
                         </div>
                     </div>
-                    <div id="impresszum">
-                        <h3>Impresszum</h3>
-                        <h4>Irodavezető: Szervét Tibor</h4>
-                        <h4>
-                            &#9743; Telefon: 06-30-598-1778 <br>
-                            &#9993; E-mail: info@ingatlancentrum.hu<br>
-                            <i class="material-icons">&#xe55f;</i>Cím: Szeged, Gutenberg u. 11, 6722<br>
-                        </h4>
-                        <h4>Nyitvatartás:H-P: 09.00 - 18.00 (ebédszünet: 12.00 - 13.00)</h4>
+                    <div class="mapouter">
+                        <div class="gmap_canvas"><iframe width="100%" height="417" id="gmap_canvas" src="https://maps.google.com/maps?q=Szeged%2C%20Gutenberg%20utca%2011.&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            <a href="https://www.bitgeeks.net"></a>
+                        </div>
                     </div>
-                    <?php require_once 'html/footer.php'; ?>
                 </div>
             </div>
         </div>

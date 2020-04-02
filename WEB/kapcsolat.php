@@ -47,9 +47,9 @@
                             </tr>
                         </tbody>
                     </table>
-                    <?php require_once 'html/footer.php'; ?>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>

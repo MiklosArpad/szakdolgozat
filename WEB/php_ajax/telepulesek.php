@@ -9,7 +9,7 @@ if (!$result) {
     die("Hiba a lekérdezésben!");
 }
 
-$keresVarosHTML = '';
+$keresVarosHTML = '<option></option>';
 
 while ($row = $result->fetch_row()) {
     $keresVarosHTML .= "<option>{$row[0]}</option>";

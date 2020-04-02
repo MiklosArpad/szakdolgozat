@@ -2,9 +2,31 @@ $(document).ready(function () {
 
     $.ajax({
         method: "get",
-        url: "php_ajax/varosok.php",
+        url: "php_ajax/telepulesek.php",
         success: function (answer) {
-            $('#varosok').html(answer);
+            $('#telepulesek').html(answer);
+        },
+        error: function (xhr) {
+            alert(xhr.status);
+        }
+    });
+    
+        $.ajax({
+        method: "get",
+        url: "php_ajax/kategoriak.php",
+        success: function (answer) {
+            $('#kategoriak').html(answer);
+        },
+        error: function (xhr) {
+            alert(xhr.status);
+        }
+    });
+    
+        $.ajax({
+        method: "get",
+        url: "php_ajax/allapotok.php",
+        success: function (answer) {
+            $('#allapotok').html(answer);
         },
         error: function (xhr) {
             alert(xhr.status);
@@ -22,7 +44,7 @@ $(document).ready(function () {
         }
     });
 
-    $("#login").click(function (e) {
+    $("#login").on('click', function (e) {
 
         e.preventDefault();
 
@@ -44,6 +66,27 @@ $(document).ready(function () {
                 }
             }
         })
+
+    });
+
+
+    $('#keresIngatlan').on('click', function () {
+
+        $.ajax({
+            method: "get",
+            url: "php_ajax/ingatlanok_szures.php",
+            data: {
+                "": valami,
+                "": valami,
+                "": valami
+            },
+            success: function (answer) {
+                $('#ingatlanok').html(answer);
+            },
+            error: function (xhr) {
+                alert(xhr.status);
+            }
+        });
 
     });
 
