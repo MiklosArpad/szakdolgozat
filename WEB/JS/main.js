@@ -11,6 +11,17 @@ $(document).ready(function () {
         }
     });
 
+    $.ajax({
+        method: "get",
+        url: "php_ajax/ingatlanok_lekerdezes.php",
+        success: function (answer) {
+            $('#ingatlanok').html(answer);
+        },
+        error: function (xhr) {
+            alert(xhr.status);
+        }
+    });
+
     $("#login").click(function (e) {
 
         e.preventDefault();
@@ -34,22 +45,6 @@ $(document).ready(function () {
             }
         })
 
-    });
-
-    $("#registration").click(function () {
-        // reg ...
-    });
-
-
-    $.ajax({
-        method: "get",
-        url: "php_ajax/ingatlanok_lekerdezes.php",
-        success: function (answer) {
-            $('#ingatlanok').html(answer);
-        },
-        error: function (xhr) {
-            alert(xhr.status);
-        }
     });
 
 });
