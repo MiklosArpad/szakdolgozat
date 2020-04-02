@@ -10,8 +10,8 @@ $(document).ready(function () {
             alert(xhr.status);
         }
     });
-    
-        $.ajax({
+
+    $.ajax({
         method: "get",
         url: "php_ajax/kategoriak.php",
         success: function (answer) {
@@ -21,8 +21,8 @@ $(document).ready(function () {
             alert(xhr.status);
         }
     });
-    
-        $.ajax({
+
+    $.ajax({
         method: "get",
         url: "php_ajax/allapotok.php",
         success: function (answer) {
@@ -72,13 +72,24 @@ $(document).ready(function () {
 
     $('#keresIngatlan').on('click', function () {
 
+        let telepules = $('#telepulesek').val();
+        let kategoria = $('#kategoriak').val();
+        let alapterulet = $('#alapterulet').val();
+        let allapot = $('#allapotok').val();
+        let szobaszam = $('#szobaszam').val();
+        let ar = $('#ar').val();
+
+        console.log(telepules);
         $.ajax({
             method: "get",
             url: "php_ajax/ingatlanok_szures.php",
             data: {
-                "": valami,
-                "": valami,
-                "": valami
+                "telepules": telepules,
+                "kategoria": kategoria,
+                "alapterulet": alapterulet,
+                "allapot": allapot,
+                "szobaszam": szobaszam,
+                "ar": ar
             },
             success: function (answer) {
                 $('#ingatlanok').html(answer);

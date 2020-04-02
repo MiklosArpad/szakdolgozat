@@ -28,7 +28,7 @@
                             <tr>
                                 <td>Alapterület (m2)</td>
                                 <td>
-                                    <select class="form-control">
+                                    <select id="alapterulet" class="form-control">
                                         <option></option>
                                         <option>0 - 1000</option>
                                         <option>1000 - 2000</option>
@@ -42,7 +42,7 @@
                             <tr>
                                 <td>Szobaszám</td>
                                 <td>
-                                    <select class="form-control">
+                                    <select id="szobaszam" class="form-control">
                                         <option></option>
                                         <option>1</option>
                                         <option>2</option>
@@ -58,7 +58,7 @@
                                 </td>
                                 <td>Ár (Forint)</td>
                                 <td>
-                                    <select class="form-control">
+                                    <select id="ar" class="form-control">
                                         <option></option>                                    
                                         <option>0 - 500 000</option>                                    
                                         <option>500 000 - 2 000 000</option>                                    
