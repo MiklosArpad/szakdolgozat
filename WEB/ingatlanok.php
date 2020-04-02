@@ -71,9 +71,9 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td colspan="2">
-                                    <button class="btn btn-primary" id="keresIngatlan">Mehet</button>
-                                </td>
+                                <td></td>
+                                <td></td>
+                                <td><button class="btn btn-primary" id="keresIngatlan">Mehet</button></td>
                             </tr>
                         </table> 
                     </fieldset>
