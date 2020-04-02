@@ -1,8 +1,3 @@
-<?php
-if (!isset($_SESSION['user'])) {
-    header('Location: index.php');
-}
-?>
 <!DOCTYPE html>
 <html lang="hu">
     <head>
@@ -21,3 +16,7 @@ if (!isset($_SESSION['user'])) {
         </div>
     </body>
 </html>
+<?php
+if (!isset($_SESSION['user'])) {
+    header('Location: index.php');
+}
