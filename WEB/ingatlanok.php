@@ -15,7 +15,7 @@
                         header('Location: index.php');
                     }
                     ?>
-                    <h6>Üdvözöljük <?php echo $_SESSION['username']; ?>!</h6>
+                    <h4>Üdvözöljük <?php echo $_SESSION['username']; ?>!</h4>
                     <fieldset id="keresofelulet">
                         <legend>Keresés</legend>
                         <table class="table table-striped">
