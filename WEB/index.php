@@ -27,14 +27,16 @@
                     </section>
                     <div class="kep2">
                         <div class="kepszoveg">
-                            <span>Keresse meg álmai ingatlanát!</span>
+                            <span>Keresse meg velünk álmai ingatlanát!</span>
                         </div>
                     </div>
-                    <div class="mapouter">
-                        <div class="gmap_canvas"><iframe width="100%" height="417" id="gmap_canvas" src="https://maps.google.com/maps?q=Szeged%2C%20Gutenberg%20utca%2011.&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                            <a href="https://www.bitgeeks.net"></a>
+                    <section class="sotet">
+                        <div class="mapouter">
+                            <div class="gmap_canvas"><iframe width="100%" height="417" id="gmap_canvas" src="https://maps.google.com/maps?q=Szeged%2C%20Gutenberg%20utca%2011.&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                                <a href="https://www.bitgeeks.net"></a>
+                            </div>
                         </div>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>
