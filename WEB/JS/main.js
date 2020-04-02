@@ -40,4 +40,16 @@ $(document).ready(function () {
         // reg ...
     });
 
+
+    $.ajax({
+        method: "get",
+        url: "php_ajax/ingatlanok_lekerdezes.php",
+        success: function (answer) {
+            $('#ingatlanok').html(answer);
+        },
+        error: function (xhr) {
+            alert(xhr.status);
+        }
+    });
+
 });

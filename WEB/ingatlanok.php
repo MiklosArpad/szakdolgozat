@@ -10,6 +10,7 @@
                 <div class="col-12">
                     <?php require_once 'html/navbar.php'; ?>
                     <h6>Üdvözöljük <?php echo $_SESSION['username']; ?>!</h6>
+                    <div id="ingatlanok"></div>
                     <?php require_once 'html/footer.php'; ?>
                 </div>
             </div>
