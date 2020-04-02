@@ -10,20 +10,20 @@ $(document).ready(function () {
             alert(xhr.status);
         }
     });
-    
+
     $("#login").click(function (e) {
-        
+
         e.preventDefault();
 
-        let felhasznalonev = $("#felhasznalonev").val();
-        let $password = $("#$password").val();
-        
+        let username = $("#username").val();
+        let password = $("#password").val();
+
         $.ajax({
             method: "post",
             url: "php_ajax/login.php",
             data: {
-                "felhasznalonev": felhasznalonev,
-                "$password": $password
+                "username": username,
+                "password": password
             },
             success: function (data) {
                 if (data === "Sikeres") {
@@ -35,4 +35,9 @@ $(document).ready(function () {
         })
 
     });
+
+    $("#registration").click(function () {
+        // reg ...
+    });
+
 });

@@ -7,7 +7,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT ugynokID, jelszo FROM ???????? WHERE ugynokID = ? AND jelszo = ?;";
+    $sql = "SELECT azonosito, jelszo FROM ugynokok WHERE azonosito = ? AND jelszo = ?;";
     
     $statement = $connection->prepare($sql);
     $statement->bind_param('ss', $username, $password);
@@ -16,7 +16,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     
     if ($statement->num_rows == 1) {
 
-        $statement->bind_result($ugynok_id, $jelszo);
+        $statement->bind_result($username, $password);
         $statement->fetch();
 
         $_SESSION['bejelentkezes'] = $username;
