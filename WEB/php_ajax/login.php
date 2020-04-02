@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 require_once '../config/connect.php';
 
 if (isset($_POST['username']) && isset($_POST['password'])) {
@@ -19,7 +20,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $statement->bind_result($username, $password);
         $statement->fetch();
 
-        $_SESSION['bejelentkezes'] = $username;
+        $_SESSION['user'] = $username;
         
         $statement->close();
 

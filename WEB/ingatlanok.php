@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <?php require_once 'html/navbar.html'; ?>
+                    <?php require_once 'html/navbar.php'; ?>
                     <?php require_once 'html/footer.php'; ?>
                 </div>
             </div>

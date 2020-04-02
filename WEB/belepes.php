@@ -6,7 +6,7 @@
     </head>
     <body>
         <div class="container-fluid">
-            <?php require_once 'html/navbar.html'; ?>
+            <?php require_once 'html/navbar.php'; ?>
             <form id="login_form" class="row">
                 <input class="form-control" id="username" type="text" placeholder="Felhasználónév">
                 <input class="form-control" id="password" type="password" placeholder="Jelszó">

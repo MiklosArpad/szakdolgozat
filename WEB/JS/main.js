@@ -27,7 +27,7 @@ $(document).ready(function () {
             },
             success: function (data) {
                 if (data === "Sikeres") {
-                    location.href = "index.php";
+                    location.href = "ingatlanok.php";
                 } else {
                     alert("Nem jó a felhasználónév vagy jelszó!")
                 }
