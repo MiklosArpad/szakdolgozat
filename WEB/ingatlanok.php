@@ -26,14 +26,14 @@
                                 <td><select id="kategoriak" class="form-control"></select></td>
                             </tr>
                             <tr>
-                                <td>Alapterület</td>
+                                <td>Alapterület (m2)</td>
                                 <td>
                                     <select class="form-control">
                                         <option></option>
-                                        <option>0 - 1000 m2</option>
-                                        <option>1000 - 2000 m2</option>
-                                        <option>2000 - 5000 m2</option>
-                                        <option>5000 - 10000 m2</option>
+                                        <option>0 - 1000</option>
+                                        <option>1000 - 2000</option>
+                                        <option>2000 - 5000</option>
+                                        <option>5000 - 10000</option>
                                     </select>
                                 </td>
                                 <td>Állapot</td>
@@ -56,29 +56,24 @@
                                         <option>10</option>
                                     </select>
                                 </td>
-                                <td>Ár</td>
+                                <td>Ár (Forint)</td>
                                 <td>
                                     <select class="form-control">
                                         <option></option>                                    
-                                        <option></option>                                    
-                                        <option></option>                                    
-                                        <option></option>                                    
-                                        <option></option>
-                                    </select>
-                            </tr>
-                            <tr>
-                                <td>Alapterület (m2)</td>
-                                <td>
-                                    <select class="form-control">
-                                        <option></option>
-                                        <option>0 - 1000</option>
-                                        <option>1000 - 2000</option>
-                                        <option>2000 - 5000</option>
-                                        <option>5000 - 10000</option>
+                                        <option>0 - 500 000</option>                                    
+                                        <option>500 000 - 2 000 000</option>                                    
+                                        <option>2 000 000 - 5 000 000</option>
+                                        <option>5 000 000 - 10 000 000</option>
+                                        <option>10 000 000 - 20 000 000</option>
+                                        <option>20 000 000 - 50 000 000</option>
                                     </select>
                                 </td>
-
-                                <td><button class="btn btn-primary" id="keresIngatlan">Mehet</button></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td colspan="2">
+                                    <button class="btn btn-primary" id="keresIngatlan">Mehet</button>
+                                </td>
                             </tr>
                         </table> 
                     </fieldset>
