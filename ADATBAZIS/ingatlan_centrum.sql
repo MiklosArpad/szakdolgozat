@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Már 28. 14:13
+-- Létrehozás ideje: 2020. Ápr 02. 16:36
 -- Kiszolgáló verziója: 10.4.11-MariaDB
--- PHP verzió: 7.4.2
+-- PHP verzió: 7.2.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `ingatlan_centrum`
 --
-
-DROP DATABASE IF EXISTS `ingatlan_centrum`;
 CREATE DATABASE IF NOT EXISTS `ingatlan_centrum` DEFAULT CHARACTER SET utf8 COLLATE utf8_hungarian_ci;
 USE `ingatlan_centrum`;
 
@@ -56,6 +54,29 @@ INSERT INTO `eladok` (`adoazonosito`, `vezeteknev`, `keresztnev`, `telepules`, `
 ('5544332211', 'Somlai', 'Edina', 'Balástya', 'Erős János utca 3', '06302802719', 'edobaba@gmail.com'),
 ('5566778899', 'Dayka', 'Margit', 'Csanytelek', 'Nagyerdő 7', '06206667266', 'dayka1907@gmail.com'),
 ('9988776655', 'Rudolf', 'Péter', 'Ambrózfalva', 'Könyves Kálmán körút 77', '06205267822', 'pepe5@freemail.hu');
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `felhasznalok`
+--
+
+DROP TABLE IF EXISTS `felhasznalok`;
+CREATE TABLE IF NOT EXISTS `felhasznalok` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `felhasznalonev` varchar(10) COLLATE utf8_hungarian_ci NOT NULL,
+  `jelszo` varchar(8) COLLATE utf8_hungarian_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `felhasznalonev` (`felhasznalonev`),
+  UNIQUE KEY `jelszo` (`jelszo`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `felhasznalok`
+--
+
+INSERT INTO `felhasznalok` (`id`, `felhasznalonev`, `jelszo`) VALUES
+(1, 'kisjanos12', '12345');
 
 -- --------------------------------------------------------
 
