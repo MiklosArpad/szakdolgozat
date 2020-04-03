@@ -39,4 +39,8 @@ footer h5 {
 #login_form {
     width: 50%;
     margin: 0 auto;
+    padding: 10%;
+}
+#login{
+    width: 100%;
 }
