@@ -16,9 +16,10 @@ if (!empty($_POST['kategoria'])) {
     $sql .= " AND ingatlanok.kategoria = '{$kategoria}'";
 }
 
-if (!empty($_POST['alapterulet'])) {
-    $alapterulet = $_POST['alapterulet'];
-    $sql .= " AND ingatlanok.alapterulet = '{$alapterulet}'";
+if (!empty($_POST['min_alapterulet']) && !empty($_POST['max_alapterulet'])) {
+    $min_alapterulet = $_POST['min_alapterulet'];
+    $max_alapterulet = $_POST['max_alapterulet'];
+    $sql .= " AND ingatlanok.alapterulet BETWEEN {$min_alapterulet} AND {$max_alapterulet}";
 }
 
 if (!empty($_POST['allapot'])) {
@@ -31,12 +32,16 @@ if (!empty($_POST['szobaszam'])) {
     $sql .= " AND ingatlanok.szobak_szama = '{$szobaszam}'";
 }
 
-if (!empty($_POST['ar'])) {
-    $ar = $_POST['ar'];
-    $sql .= " AND hirdetesek.ar = '{$ar}'";
+if (!empty($_POST['min_ar']) && !empty($_POST['max_ar'])) {
+    $min_ar = $_POST['min_ar'];
+    $max_ar = $_POST['max_ar'];
+    $sql .= " AND hirdetesek.ar BETWEEN {$min_ar} AND {$max_ar}";
 }
 
-$sql .= ';';
+$sql .= ' AND hirdetesek.aktiv = 1;';
+
+var_dump($sql);
+die();
 
 $result = $connection->query($sql);
 

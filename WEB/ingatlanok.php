@@ -22,24 +22,57 @@
                             <tr>
                                 <td>Település</td>
                                 <td><select id="telepulesek" class="form-control"><option></option></select></td>
+                                <td></td>
                                 <td>Kategória</td>
                                 <td><select id="kategoriak" class="form-control"></select></td>
                             </tr>
                             <tr>
                                 <td>Alapterület (m2)</td>
                                 <td>
-                                    <select id="alapterulet" class="form-control">
+                                    <select id="min_alapterulet" class="form-control">
                                         <option></option>
-                                        <option>0 - 1000</option>
-                                        <option>1000 - 2000</option>
-                                        <option>2000 - 5000</option>
-                                        <option>5000 - 10000</option>
+                                        <option>0</option>
+                                        <option>1000</option>
+                                        <option>2000</option>
+                                        <option>5000</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select id="max_alapterulet" class="form-control">
+                                        <option></option>
+                                        <option>1000</option>
+                                        <option>2000</option>
+                                        <option>5000</option>
+                                        <option>10000</option>
                                     </select>
                                 </td>
                                 <td>Állapot</td>
                                 <td><select id="allapotok" class="form-control"></select></td>
                             </tr>
                             <tr>
+                                <td>Ár (Forint)</td>
+                                <td>
+                                    <select id="min_ar" class="form-control">
+                                        <option></option>                                    
+                                        <option>0</option>                                    
+                                        <option>500000</option>                                    
+                                        <option>2000000</option>
+                                        <option>5000000</option>
+                                        <option>10000000</option>
+                                        <option>20000000</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select id="max_ar" class="form-control">
+                                        <option></option>                                    
+                                        <option>500000</option>                                    
+                                        <option>2000000</option>                                    
+                                        <option>5000000</option>
+                                        <option>10000000</option>
+                                        <option>20000000</option>
+                                        <option>50000000</option>
+                                    </select>
+                                </td>
                                 <td>Szobaszám</td>
                                 <td>
                                     <select id="szobaszam" class="form-control">
@@ -56,24 +89,14 @@
                                         <option>10</option>
                                     </select>
                                 </td>
-                                <td>Ár (Forint)</td>
-                                <td>
-                                    <select id="ar" class="form-control">
-                                        <option></option>                                    
-                                        <option>0 - 500 000</option>                                    
-                                        <option>500 000 - 2 000 000</option>                                    
-                                        <option>2 000 000 - 5 000 000</option>
-                                        <option>5 000 000 - 10 000 000</option>
-                                        <option>10 000 000 - 20 000 000</option>
-                                        <option>20 000 000 - 50 000 000</option>
-                                    </select>
-                                </td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td><button class="btn btn-primary" id="keresIngatlan">Mehet</button></td>
+                                <td></td>
+                                <td><button class="btn btn-primary" id="keresIngatlan">Keresés</button></td>
                             </tr>
                         </table> 
                     </fieldset>

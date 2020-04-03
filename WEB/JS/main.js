@@ -73,10 +73,20 @@ $(document).ready(function () {
 
         let telepules = $('#telepulesek').val();
         let kategoria = $('#kategoriak').val();
-        let alapterulet = $('#alapterulet').val();
+        let min_alapterulet = $('#min_alapterulet').val();
+        let max_alapterulet = $('#max_alapterulet').val();
         let allapot = $('#allapotok').val();
         let szobaszam = $('#szobaszam').val();
-        let ar = $('#ar').val();
+        let min_ar = $('#min_ar').val();
+        let max_ar = $('#max_ar').val();
+
+        if (min_alapterulet === "0") {
+            min_alapterulet = "1";
+        }
+
+        if (min_ar === "0") {
+            min_ar = "1";
+        }
 
         $.ajax({
             method: "post",
@@ -84,10 +94,12 @@ $(document).ready(function () {
             data: {
                 "telepules": telepules,
                 "kategoria": kategoria,
-                "alapterulet": alapterulet,
+                "min_alapterulet": min_alapterulet,
+                "max_alapterulet": max_alapterulet,
                 "allapot": allapot,
                 "szobaszam": szobaszam,
-                "ar": ar
+                "min_ar": min_ar,
+                "max_ar": max_ar
             },
             success: function (answer) {
                 $('#osszes_hirdetes').remove();

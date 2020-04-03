@@ -4,8 +4,7 @@ require_once '../config/connect.php';
 
 $sql = 'SELECT hirdetesek.azonosito, hirdetesek.cim, hirdetesek.leiras, '
         . 'ingatlanok.telepules, ingatlanok.alapterulet, ingatlanok.szobak_szama, ingatlanok.kategoria, ingatlanok.allapot, '
-        . 'hirdetesek.ar FROM hirdetesek, ingatlanok WHERE hirdetesek.ingatlan = ingatlanok.helyrajzi_szam';
-$sql .= ';';
+        . 'hirdetesek.ar FROM hirdetesek, ingatlanok WHERE hirdetesek.ingatlan = ingatlanok.helyrajzi_szam AND hirdetesek.aktiv = 1;';
 
 $result = $connection->query($sql);
 
