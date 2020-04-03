@@ -31,7 +31,7 @@ if (!empty($_POST['szobaszam'])) {
     $sql .= " AND ingatlanok.szobak_szama = '{$szobaszam}'";
 }
 
-if (empty($_POST['ar'])) {
+if (!empty($_POST['ar'])) {
     $ar = $_POST['ar'];
     $sql .= " AND hirdetesek.ar = '{$ar}'";
 }
