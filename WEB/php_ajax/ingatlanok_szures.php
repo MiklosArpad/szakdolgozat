@@ -6,40 +6,34 @@ $sql = 'SELECT hirdetesek.azonosito, hirdetesek.cim, hirdetesek.leiras, '
         . 'ingatlanok.telepules, ingatlanok.alapterulet, ingatlanok.szobak_szama, ingatlanok.kategoria, ingatlanok.allapot, '
         . 'hirdetesek.ar FROM hirdetesek, ingatlanok WHERE hirdetesek.ingatlan = ingatlanok.helyrajzi_szam';
 
-if (empty($_POST['telepules'])) {
-    $telepules = "";
-} else {
+if (!empty($_POST['telepules'])) {
     $telepules = $_POST['telepules'];
+    $sql .= " AND ingatlanok.telepules = '{$telepules}'";
 }
 
-if (empty($_POST['kategoria'])) {
-    $kategoria = "";
-} else {
+if (!empty($_POST['kategoria'])) {
     $kategoria = $_POST['kategoria'];
+    $sql .= " AND ingatlanok.kategoria = '{$kategoria}'";
 }
 
-if (empty($_POST['alapterulet'])) {
-    $alapterulet = "";
-} else {
+if (!empty($_POST['alapterulet'])) {
     $alapterulet = $_POST['alapterulet'];
+    $sql .= " AND ingatlanok.alapterulet = '{$alapterulet}'";
 }
 
-if (empty($_POST['allapot'])) {
-    $allapot = "";
-} else {
+if (!empty($_POST['allapot'])) {
     $allapot = $_POST['allapot'];
+    $sql .= " AND ingatlanok.allapot = '{$allapot}'";
 }
 
-if (empty($_POST['szobaszam'])) {
-    $szobaszam = "";
-} else {
+if (!empty($_POST['szobaszam'])) {
     $szobaszam = $_POST['szobaszam'];
+    $sql .= " AND ingatlanok.szobak_szama = '{$szobaszam}'";
 }
 
 if (empty($_POST['ar'])) {
-    $ar = "";
-} else {
     $ar = $_POST['ar'];
+    $sql .= " AND hirdetesek.ar = '{$ar}'";
 }
 
 $sql .= ';';
@@ -47,7 +41,7 @@ $sql .= ';';
 $result = $connection->query($sql);
 
 if (!$result) {
-    die("Hiba a lekérdezésben!");
+    die("Nincs találat!");
 }
 
 $szuresHirdetes = '<table class="table table-striped">'

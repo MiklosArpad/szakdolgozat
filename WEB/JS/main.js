@@ -79,7 +79,7 @@ $(document).ready(function () {
         let ar = $('#ar').val();
 
         $.ajax({
-            method: "get",
+            method: "post",
             url: "php_ajax/ingatlanok_szures.php",
             data: {
                 "telepules": telepules,
