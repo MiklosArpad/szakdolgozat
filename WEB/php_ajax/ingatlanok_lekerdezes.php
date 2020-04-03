@@ -1,22 +1,44 @@
 <?php
 
-if (isset($_POST['telepules']) && isset($_POST['kategoria']) && isset($_POST['alapterulet']) && isset($_POST['allapot']) && isset($_POST['szobaszam']) && isset($_POST['ar'])) {
+require_once '../config/connect.php';
 
-    $telepules = $_POST['telepules'];
-    $kategoria = $_POST['kategoria'];
-    $alapterulet = $_POST['alapterulet'];
-    $allapot = $_POST['allapot'];
-    $szobaszam = $_POST['$szobaszam'];
-    $ar = $_POST['ar'];
+$sql = 'SELECT hirdetesek.azonosito, hirdetesek.cim, hirdetesek.leiras, '
+        . 'ingatlanok.telepules, ingatlanok.alapterulet, ingatlanok.szobak_szama, ingatlanok.kategoria, ingatlanok.allapot, '
+        . 'hirdetesek.ar FROM hirdetesek, ingatlanok WHERE hirdetesek.ingatlan = ingatlanok.helyrajzi_szam';
+$sql .= ';';
 
-    $sql = "";
+$result = $connection->query($sql);
+
+if (!$result) {
+    die("Hiba a lekérdezésben!");
 }
 
+$szuresHirdetes = '<table class="table table-striped">'
+        . '<thead>'
+        . '<tr>'
+        . '<td>Cím</td>'
+        . '<td>Leírás</td>'
+        . '<td>Település</td>'
+        . '<td>Alapterület (m2)</td>'
+        . '<td>Szobaszám</td>'
+        . '<td>Kategória</td>'
+        . '<td>Állapot</td>'
+        . '<td>Ár</td>'
+        . '</tr>'
+        . '</thead>';
 
+while ($row = $result->fetch_row()) {
+    $szuresHirdetes .= "<tr id='{$row[0]}'>";
+    $szuresHirdetes .= "<td>{$row[1]}</td>";
+    $szuresHirdetes .= "<td>{$row[2]}</td>";
+    $szuresHirdetes .= "<td>{$row[3]}</td>";
+    $szuresHirdetes .= "<td>{$row[4]}</td>";
+    $szuresHirdetes .= "<td>{$row[5]}</td>";
+    $szuresHirdetes .= "<td>{$row[6]}</td>";
+    $szuresHirdetes .= "<td>{$row[7]}</td>";
+    $szuresHirdetes .= "<td>{$row[8]}</td>";
+}
 
+$szuresHirdetes .= "</table>";
 
-
-    
-// TODO: ingatlan hirdetések lekérdezése ...
-// query builder ...
-
+echo $szuresHirdetes;

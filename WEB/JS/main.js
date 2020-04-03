@@ -69,7 +69,6 @@ $(document).ready(function () {
 
     });
 
-
     $('#keresIngatlan').on('click', function () {
 
         let telepules = $('#telepulesek').val();
@@ -79,7 +78,6 @@ $(document).ready(function () {
         let szobaszam = $('#szobaszam').val();
         let ar = $('#ar').val();
 
-        console.log(telepules);
         $.ajax({
             method: "get",
             url: "php_ajax/ingatlanok_szures.php",
@@ -92,6 +90,7 @@ $(document).ready(function () {
                 "ar": ar
             },
             success: function (answer) {
+                $('#ingatlanok').remove();
                 $('#ingatlanok').html(answer);
             },
             error: function (xhr) {
