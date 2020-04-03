@@ -90,7 +90,7 @@ $(document).ready(function () {
                 "ar": ar
             },
             success: function (answer) {
-                $('#ingatlanok').remove();
+                $('#osszes_hirdetes').remove();
                 $('#ingatlanok').html(answer);
             },
             error: function (xhr) {

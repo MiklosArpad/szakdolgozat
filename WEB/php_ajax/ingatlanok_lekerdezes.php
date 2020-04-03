@@ -13,7 +13,7 @@ if (!$result) {
     die("Hiba a lekérdezésben!");
 }
 
-$szuresHirdetes = '<table class="table table-striped">'
+$szuresHirdetes = '<table id="osszes_hirdetes" class="table table-striped">'
         . '<thead>'
         . '<tr>'
         . '<td>Cím</td>'
