@@ -16,7 +16,7 @@ namespace IngatlanCentrum.ViewController
 
         private void buttonKilepes_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Environment.Exit(0);
         }
 
         private void buttonBelepes_Click(object sender, EventArgs e)

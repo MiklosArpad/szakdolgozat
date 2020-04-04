@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="IngatlanCentrum.Config.Munkamenet" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAEAAAAAAAQAAAAQAAAAAAA=</HashCode>
+      <FileName>Config\Munkamenet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Database.MySQL" Collapsed="true">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAIRAJAAAQRAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Database\MySQL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Exceptions.EladoException" Collapsed="true">
+    <Position X="0.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\EladoException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Exceptions.HirdetesException" Collapsed="true">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\HirdetesException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Exceptions.IngatlanAllapotException" Collapsed="true">
+    <Position X="2.5" Y="7.75" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\IngatlanAllapotException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Exceptions.IngatlanException" Collapsed="true">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\IngatlanException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Exceptions.IngatlanKategoriaException" Collapsed="true">
+    <Position X="2.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\IngatlanKategoriaException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Exceptions.TelepulesException" Collapsed="true">
+    <Position X="2.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\TelepulesException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Exceptions.UgynokException" Collapsed="true">
+    <Position X="2.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\UgynokException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Exceptions.UgynokJogosultsagException" Collapsed="true">
+    <Position X="0.5" Y="2" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\UgynokJogosultsagException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Model.Elado" Collapsed="true">
+    <Position X="4.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQACCAAAACEAAAAAAAAAAQAAAAAAAAgAAAACAA=</HashCode>
+      <FileName>Model\Elado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Model.Hirdetes" Collapsed="true">
+    <Position X="12.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACAAAAAIAAAAAEBAAAAAAAAIACAIAAAAAAACAAAAA=</HashCode>
+      <FileName>Model\Hirdetes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Model.Ingatlan" Collapsed="true">
+    <Position X="9.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAABAACCEBAAAIAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Ingatlan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Model.IngatlanAllapot" Collapsed="true">
+    <Position X="9.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\IngatlanAllapot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Model.IngatlanKategoria" Collapsed="true">
+    <Position X="14" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\IngatlanKategoria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Model.Telepules" Collapsed="true">
+    <Position X="12" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Telepules.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Model.Ugynok" Collapsed="true">
+    <Position X="3.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAACAAAAAAEAAAAgAAAAAQAAAAAAAAAAAQACAA=</HashCode>
+      <FileName>Model\Ugynok.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Model.UgynokJogosultsag" Collapsed="true">
+    <Position X="8.5" Y="11" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAEAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\UgynokJogosultsag.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Program" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Properties.Resources" Collapsed="true">
+    <Position X="2.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Properties.Settings" Collapsed="true">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Repository.Repository" Collapsed="true">
+    <Position X="9.25" Y="7.75" Width="6.5" />
+    <TypeIdentifier>
+      <HashCode>EAAALAAABBAAgIAAAAGAAIQIBAkAAgLQQABABTAASDg=</HashCode>
+      <FileName>Repository\EladoRepository.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="adatbazis" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="hirdetesek" />
+      <Field Name="ingatlanAllapotok" />
+      <Field Name="ingatlanKategoriak" />
+      <Field Name="telepulesek" />
+      <Field Name="ingatlanok" />
+      <Field Name="ugynokok" />
+      <Field Name="ugynokJogosultsagok" />
+      <Field Name="eladok" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="IngatlanCentrum.Service.EladoService" Collapsed="true">
+    <Position X="4.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAACAAAAAAAAAAAABAAAAAAAAABACAAAAAA=</HashCode>
+      <FileName>Service\EladoService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IngatlanCentrum.Service.HirdetesService" Collapsed="true">
+    <Position X="7" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACIAAAAASAACAIAAAAAAAAAwAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\HirdetesService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IngatlanCentrum.Service.IngatlanAllapotService" Collapsed="true">
+    <Position X="16.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Service\IngatlanAllapotService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Service.IngatlanKategoriaService" Collapsed="true">
+    <Position X="9.25" Y="4" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Service\IngatlanKategoriaService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IngatlanCentrum.Service.IngatlanService" Collapsed="true">
+    <Position X="4.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAEAAABAAAAAAAIAAhA=</HashCode>
+      <FileName>Service\IngatlanService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IngatlanCentrum.Service.TelepulesService" Collapsed="true">
+    <Position X="7.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAEAAAAAAAAAAAAKAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\TelepulesService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IngatlanCentrum.Service.UgynokJogosultsagService" Collapsed="true">
+    <Position X="9.25" Y="5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAACAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Service\UgynokJogosultsagService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IngatlanCentrum.Service.UgynokService" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAICgAAAAAAAAAAIAAAAAAAAAgAAACAAAAA=</HashCode>
+      <FileName>Service\UgynokService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IngatlanCentrum.Validation.EladoValidator" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAACAASIAAIAAAAAQAAAAAAQAAAAAAAAAACA=</HashCode>
+      <FileName>Validation\EladoValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Validation.HirdetesValidator" Collapsed="true">
+    <Position X="2.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAABCAAAAAAAAAAAAAAAAAAAAAAAAAAAAEACA=</HashCode>
+      <FileName>Validation\HirdetesValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Validation.IngatlanValidator" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAACACAAAAAAAAAAAAAAAAAAAAABABAAAAGA=</HashCode>
+      <FileName>Validation\IngatlanValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.Validation.UgynokValidator" Collapsed="true">
+    <Position X="0.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAhAAAAAACAAAAAAAAAAAABAAAEAAAAQAAAAAAAACA=</HashCode>
+      <FileName>Validation\UgynokValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.ViewController.AboutBox" Collapsed="true">
+    <Position X="9.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kIAAAAgAACAgCAUAAACAAAADAAAAEIAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewController\AboutBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.ViewController.FormConnection" Collapsed="true">
+    <Position X="8" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACAAAAIAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewController\FormConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IngatlanCentrum.ViewController.FormLogin" Collapsed="true">
+    <Position X="6.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQIAAAgCAAAAAAAACQAABGAAAAAAAAgAAAAIAAEAA=</HashCode>
+      <FileName>ViewController\FormLogin.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="ugynokService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IngatlanCentrum.ViewController.FormMenu" Collapsed="true">
+    <Position X="15.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>UYXYvwLK8GSQTgkcKnGBsg5P6Sv8jQ4KxKhRSxEpGjc=</HashCode>
+      <FileName>ViewController\FormMenu.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="eladoService" />
+      <Field Name="hirdetesService" />
+      <Field Name="telepulesService" />
+      <Field Name="ugynokJogosultsagService" />
+      <Field Name="ingatlanAllapotService" />
+      <Field Name="ugynokService" />
+      <Field Name="ingatlanKategoriaService" />
+      <Field Name="ingatlanService" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
