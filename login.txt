@@ -1,20 +1,20 @@
 Desktop
 
-Ügynök admin jogosultsággal (több felhasználói jogkörök)
-felhasználó név: ABC123
-jelszó: arPad19730
+ÃœgynÃ¶k admin jogosultsÃ¡ggal (tÃ¶bb felhasznÃ¡lÃ³i jogkÃ¶rÃ¶k)
+felhasznÃ¡lÃ³ nÃ©v: ABC123
+jelszÃ³: arPad19730
 
-Ügynök default jogosultsággal (korlátozott felhasználói jogkörök)
-felhasználó név: XYZ987
-jelszó: ElEk6919Ab
+ÃœgynÃ¶k default jogosultsÃ¡ggal (korlÃ¡tozott felhasznÃ¡lÃ³i jogkÃ¶rÃ¶k)
+felhasznÃ¡lÃ³ nÃ©v: XYZ987
+jelszÃ³: ElEk6919Ab
 
 
 Web
 
-felhasználó név: kisjanos12
-jelszó: 12345
+felhasznÃ¡lÃ³ nÃ©v: kisjanos12
+jelszÃ³: 12345
 
 vagy
 
-felhasználó név: marpad
-jelszó: 06789
+felhasznÃ¡lÃ³ nÃ©v: marpad
+jelszÃ³: 06789
