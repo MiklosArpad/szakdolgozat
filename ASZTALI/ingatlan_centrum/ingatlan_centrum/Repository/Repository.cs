@@ -1,5 +1,7 @@
-﻿using IngatlanCentrum.Database;
+﻿using IngatlanCentrum.Config;
+using IngatlanCentrum.Database;
 using System;
+using System.Configuration;
 
 namespace IngatlanCentrum.Repository
 {
@@ -17,8 +19,16 @@ namespace IngatlanCentrum.Repository
         {
             try
             {
-                // TODO: fájl constirng konfig...
-                adatbazis = MySQL.Connect("SERVER=127.0.0.1; DATABASE=ingatlan_centrum; UID=root; PASSWORD=; PORT=3306; SslMode=None;");
+                if (Munkamenet.SzerverTipus == "otthoni")
+                {
+
+                    adatbazis = MySQL.Connect(ConfigurationManager.ConnectionStrings["otthoni"].ConnectionString);
+                }
+                else
+                {
+                    adatbazis = MySQL.Connect(ConfigurationManager.ConnectionStrings["iskolai"].ConnectionString);
+                }
+
                 LetoltTelepuleseketAdatbazisbol();
                 LetoltUgynokJogosultsagokatAdatbazisbol();
                 LetoltUgynokoketAdatbazisbol();
@@ -28,9 +38,8 @@ namespace IngatlanCentrum.Repository
                 LetoltIngatlanokatAdatbazisbol();
                 LetoltHirdeteseketAdatbazisbol();
             }
-            catch (Exception ex)
+            catch
             {
-                throw new Exception(ex.Message);
             }
         }
     }
