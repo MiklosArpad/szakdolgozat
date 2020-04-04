@@ -1,0 +1,20 @@
+Desktop
+
+Ügynök admin jogosultsággal (több felhasználói jogkörök)
+felhasználó név: ABC123
+jelszó: arPad19730
+
+Ügynök default jogosultsággal (korlátozott felhasználói jogkörök)
+felhasználó név: XYZ987
+jelszó: ElEk6919Ab
+
+
+Web
+
+felhasználó név: kisjanos12
+jelszó: 12345
+
+vagy
+
+felhasználó név: marpad
+jelszó: 06789
