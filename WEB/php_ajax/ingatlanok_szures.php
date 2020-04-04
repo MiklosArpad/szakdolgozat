@@ -40,9 +40,6 @@ if (!empty($_POST['min_ar']) && !empty($_POST['max_ar'])) {
 
 $sql .= ' AND hirdetesek.aktiv = 1;';
 
-var_dump($sql);
-die();
-
 $result = $connection->query($sql);
 
 if (!$result) {
