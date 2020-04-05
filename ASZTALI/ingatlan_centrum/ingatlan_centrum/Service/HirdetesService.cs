@@ -42,7 +42,7 @@ namespace IngatlanCentrum.Service
 
             foreach (Hirdetes hirdetes in repository.GetHirdetesek())
             {
-                if (hirdetes.Ugynok.Jogosultsag == "default")
+                if (hirdetes.Ugynok.Jogosultsag == "default" && hirdetes.Ugynok.Id == Munkamenet.UgynokAzonosito)
                 {
                     defaultHirdetesek.Add(hirdetes);
                     adminHirdetesek.Add(hirdetes);

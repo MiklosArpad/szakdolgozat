@@ -13,8 +13,3 @@ Web
 
 felhasználó név: kisjanos12
 jelszó: 12345
-
-vagy
-
-felhasználó név: marpad
-jelszó: 06789
