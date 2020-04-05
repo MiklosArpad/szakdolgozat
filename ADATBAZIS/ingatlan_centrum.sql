@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `ingatlan_centrum`
 --
+
+DROP DATABASE IF EXISTS `ingatlan_centrum`;
 CREATE DATABASE IF NOT EXISTS `ingatlan_centrum` DEFAULT CHARACTER SET utf8 COLLATE utf8_hungarian_ci;
 USE `ingatlan_centrum`;
 
